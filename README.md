@@ -2,11 +2,17 @@
 
 > React/Redux boilerplate for microservice dashboards
 
-## Build Setup
+## Development
 
 ``` bash
-# Install dependencies
-npm install
+# Start webpack dev server
+npm run dev
+```
+## Production
 
-# Serve with hot reload at localhost:8080
+``` bash
+# Build static files
+npm run build
+# Start server localhost:8080
 npm start
+```
