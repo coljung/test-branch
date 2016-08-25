@@ -6,17 +6,9 @@ const config = require('./webpack.config');
 const app = express();
 const compiler = webpack(config);
 
-app.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: true,
-  publicPath: config.output.publicPath,
-  stats: {
-    colors: true
-  }
-}));
+app.use(express.static(__dirname + '/build'));
 
-app.use(require('webpack-hot-middleware')(compiler));
-
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
 

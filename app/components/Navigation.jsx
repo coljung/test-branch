@@ -6,7 +6,7 @@ export default class Navigation extends Component {
     render() {
         return (
             <AppBar theme={theme}>
-                <span>User Interface Boilerplate</span>
+                <span>UI Boilerplate</span>
             </AppBar>
         );
     }
