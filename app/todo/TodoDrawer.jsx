@@ -6,8 +6,7 @@ export default class DashboardDrawer extends Component {
     render() {
         return (
             <List selectable ripple>
-                <ListItem caption='Dashboard Main' leftIcon='settings_system_daydream' to="/" />
-                <ListItem caption='Dashboard Secondary' leftIcon='settings_system_daydream' to="/dashboard-secondary" />
+                <ListItem caption='Todo Application' leftIcon='settings_system_daydream' to="/" />
             </List>
         );
     }
