@@ -1,7 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const chalk = require('chalk');
+
+//plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
   context: __dirname,
@@ -21,7 +25,7 @@ module.exports = {
       path.resolve(__dirname, './node_modules')
     ]
   },
-  module: { 
+  module: {
     loaders: [
       {
         test: /(\.js|\.jsx)$/,
@@ -37,6 +41,11 @@ module.exports = {
   postcss: [autoprefixer],
   plugins: [
     new ExtractTextPlugin('style.css', { allChunks: true }),
+    new ProgressBarPlugin({
+      format: chalk.blue.bold(' build [:bar] ') + chalk.magenta.bold(':percent') + ' (:elapsed seconds)',
+      clear: false,
+      width: 50
+    }),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
