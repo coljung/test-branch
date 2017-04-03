@@ -1,6 +1,6 @@
 # ui-boilerplate
 
-> React/Redux boilerplate for microservice dashboards
+> React/Redux boilerplate for dashboards
 
 ## Development
 
@@ -8,7 +8,7 @@
 # Start webpack dev server
 npm run dev
 ```
-## Production
+## Static Build
 
 ``` bash
 # Build static files

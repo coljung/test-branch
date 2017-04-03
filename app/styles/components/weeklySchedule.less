@@ -1,0 +1,26 @@
+.timedayswitch {
+    padding-top: 2px;
+}
+.timelabel{
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.ant-time-picker{
+    + .timelabel{
+        padding-left: 20px;
+    }
+}
+.unavailabilityperiod {
+    min-height: 34px;
+}
+
+.day-label{
+    text-align: right;
+    &:after {
+        content: ":";
+        margin: 0 8px 0 2px;
+        position: relative;
+        top: -0.5px;
+    }
+}

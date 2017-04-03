@@ -1,23 +1,25 @@
 // Dependencies
 import React, { Component } from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import MainLayout from './components/MainLayout.jsx';
-import TodoContainer from './todo/TodoContainer.jsx';
-import TodoDrawer from './todo/TodoDrawer.jsx';
+import Routes from './Routes';
+import * as moment from 'moment';
 
-import configureStore from './configureStore.js';
-let store = configureStore();
+// Global Styles
+import './styles/styles';
+
+// Store
+import configureStore from './ConfigureStore';
+
+const store = configureStore();
+
+moment.locale('us');
 
 export default class Root extends Component {
     render() {
         return (
             <Provider store={store}>
-                <Router history={browserHistory}>
-                    <Route component={MainLayout}>
-                        <Route path="/" components={{main: TodoContainer, drawer: TodoDrawer}} />
-                    </Route>
-                </Router>
+                <Router routes={Routes} history={browserHistory} />
             </Provider>
         );
     }

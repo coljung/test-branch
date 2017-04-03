@@ -1,54 +1,82 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-const chalk = require('chalk');
-
-//plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const config = require('config');
+
+const theme = './app/styles/theme.js';
 
 module.exports = {
-  context: __dirname,
-  devtool: 'inline-source-map',
-  entry: [
-    './app/index.jsx'
-  ],
-  output: {
-    path: path.join(__dirname, 'build'),
-    filename: 'bundle.js',
-    publicPath: '/'
-  },
-  resolve: {
-    extensions: ['', '.scss', '.css', '.js', 'jsx', '.json'],
-    modulesDirectories: [
-      'node_modules',
-      path.resolve(__dirname, './node_modules')
-    ]
-  },
-  module: {
-    loaders: [
-      {
-        test: /(\.js|\.jsx)$/,
-        exclude: /(node_modules)/,
-        loader: 'babel',
-        query: { presets: ['es2015', 'stage-0', 'react'] }
-      }, {
-        test: /(\.scss|\.css)$/,
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap')
-      }
-    ]
-  },
-  postcss: [autoprefixer],
-  plugins: [
-    new ExtractTextPlugin('style.css', { allChunks: true }),
-    new ProgressBarPlugin({
-      format: chalk.blue.bold(' build [:bar] ') + chalk.magenta.bold(':percent') + ' (:elapsed seconds)',
-      clear: false,
-      width: 50
-    }),
-    new webpack.NoErrorsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development')
-    })
-  ]
+	context: __dirname,
+	devtool: 'inline-source-map',
+	entry: [
+		'./app/index.jsx',
+	],
+	output: {
+		path: path.join(__dirname, 'build'),
+		filename: 'bundle.js',
+		publicPath: '/',
+	},
+	resolve: {
+		extensions: ['.scss', '.css', '.js', '.jsx', '.json', '.less'],
+	},
+	module: {
+		rules: [
+			{
+				test: /(\.js|\.jsx)$/,
+				exclude: /(node_modules)/,
+                use: ['react-hot-loader', 'babel-loader'],
+			},
+			{
+				test: /(\.css)$/,
+				use: ExtractTextPlugin.extract({
+                    fallback: [{
+                        loader: 'style-loader',
+                    }],
+                    use: [
+                        'css-loader',
+                    ],
+                }),
+			},
+			{
+				test: /(\.less)$/,
+				use: ExtractTextPlugin.extract({
+                    fallback: [{
+                        loader: 'style-loader',
+                    }],
+                    use: [
+                        'css-loader',
+                        'less-loader',
+                    ],
+                }),
+			},
+			{
+				test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+				loader: 'url-loader?limit=50000&name=[path][name].[ext]',
+			},
+		],
+	},
+    plugins: [
+        new ExtractTextPlugin({
+            filename: 'styles.css',
+            allChunks: true,
+        }),
+        new webpack.DefinePlugin({
+			'process.env': {
+                MS_STORE_HOST: JSON.stringify(config.get('api.store.host')),
+                MS_STORE_PORT: JSON.stringify(config.get('api.store.port')),
+                MS_PRODUCT_HOST: JSON.stringify(config.get('api.product.host')),
+                MS_PRODUCT_PORT: JSON.stringify(config.get('api.product.port')),
+                UI_STORE_HOST: JSON.stringify(config.get('server.exposedHost')),
+                UI_STORE_PORT: JSON.stringify(config.get('server.exposedPort')),
+                NODE_ENV: JSON.stringify(config.get('node_env.env')),
+			},
+		}),
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                context: __dirname,
+                postcss: [autoprefixer],
+            },
+        }),
+    ],
 };

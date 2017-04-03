@@ -1,0 +1,30 @@
+.stylist-date{
+    display: inline-block;
+    width: 125px;
+    font-weight: bold;
+    font-size: 0.75em;
+}
+
+.break-row{
+    margin-bottom: 5px;
+    button{
+        margin-left:15px;
+    }
+}
+
+.dayschedule{
+    padding: 7px;
+    border-top: 1px solid #eee;
+    &:first-child{
+        border-top: none;
+    }
+    .ant-calendar-picker{
+        width: 120px;
+    }
+    .ant-time-picker{
+        width: 70px;
+    }
+    &:nth-child(even){
+        background: #fcfcfc;
+    }
+}
