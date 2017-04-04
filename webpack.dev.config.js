@@ -4,17 +4,20 @@ const config = require('config');
 
 const base = require('./webpack.config');
 
-base.entry.unshift('webpack-dev-server/client?http://localhost:4003', 'webpack/hot/only-dev-server');
+const HOST = config.get('server.host');
+const PORT = config.get('server.port')
+
+base.entry.unshift(`webpack-dev-server/client?http://localhost:${PORT}`, 'webpack/hot/only-dev-server');
 
 base.devServer = {
 	historyApiFallback: true,
 	inline: true,
 	hot: true,
-	host: '0.0.0.0',
+	host: HOST,
 	port: 80,
 	clientLogLevel: 'info',
 	headers: { 'Access-Control-Allow-Origin': '*' },
-    public: 'localhost:4003',
+    public: `localhost:${PORT}`,
     // for proxy, check https://github.com/Groupe-Atallah/ui-store/blob/v1/webpack.dev.config.js#L21
 };
 

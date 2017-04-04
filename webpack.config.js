@@ -4,8 +4,6 @@ const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('config');
 
-const theme = './app/styles/theme.js';
-
 module.exports = {
 	context: __dirname,
 	devtool: 'inline-source-map',
@@ -63,12 +61,6 @@ module.exports = {
         }),
         new webpack.DefinePlugin({
 			'process.env': {
-                MS_STORE_HOST: JSON.stringify(config.get('api.store.host')),
-                MS_STORE_PORT: JSON.stringify(config.get('api.store.port')),
-                MS_PRODUCT_HOST: JSON.stringify(config.get('api.product.host')),
-                MS_PRODUCT_PORT: JSON.stringify(config.get('api.product.port')),
-                UI_STORE_HOST: JSON.stringify(config.get('server.exposedHost')),
-                UI_STORE_PORT: JSON.stringify(config.get('server.exposedPort')),
                 NODE_ENV: JSON.stringify(config.get('node_env.env')),
 			},
 		}),
