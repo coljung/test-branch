@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import HeaderContent from './common/HeaderContent';
-import NavigationMain from './common/NavigationMain';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Layout, Icon } from 'antd';
+import HeaderContent from './common/HeaderContent';
+import NavigationMain from './common/NavigationMain';
 
 const { Content, Header, Sider } = Layout;
 

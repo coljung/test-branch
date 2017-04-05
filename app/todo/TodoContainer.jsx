@@ -9,51 +9,51 @@ import { createTodo, updateTodo, deleteTodo } from './TodoActions.js';
 
 class TodoContainer extends React.Component {
 
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
-      updateDialogActive: false,
-      createDialogActive: false,
-      activeTodo: {},
-    };
-  }
+        this.state = {
+            updateDialogActive: false,
+            createDialogActive: false,
+            activeTodo: {},
+        };
+    }
 
-  updateDialogToggle(todo) {
-    this.setState({
-      updateDialogActive: !this.state.updateDialogActive,
-      activeTodo: todo,
-    });
-  }
+    updateDialogToggle(todo) {
+        this.setState({
+            updateDialogActive: !this.state.updateDialogActive,
+            activeTodo: todo,
+        });
+    }
 
-  createDialogToggle() {
-    this.setState({
-      createDialogActive: !this.state.createDialogActive,
-    });
-  }
+    createDialogToggle() {
+        this.setState({
+            createDialogActive: !this.state.createDialogActive,
+        });
+    }
 
-  createTodo(todo) {
-    this.props.dispatch(createTodo(todo));
-    this.createDialogToggle();
-  }
+    createTodo(todo) {
+        this.props.dispatch(createTodo(todo));
+        this.createDialogToggle();
+    }
 
-  updateTodo(todo) {
-    this.props.dispatch(updateTodo(todo));
-    this.updateDialogToggle();
-  }
+    updateTodo(todo) {
+        this.props.dispatch(updateTodo(todo));
+        this.updateDialogToggle();
+    }
 
-  deleteTodo(id) {
-    console.log(id);
-    this.props.dispatch(deleteTodo(id));
-    this.updateDialogToggle();
-  }
+    deleteTodo(id) {
+        console.log(id);
+        this.props.dispatch(deleteTodo(id));
+        this.updateDialogToggle();
+    }
 
-  render() {
-    const createDialogActive = this.state.createDialogActive;
-    const updateDialogActive = this.state.updateDialogActive;
-    const activeTodo = this.state.activeTodo;
-    const todos = this.props.todos;
-    return (
+    render() {
+        const createDialogActive = this.state.createDialogActive;
+        const updateDialogActive = this.state.updateDialogActive;
+        const activeTodo = this.state.activeTodo;
+        const todos = this.props.todos;
+        return (
       <div>
         <Row>
             <Col sm={12} md={6} lg={8} xsOffset={2}>
@@ -70,8 +70,8 @@ class TodoContainer extends React.Component {
         </Row>
 
       </div>
-    );
-  }
+        );
+    }
 
 }
 

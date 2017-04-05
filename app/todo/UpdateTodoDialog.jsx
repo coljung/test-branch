@@ -5,47 +5,47 @@ import Checkbox from 'react-toolbox/lib/checkbox';
 import { Button } from 'react-toolbox/lib/button';
 
 export default class UpdateDialog extends React.Component {
-  constructor(props) {
-    super(props);
-    this.setInitialState();
-  }
-  componentWillReceiveProps(props) {
-    if (props.todo) {
-      this.setState({
-        id: props.todo.id,
-        title: props.todo.title,
-        text: props.todo.text,
-        completed: props.todo.completed,
-      });
+    constructor(props) {
+        super(props);
+        this.setInitialState();
     }
-  }
-  handleTitleChange(title) {
-    this.setState({ title });
-  }
-  handleTextChange(text) {
-    this.setState({ text });
-  }
-  handleCompletedChange(completed) {
-    this.setState({ completed });
-  }
-  submitUpdate() {
-    this.props.updateTodo(this.state);
+    componentWillReceiveProps(props) {
+        if (props.todo) {
+            this.setState({
+                id: props.todo.id,
+                title: props.todo.title,
+                text: props.todo.text,
+                completed: props.todo.completed,
+            });
+        }
+    }
+    handleTitleChange(title) {
+        this.setState({ title });
+    }
+    handleTextChange(text) {
+        this.setState({ text });
+    }
+    handleCompletedChange(completed) {
+        this.setState({ completed });
+    }
+    submitUpdate() {
+        this.props.updateTodo(this.state);
     // this.setInitialState();
-  }
-  submitDelete() {
-    this.props.deleteTodo(this.state.id);
-  }
-  setInitialState() {
-    this.state = {
-      id: 0,
-      title: '',
-      text: '',
-      completed: false,
-    };
-  }
+    }
+    submitDelete() {
+        this.props.deleteTodo(this.state.id);
+    }
+    setInitialState() {
+        this.state = {
+            id: 0,
+            title: '',
+            text: '',
+            completed: false,
+        };
+    }
 
-  render() {
-    return (
+    render() {
+        return (
       <Dialog
           active={this.props.active}
           onEscKeyDown={this.props.onEscKeyDown}
@@ -60,7 +60,7 @@ export default class UpdateDialog extends React.Component {
         <Button style={{ marginLeft: 10, float: 'right' }} label='Delete' onClick={ this.submitDelete.bind(this) } target='_blank' raised primary />
         <Button style={{ float: 'right' }} label='Update' onClick={ this.submitUpdate.bind(this) } target='_blank' raised />
       </Dialog>
-    );
-  }
+        );
+    }
 
 }

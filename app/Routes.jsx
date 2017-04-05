@@ -5,7 +5,7 @@ import Todo from './todo/TodoContainer';
 
 
 const requireAuth = ((next, replace, callback) => {
-	// @todo NEED TO AUTHENTICATE/AUTHORIZE HERE
+    // @todo NEED TO AUTHENTICATE/AUTHORIZE HERE
     callback();
 });
 

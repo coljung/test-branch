@@ -5,33 +5,33 @@ import Checkbox from 'react-toolbox/lib/checkbox';
 import { Button } from 'react-toolbox/lib/button';
 
 export default class CreateDialog extends React.Component {
-  constructor(props) {
-    super(props);
-    this.setInitialState();
-  }
-  handleTitleChange(title) {
-    this.setState({ title });
-  }
-  handleTextChange(text) {
-    this.setState({ text });
-  }
-  handleCompletedChange(completed) {
-    this.setState({ completed });
-  }
-  submitForm() {
-    this.props.createTodo(this.state);
-    this.setInitialState();
-  }
-  setInitialState() {
-    this.state = {
-      title: '',
-      text: '',
-      completed: false,
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.setInitialState();
+    }
+    handleTitleChange(title) {
+        this.setState({ title });
+    }
+    handleTextChange(text) {
+        this.setState({ text });
+    }
+    handleCompletedChange(completed) {
+        this.setState({ completed });
+    }
+    submitForm() {
+        this.props.createTodo(this.state);
+        this.setInitialState();
+    }
+    setInitialState() {
+        this.state = {
+            title: '',
+            text: '',
+            completed: false,
+        };
+    }
 
-  render() {
-    return (
+    render() {
+        return (
       <Dialog
           active={this.props.active}
           onEscKeyDown={this.props.onEscKeyDown}
@@ -46,7 +46,7 @@ export default class CreateDialog extends React.Component {
         <Button style={{ float: 'right' }} label='Create' onClick={ this.submitForm.bind(this) } target='_blank' raised primary />
 
       </Dialog>
-    );
-  }
+        );
+    }
 
 }
