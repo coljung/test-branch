@@ -36,12 +36,12 @@ const updateTodo = (currentTodo, newTodo) => {
 };
 
 const fetchLatestId = (todos) => {
-    let currId = 0;
-    todos.map((todo) => {
-        if (todo.id > currId) {
-            currId = todo.id;
-        }
-    });
+    const currId = 0;
+    // todos.map((todo) => {
+    //     if (todo.id > currId) {
+    //         currId = todo.id;
+    //     }
+    // });
     return currId + 1;
 };
 
@@ -59,25 +59,26 @@ const TodoReducer = (state = initialState, action) => {
             },
           ],
       });
-    case UPDATE_TODO:
+    case UPDATE_TODO: {
       const updateList = [];
       state.todos.map(todo =>
-        updateList.push(updateTodo(todo, action.todo))
-    );
+        updateList.push(updateTodo(todo, action.todo)),
+      );
       return Object.assign({}, state, {
         todos: updateList,
       });
-
-    case DELETE_TODO:
+    }
+    case DELETE_TODO: {
       const deleteList = [];
-      state.todos.map(todo => {
-        if (todo.id !== action.id) {
-          deleteList.push(todo)
-        }
-      });
+    //   state.todos.map((todo) => {
+    //     if (todo.id !== action.id) {
+    //       deleteList.push(todo);
+    //     }
+    //   });
       return Object.assign({}, state, {
         todos: deleteList,
       });
+    }
 
     default:
       return state;

@@ -10,23 +10,23 @@ export default class UpdateDialog extends React.Component {
     this.setInitialState();
   }
   componentWillReceiveProps(props) {
-    if(props.todo) {
+    if (props.todo) {
       this.setState({
         id: props.todo.id,
         title: props.todo.title,
         text: props.todo.text,
-        completed: props.todo.completed
+        completed: props.todo.completed,
       });
     }
   }
   handleTitleChange(title) {
-    this.setState({title: title});
+    this.setState({ title });
   }
   handleTextChange(text) {
-    this.setState({text: text});
+    this.setState({ text });
   }
   handleCompletedChange(completed) {
-    this.setState({completed: completed});
+    this.setState({ completed });
   }
   submitUpdate() {
     this.props.updateTodo(this.state);
@@ -38,9 +38,9 @@ export default class UpdateDialog extends React.Component {
   setInitialState() {
     this.state = {
       id: 0,
-      title: "",
-      text: "",
-      completed: false
+      title: '',
+      text: '',
+      completed: false,
     };
   }
 
@@ -51,16 +51,16 @@ export default class UpdateDialog extends React.Component {
           onEscKeyDown={this.props.onEscKeyDown}
           onOverlayClick={this.props.onOverlayClick}
           title={this.props.title}>
-          
+
         <Input type='text' label='Title' name='title' value={this.state.title} onChange={this.handleTitleChange.bind(this)} />
         <Input type='text' label='Text' name='text' value={this.state.text} onChange={this.handleTextChange.bind(this)} />
-        
+
         <Checkbox checked={this.state.completed} label="Completed" onChange={this.handleCompletedChange.bind(this)} />
 
-        <Button style={{marginLeft: 10, float:'right'}} label='Delete' onClick={ this.submitDelete.bind(this) } target='_blank' raised primary />
-        <Button style={{float:'right'}} label='Update' onClick={ this.submitUpdate.bind(this) } target='_blank' raised />
+        <Button style={{ marginLeft: 10, float: 'right' }} label='Delete' onClick={ this.submitDelete.bind(this) } target='_blank' raised primary />
+        <Button style={{ float: 'right' }} label='Update' onClick={ this.submitUpdate.bind(this) } target='_blank' raised />
       </Dialog>
-    )
+    );
   }
 
 }

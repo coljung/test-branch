@@ -14,8 +14,6 @@ base.entry.unshift(`webpack-dev-server/client?http://localhost:${PORT}`, 'webpac
 
 base.devServer = {
 	historyApiFallback: true,
-	inline: true,
-	hot: true,
 	host: HOST,
 	port: 8003,
 	clientLogLevel: 'info',

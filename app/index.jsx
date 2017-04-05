@@ -4,5 +4,5 @@ import Root from './Root.jsx';
 
 render(
     <Root />,
-    document.getElementById('app')
+    document.getElementById('app'),
 );

@@ -5,9 +5,10 @@
   "author": "SSENSE",
   "scripts": {
     "start": "NODE_ENV=production npm run build && node server.js",
-    "dev": "NODE_ENV=development webpack-dev-server --config ./webpack.dev.config.js --content-base ./public",
+    "dev": "NODE_ENV=development webpack-dev-server --config --hot --inline ./webpack.dev.config.js --content-base ./public",
     "build": "NODE_ENV=production UV_THREADPOOL_SIZE=100 webpack --config ./webpack.prod.config.js",
-    "lint": "./node_modules/.bin/eslint ./",
+    "lint": "./node_modules/.bin/eslint 'app/**'",
+    "lint:fix": "./node_modules/.bin/eslint 'app/**' --fix",
     "test": "npm run test:unit",
     "test:unit": "NODE_ENV=test:unit ./node_modules/.bin/mocha tests/unit --recursive --compilers jsx:babel-core/register,jsx:./tests/compilers/less-compiler.jsx,less:./tests/compilers/less-compiler.jsx --require ./server.js --require ./tests/helpers/setup.jsx --bail",
     "cover": "npm run cover:unit",
@@ -23,7 +24,6 @@
     "express": "^4.14.0",
     "history": "^4.3.0",
     "lodash": "^4.16.4",
-    "moment": "^2.17.1",
     "node-basicauth": "0.0.9",
     "offline-plugin": "^4.6.1",
     "randomstring": "^1.1.5",
@@ -39,7 +39,6 @@
     "request": "^2.78.0",
     "superagent": "^3.4.1",
     "superagent-promise": "^1.1.0",
-    "underscore": "^1.8.3",
     "webpack": "^2.3.2"
   },
   "devDependencies": {

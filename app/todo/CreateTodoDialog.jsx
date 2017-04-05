@@ -10,13 +10,13 @@ export default class CreateDialog extends React.Component {
     this.setInitialState();
   }
   handleTitleChange(title) {
-    this.setState({title: title});
+    this.setState({ title });
   }
   handleTextChange(text) {
-    this.setState({text: text});
+    this.setState({ text });
   }
   handleCompletedChange(completed) {
-    this.setState({completed: completed});
+    this.setState({ completed });
   }
   submitForm() {
     this.props.createTodo(this.state);
@@ -24,9 +24,9 @@ export default class CreateDialog extends React.Component {
   }
   setInitialState() {
     this.state = {
-      title: "",
-      text: "",
-      completed: false
+      title: '',
+      text: '',
+      completed: false,
     };
   }
 
@@ -40,13 +40,13 @@ export default class CreateDialog extends React.Component {
 
         <Input type='text' label='Title' name='title' value={this.state.title} onChange={this.handleTitleChange.bind(this)} />
         <Input type='text' label='Text' name='text' value={this.state.text} onChange={this.handleTextChange.bind(this)} />
-        
+
         <Checkbox checked={this.state.completed} label="Completed" onChange={this.handleCompletedChange.bind(this)} />
 
-        <Button style={{float:'right'}} label='Create' onClick={ this.submitForm.bind(this) } target='_blank' raised primary />
+        <Button style={{ float: 'right' }} label='Create' onClick={ this.submitForm.bind(this) } target='_blank' raised primary />
 
       </Dialog>
-    )
+    );
   }
 
 }
