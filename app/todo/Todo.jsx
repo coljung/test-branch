@@ -14,3 +14,12 @@ export default class Todo extends Component {
     }
 
 }
+
+Todo.propTypes = {
+    onClick: React.PropTypes.func.isRequired,
+    todo: React.PropTypes.arrayOf(React.PropTypes.shape({
+        title: React.PropTypes.string.isRequired,
+        completed: React.PropTypes.bool.isRequired,
+        text: React.PropTypes.string.isRequired,
+    }).isRequired).isRequired,
+};

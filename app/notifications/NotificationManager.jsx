@@ -19,6 +19,7 @@ export class NotificationManager extends Component {
 
 NotificationManager.propTypes = {
     message: React.PropTypes.object,
+    clearMessages: React.PropTypes.function,
 };
 
 

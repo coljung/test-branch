@@ -1,5 +1,5 @@
 import React from 'react';
-import NotificationManager from '../notifications/NotificationManager';
+import { NotificationManager } from '../notifications/NotificationManager';
 
 export default class Board extends React.Component {
     render() {

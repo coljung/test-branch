@@ -13,24 +13,24 @@ const PORT = config.get('server.port');
 base.entry.unshift(`webpack-dev-server/client?http://localhost:${PORT}`, 'webpack/hot/only-dev-server');
 
 base.devServer = {
-	historyApiFallback: true,
-	host: HOST,
-	port: 8003,
-	clientLogLevel: 'info',
-	headers: { 'Access-Control-Allow-Origin': '*' },
+    historyApiFallback: true,
+    host: HOST,
+    port: 8003,
+    clientLogLevel: 'info',
+    headers: { 'Access-Control-Allow-Origin': '*' },
     public: `localhost:${PORT}`,
     // for proxy, check https://github.com/Groupe-Atallah/ui-store/blob/v1/webpack.dev.config.js#L21
 };
 
 base.plugins.push(
-	new webpack.HotModuleReplacementPlugin(),
-	new ProgressBarPlugin({
-		format: `${chalk.blue.bold(' build [:bar] ')}${chalk.magenta.bold(':percent')} (:elapsed seconds)`,
-		clear: false,
-		width: 50,
-	}),
+    new webpack.HotModuleReplacementPlugin(),
+    new ProgressBarPlugin({
+        format: `${chalk.blue.bold(' build [:bar] ')}${chalk.magenta.bold(':percent')} (:elapsed seconds)`,
+        clear: false,
+        width: 50,
+    }),
     // eslint-disable-next-line comma-dangle
-	new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
 );
 
 module.exports = base;
