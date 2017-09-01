@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Layout, Icon } from 'antd';
 import HeaderContent from './common/HeaderContent';
 import NavigationMain from './common/NavigationMain';
+import NotificationManager from '../notifications/NotificationManager';
 
 const { Content, Header, Sider } = Layout;
 
@@ -30,20 +32,9 @@ export default class App extends Component {
         return (
             <div className="store_layout">
                 <Header>
-                    <Icon
-                        className="trigger"
-                        type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                        onClick={ this.toggle.bind(this) } />
                     <HeaderContent />
                 </Header>
                 <Layout>
-                    <Sider
-                        trigger={null}
-                        collapsible
-                        collapsed={this.state.collapsed}>
-
-                        <NavigationMain pathname={this.props.location.pathname} />
-                    </Sider>
                     <Content>
                         <main style={{ flex: 1, overflowY: 'auto', padding: 25 }}>
                             <ReactCSSTransitionGroup
@@ -54,7 +45,8 @@ export default class App extends Component {
                                         {React.cloneElement(this.props.children, {
                                             key: this.props.location.pathname,
                                         })}
-                                </ReactCSSTransitionGroup>
+                            </ReactCSSTransitionGroup>
+                            <NotificationManager />
                         </main>
                     </Content>
                 </Layout>
@@ -65,9 +57,9 @@ export default class App extends Component {
 }
 
 App.propTypes = {
-    location: React.PropTypes.object,
-    children: React.PropTypes.oneOfType([
-        React.PropTypes.arrayOf(React.PropTypes.element),
-        React.PropTypes.element,
+    location: PropTypes.object,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.element),
+        PropTypes.element,
     ]),
 };
