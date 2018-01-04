@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button } from 'antd';
 import { browserHistory } from 'react-router';
 
@@ -15,9 +16,9 @@ export default class LinkedButton extends Component {
 }
 
 LinkedButton.propTypes = {
-    to: React.PropTypes.string.isRequired,
-    children: React.PropTypes.oneOfType([
-        React.PropTypes.arrayOf(React.PropTypes.node),
-        React.PropTypes.node,
+    to: PropTypes.string.isRequired,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
     ]).isRequired,
 };

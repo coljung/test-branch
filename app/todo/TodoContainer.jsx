@@ -56,7 +56,7 @@ class TodoContainer extends React.Component {
         return (
       <div>
         <Row>
-            <Col sm={12} md={6} lg={8} xsOffset={2}>
+            <Col sm={12} md={6} lg={8} offset={2}>
               <Board title={'Todo List'}>
                 <ul>
                   {todos.map((todo, key) => <Todo onClick={() => this.updateDialogToggle(todo)} key={key} todo={todo} />)}

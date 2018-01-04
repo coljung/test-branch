@@ -7,6 +7,7 @@ import Routes from './Routes';
 // Global Styles
 import './styles/styles';
 
+
 // Store
 import configureStore from './ConfigureStore';
 

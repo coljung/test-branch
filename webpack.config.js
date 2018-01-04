@@ -8,6 +8,7 @@ module.exports = {
     context: __dirname,
     devtool: 'inline-source-map',
     entry: [
+        'react-hot-loader/patch',
         './app/index.jsx',
     ],
     output: {
@@ -27,27 +28,22 @@ module.exports = {
             {
                 test: /(\.js|\.jsx)$/,
                 exclude: /(node_modules)/,
-                use: ['react-hot-loader', 'babel-loader'],
+                use: ['babel-loader'],
             },
             {
-                test: /(\.css)$/,
+                test: /(\.less|\.css)$/,
                 use: ExtractTextPlugin.extract({
                     fallback: [{
                         loader: 'style-loader',
                     }],
                     use: [
-                        'css-loader',
-                    ],
-                }),
-            },
-            {
-                test: /(\.less)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: [{
-                        loader: 'style-loader',
-                    }],
-                    use: [
-                        'css-loader',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                minimize: true,
+                            }
+                        },
+                        // 'css-loader',
                         'less-loader',
                     ],
                 }),

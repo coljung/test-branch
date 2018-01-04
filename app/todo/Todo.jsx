@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Todo extends Component {
     render() {
@@ -8,7 +9,7 @@ export default class Todo extends Component {
         <li style={{ backgroundColor: bgColor }} onClick={this.props.onClick}>
             <p>{this.props.todo.title}gg</p>
             <p>{this.props.todo.completed}</p>
-            <p>{this.props.todo.text}</p>
+            <p>{this.props.todo.text}--</p>
         </li>
         );
     }
@@ -16,10 +17,10 @@ export default class Todo extends Component {
 }
 
 Todo.propTypes = {
-    onClick: React.PropTypes.func.isRequired,
-    todo: React.PropTypes.arrayOf(React.PropTypes.shape({
-        title: React.PropTypes.string.isRequired,
-        completed: React.PropTypes.bool.isRequired,
-        text: React.PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+    todo: PropTypes.arrayOf(PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        completed: PropTypes.bool.isRequired,
+        text: PropTypes.string.isRequired,
     }).isRequired).isRequired,
 };

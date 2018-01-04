@@ -1,8 +1,14 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 import Root from './Root.jsx';
 
-render(
-    <Root />,
+OfflinePluginRuntime.install();
+
+ReactDOM.render(
+    <AppContainer>
+        <Root />
+    </AppContainer>,
     document.getElementById('app'),
 );
