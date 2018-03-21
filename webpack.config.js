@@ -1,8 +1,14 @@
 const path = require('path');
+const fs = require('fs');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const Visualizer = require('webpack-visualizer-plugin');
 const config = require('config');
+
+const lessToJs = require('less-vars-to-js');
+
+const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, './app/styles/default-vars.less'), 'utf8'));
 
 module.exports = {
     context: __dirname,
@@ -31,7 +37,7 @@ module.exports = {
                 use: ['babel-loader'],
             },
             {
-                test: /(\.less|\.css)$/,
+                test: /(\.css)$/,
                 use: ExtractTextPlugin.extract({
                     fallback: [{
                         loader: 'style-loader',
@@ -41,10 +47,25 @@ module.exports = {
                             loader: 'css-loader',
                             options: {
                                 minimize: true,
-                            }
+                            },
                         },
-                        // 'css-loader',
-                        'less-loader',
+                    ],
+                }),
+            },
+            {
+                test: /(\.less)$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: [{
+                        loader: 'style-loader',
+                    }],
+                    use: [
+                        'css-loader',
+                        {
+                            loader: 'less-loader',
+                            options: {
+                                modifyVars: themeVariables,
+                            },
+                        },
                     ],
                 }),
             },
@@ -69,6 +90,9 @@ module.exports = {
                 context: __dirname,
                 postcss: [autoprefixer],
             },
+        }),
+        new Visualizer({
+            filename: './webpackBundleStats.html',
         }),
     ],
 };

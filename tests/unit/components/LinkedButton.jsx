@@ -1,41 +1,25 @@
 import React from 'react';
-import sinon from 'sinon';
-import * as router from 'react-router';
-import { Button } from 'antd';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
+import { shallowToJson } from 'enzyme-to-json';
+import { Button } from 'antd';
 import LinkedButton from '../../../app/components/LinkedButton';
+import { browserHistory } from 'react-router';
 
-let sandbox;
-let props;
+// Mock react-router lib
+jest.mock('react-router');
 
-describe('<LinkedButton />', () => {
-    before(() => {
-        sandbox = sinon.sandbox.create();
-    });
+describe('LinkedButton', () => {
 
-    beforeEach(() => {
-        router.browserHistory = { push: Function };
-        props = {
-            to: '/unit-test',
-            buttonProp: 'test',
-        };
-    });
+    it('should render correctly', () => {
+        const output = shallow(
+            <LinkedButton title="mockTitle" to="mockUrl">Foo Bar</LinkedButton>
+        );
 
-    afterEach(() => {
-        sandbox.restore();
-    });
+        expect(output.find('Button').length).toBe(1);
 
-    it('should render layout', () => {
-        const wrapper = shallow(<LinkedButton {...props} ><div className="test-div"/></LinkedButton>);
-        expect(wrapper.find(Button).prop('buttonProp')).to.equal(props.buttonProp);
-        expect(wrapper.find(Button).childAt(0).hasClass('test-div'));
-    });
+        output.find('Button').simulate('click');
 
-    it('simulate click', () => {
-        const browserHistoryStub = sandbox.stub(router.browserHistory, 'push');
-        const wrapper = shallow(<LinkedButton {...props} ><div className="test-div"/></LinkedButton>);
-        wrapper.find(Button).simulate('click');
-        expect(browserHistoryStub.calledWith(props.to));
+        expect(browserHistory.push).toHaveBeenCalledTimes(1);
+        expect(shallowToJson(output)).toMatchSnapshot();
     });
 });

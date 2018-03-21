@@ -1,4 +1,4 @@
-# ui-planning
+# ui-boilerplate
 
 > React/Redux boilerplate for dashboards
 
