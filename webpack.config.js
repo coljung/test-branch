@@ -1,13 +1,20 @@
 const path = require('path');
+const fs = require('fs');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const Visualizer = require('webpack-visualizer-plugin');
 const config = require('config');
+
+const lessToJs = require('less-vars-to-js');
+
+const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, './app/styles/default-vars.less'), 'utf8'));
 
 module.exports = {
     context: __dirname,
     devtool: 'inline-source-map',
     entry: [
+        'react-hot-loader/patch',
         './app/index.jsx',
     ],
     output: {
@@ -27,7 +34,7 @@ module.exports = {
             {
                 test: /(\.js|\.jsx)$/,
                 exclude: /(node_modules)/,
-                use: ['react-hot-loader', 'babel-loader'],
+                use: ['babel-loader'],
             },
             {
                 test: /(\.css)$/,
@@ -36,7 +43,12 @@ module.exports = {
                         loader: 'style-loader',
                     }],
                     use: [
-                        'css-loader',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                minimize: true,
+                            },
+                        },
                     ],
                 }),
             },
@@ -48,7 +60,12 @@ module.exports = {
                     }],
                     use: [
                         'css-loader',
-                        'less-loader',
+                        {
+                            loader: 'less-loader',
+                            options: {
+                                modifyVars: themeVariables,
+                            },
+                        },
                     ],
                 }),
             },
@@ -73,6 +90,9 @@ module.exports = {
                 context: __dirname,
                 postcss: [autoprefixer],
             },
+        }),
+        new Visualizer({
+            filename: './webpackBundleStats.html',
         }),
     ],
 };

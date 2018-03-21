@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { Menu, Icon, Tooltip } from 'antd';
 import { ROUTE_STORE_LIST, ROUTE_STYLISTS_LIST, ROUTE_FITTING_ROOM_LIST, ROUTE_APPOINTMENTS_LIST } from '../../Routes';
@@ -62,5 +63,5 @@ export default class NavigationMain extends Component {
 }
 
 NavigationMain.propTypes = {
-    pathname: React.PropTypes.string.isRequired,
+    pathname: PropTypes.string.isRequired,
 };

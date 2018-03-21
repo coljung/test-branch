@@ -1,5 +1,5 @@
 import React from 'react';
-import { NotificationManager } from '../notifications/NotificationManager';
+import PropTypes from 'prop-types';
 
 export default class Board extends React.Component {
     render() {
@@ -16,7 +16,6 @@ export default class Board extends React.Component {
         }
         return (
             <div className='board' id={this.props.id}>
-                <NotificationManager />
                 {boardTitle}
                 {this.props.children}
             </div>
@@ -25,13 +24,13 @@ export default class Board extends React.Component {
 }
 
 Board.propTypes = {
-    title: React.PropTypes.string.isRequired,
-    children: React.PropTypes.oneOfType([
-        React.PropTypes.arrayOf(React.PropTypes.element),
-        React.PropTypes.element,
+    title: PropTypes.string.isRequired,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.element),
+        PropTypes.element,
     ]).isRequired,
-    id: React.PropTypes.string,
-    btnInTitle: React.PropTypes.element,
+    id: PropTypes.string,
+    btnInTitle: PropTypes.element,
 };
 
 Board.defaultProps = {

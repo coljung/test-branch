@@ -4,28 +4,27 @@ import { Menu, Icon, Button } from 'antd';
 
 const SubMenu = Menu.SubMenu;
 
-export default class NavigationUser extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { current: 'setting:1' };
-    }
-    handleClick(e) {}
+// export default class NavigationUser extends Component {
+//
+// }
 
-    render() {
-        return (
-            <Menu
-                onClick={this.handleClick}
-                selectedKeys={[this.state.current]}
-                mode="horizontal">
+const NavigationUser = () => null;
 
-                <SubMenu title={<span>User Name <Icon type="setting" /></span>}>
-                    <Menu.Item>
-                        <Link to="/logout">
-                            <Icon type="logout" />Log out
-                        </Link>
-                    </Menu.Item>
-                </SubMenu>
-            </Menu>
-        );
-    }
-}
+// constructor(props) {
+//     super(props);
+//     this.state = { current: '' };
+// }
+//
+// render() {
+//     return (
+//         <Menu
+//             selectedKeys={[this.state.current]}
+//             mode="horizontal">
+//             <SubMenu title={<span>User Name <Icon type="setting" /></span>}>
+//                 <Menu.Item key="logout">
+//                     <Icon type="logout" />Log out
+//                 </Menu.Item>
+//             </SubMenu>
+//         </Menu>
+//     );
+// }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Layout, Icon } from 'antd';
 import HeaderContent from './common/HeaderContent';
 import NavigationMain from './common/NavigationMain';
@@ -37,15 +36,7 @@ export default class App extends Component {
                 <Layout>
                     <Content>
                         <main style={{ flex: 1, overflowY: 'auto', padding: 25 }}>
-                            <ReactCSSTransitionGroup
-                                    component="div"
-                                    transitionName="example"
-                                    transitionEnterTimeout={500}
-                                    transitionLeaveTimeout={500}>
-                                        {React.cloneElement(this.props.children, {
-                                            key: this.props.location.pathname,
-                                        })}
-                            </ReactCSSTransitionGroup>
+                            {this.props.children}
                             <NotificationManager />
                         </main>
                     </Content>
