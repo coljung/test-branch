@@ -1,56 +1,70 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Icon } from 'antd';
 import HeaderContent from './common/HeaderContent';
-import NavigationMain from './common/NavigationMain';
+import CustomNavigation from './CustomNavigation';
 import NotificationManager from '../notifications/NotificationManager';
 
-const { Content, Header, Sider } = Layout;
-
 export default class App extends Component {
+    static propTypes = {
+        location: PropTypes.object,
+        children: PropTypes.oneOfType([
+            PropTypes.arrayOf(PropTypes.element),
+            PropTypes.element,
+        ]),
+    };
 
-    constructor(props) {
-        super(props);
-        this.state = { collapsed: true, showStoreModal: true };
-    }
+    state = {
+        collapsed: true,
+        showStoreModal: true,
+    };
 
-    toggle() {
+    toggleFromOutside = () => {
+        if (!this.state.collapsed) {
+            this.toggle();
+        }
+    };
+
+    toggle = () => {
         const collapsed = !this.state.collapsed;
         this.setState({ collapsed });
         clearTimeout(this.timer);
 
-        // collapse after 8 seconds
+        // collapse after 7 seconds
         if (!collapsed) {
             this.timer = setTimeout(() => {
                 this.setState({ collapsed: !collapsed });
-            }, 8000);
+            }, 7000);
         }
-    }
+    };
 
     render() {
+        const getClassname = this.props.location.pathname === '/' ? 'app_layout_home' : 'app_layout';
         return (
-            <div className="store_layout">
-                <Header>
-                    <HeaderContent />
-                </Header>
+            <div className={getClassname}>
                 <Layout>
-                    <Content>
-                        <main style={{ flex: 1, overflowY: 'auto', padding: 25 }}>
+                    <Layout.Header>
+                        <Icon
+                            className="trigger"
+                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                            onClick={this.toggle} />
+                        <HeaderContent />
+                    </Layout.Header>
+                    <Layout.Sider
+                        trigger={null}
+                        collapsible
+                        collapsed={this.state.collapsed}>
+                        <CustomNavigation
+                            pathname={this.props.location.pathname}
+                            triggerMenuCollapse={this.toggleFromOutside} />
+                    </Layout.Sider>
+                    <Layout.Content>
+                        <main style={{ flex: 1, overflowY: 'auto', padding: '0 25px 25px' }}>
                             {this.props.children}
                             <NotificationManager />
                         </main>
-                    </Content>
+                    </Layout.Content>
                 </Layout>
             </div>
         );
     }
-
 }
-
-App.propTypes = {
-    location: PropTypes.object,
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.element),
-        PropTypes.element,
-    ]),
-};

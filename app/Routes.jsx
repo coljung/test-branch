@@ -1,28 +1,14 @@
-import * as React from 'react';
+import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import App from './components/App';
-import Todo from './todo/TodoContainer';
-
-
-const requireAuth = ((next, replace, callback) => {
-    // @todo NEED TO AUTHENTICATE/AUTHORIZE HERE
-    callback();
-});
-
-const authOnEnter = ((next, replace, callback) => {
-    requireAuth(next, replace, callback);
-});
-
-const authOnChange = ((prev, next, replace, callback) => {
-    requireAuth(next, replace, callback);
-});
-
-// For testing purposes
-export const ROUTE_TODO = '/todo';
+import { ROUTE_HOME } from './constants/routes';
+import NotFound from './components/NotFound';
+import Home from './home/Home';
 
 export default (
     <Route path="/" component={App}>
-        <IndexRoute component={Todo} />
-        <Route path="todo" component={Todo} />
+        <IndexRoute component={Home} />
+        <Route path={ROUTE_HOME} component={Home} />
+        <Route path='*' component={NotFound} />
     </Route>
 );

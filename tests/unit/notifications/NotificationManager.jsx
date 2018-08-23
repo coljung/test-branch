@@ -2,8 +2,6 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import * as sinon from 'sinon';
-import { message as antdMessage } from 'antd';
-import configureMockStore from 'redux-mock-store';
 import NotificationManagerDefault, { NotificationManager } from '../../../app/notifications/NotificationManager';
 
 let props;

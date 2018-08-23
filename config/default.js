@@ -2,7 +2,7 @@
 const dummyHost = '0.0.0.0';
 const dummyPort = '8003';
 const dummyEnv = 'development';
-const dummyPassword = 'development'
+const dummyPassword = 'development';
 
 module.exports = {
     server: {

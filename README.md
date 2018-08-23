@@ -1,6 +1,6 @@
 # ui-boilerplate
 
-> React/Redux boilerplate for dashboards
+> React boilerplate for dashboards
 
 ## Development
 
