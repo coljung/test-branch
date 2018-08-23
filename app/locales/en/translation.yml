@@ -1,0 +1,12 @@
+appTitle: App Title
+notification:
+  errorFound: Error found
+sideMenu:
+  home: Home
+spinner:
+  loading: Loading...
+404:
+  title: 404!
+  description: Page not found
+home:
+  welcome: Welcome!
