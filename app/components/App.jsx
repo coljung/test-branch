@@ -1,70 +1,92 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import HeaderContent from './common/HeaderContent';
-import CustomNavigation from './CustomNavigation';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Typography from '@material-ui/core/Typography';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import StarIcon from '@material-ui/icons/Star';
+import MailIcon from '@material-ui/icons/Mail';
+import DeleteIcon from '@material-ui/icons/Delete';
+import { withStyles } from '@material-ui/core/styles';
+import ModalDialog from './ModalDialog';
+import AppHeader from './AppHeader';
 import NotificationManager from '../notifications/NotificationManager';
 
-export default class App extends Component {
-    static propTypes = {
-        location: PropTypes.object,
-        children: PropTypes.oneOfType([
-            PropTypes.arrayOf(PropTypes.element),
-            PropTypes.element,
-        ]),
-    };
+const styles = theme => ({
+    root: {
+        flexGrow: 1,
+        height: 440,
+        zIndex: 1,
+        overflow: 'hidden',
+        position: 'relative',
+        display: 'flex',
+    },
+    content: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.default,
+        padding: theme.spacing.unit * 3,
+        minWidth: 0, // So the Typography noWrap works
+    },
+    toolbar: theme.mixins.toolbar,
+});
 
-    state = {
-        collapsed: true,
-        showStoreModal: true,
-    };
-
-    toggleFromOutside = () => {
-        if (!this.state.collapsed) {
-            this.toggle();
-        }
-    };
-
-    toggle = () => {
-        const collapsed = !this.state.collapsed;
-        this.setState({ collapsed });
-        clearTimeout(this.timer);
-
-        // collapse after 7 seconds
-        if (!collapsed) {
-            this.timer = setTimeout(() => {
-                this.setState({ collapsed: !collapsed });
-            }, 7000);
-        }
-    };
-
+class Index extends React.Component {
     render() {
-        const getClassname = this.props.location.pathname === '/' ? 'app_layout_home' : 'app_layout';
         return (
-            <div className={getClassname}>
-                <Layout>
-                    <Layout.Header>
-                        <Icon
-                            className="trigger"
-                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                            onClick={this.toggle} />
-                        <HeaderContent />
-                    </Layout.Header>
-                    <Layout.Sider
-                        trigger={null}
-                        collapsible
-                        collapsed={this.state.collapsed}>
-                        <CustomNavigation
-                            pathname={this.props.location.pathname}
-                            triggerMenuCollapse={this.toggleFromOutside} />
-                    </Layout.Sider>
-                    <Layout.Content>
-                        <main style={{ flex: 1, overflowY: 'auto', padding: '0 25px 25px' }}>
-                            {this.props.children}
-                            <NotificationManager />
-                        </main>
-                    </Layout.Content>
-                </Layout>
+            <div className={this.props.classes.root}>
+                <NotificationManager />
+                <AppHeader>
+                    <Divider />
+                    <List>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Inbox" />
+                        </ListItem>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <StarIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Starred" />
+                        </ListItem>
+                    </List>
+                    <Divider />
+                    <List>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <MailIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="All mail" />
+                        </ListItem>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <DeleteIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Trash" />
+                        </ListItem>
+                    </List>
+                </AppHeader>
+                <main className={this.props.classes.content}>
+                    <div className={this.props.classes.toolbar} />
+
+                    <ModalDialog buttonText='Super Secret Password' title='Super Secret Password'>
+                        <DialogContentText>
+                            <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+                        </DialogContentText>
+                    </ModalDialog>
+                </main>
             </div>
         );
     }
 }
+
+Index.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Index);

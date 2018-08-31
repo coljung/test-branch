@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import * as sinon from 'sinon';
-import NotificationManagerDefault, { NotificationManager } from '../../../app/notifications/NotificationManager';
+import NotificationManager from '../../../app/notifications/NotificationManager';
 
 let props;
 let sandbox;
@@ -10,7 +10,7 @@ let sandbox;
 describe('<NotificationManager />', () => {
     beforeAll(() => {
         sandbox = sinon.sandbox.create();
-        props = {clearMessages: sandbox.spy()};
+        props = { clearMessages: sandbox.spy() };
     });
 
     afterEach(() => {
@@ -24,7 +24,7 @@ describe('<NotificationManager />', () => {
 
     it('should receive props', () => {
         const clock = sandbox.useFakeTimers(Date.now());
-        sandbox.stub(antdMessage, 'success');
+        sandbox.stub(message, 'success');
 
         const wrapper = shallow(<NotificationManager {...props} />);
         wrapper.instance().componentWillReceiveProps({message: {content: 'foo', messageType: 'success'}});

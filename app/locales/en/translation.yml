@@ -10,3 +10,6 @@ spinner:
   description: Page not found
 home:
   welcome: Welcome!
+modal:
+  saveButton: OK
+  cancelButton: Cancel

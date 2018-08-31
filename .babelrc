@@ -5,5 +5,5 @@
       "transform-decorators-legacy",
       "add-module-exports",
       "react-hot-loader/babel",
-      ["import", { "libraryName": "antd", "style": true }]]
+  ]
 }
