@@ -17,6 +17,13 @@ const theme = createMuiTheme({
     typography: {
         fontSize: 12,
     },
+    overrides: {
+        MuiDrawer: {
+            paper: {
+                'background-color': 'black',
+            },
+        },
+    },
 });
 
 OfflinePluginRuntime.install({

@@ -31,7 +31,12 @@ const styles = theme => ({
         padding: theme.spacing.unit * 3,
         minWidth: 0, // So the Typography noWrap works
     },
-    toolbar: theme.mixins.toolbar,
+    toolbar: {
+        ...theme.mixins.toolbar,
+    },
+    listItem: {
+        color: theme.palette.primary.main,
+    },
 });
 
 class Index extends React.Component {
@@ -44,30 +49,30 @@ class Index extends React.Component {
                     <List>
                         <ListItem button>
                             <ListItemIcon>
-                                <InboxIcon />
+                                <InboxIcon className={this.props.classes.listItem} />
                             </ListItemIcon>
-                            <ListItemText primary="Inbox" />
+                            <ListItemText primary="Inbox" classes={{ primary: this.props.classes.listItem }} />
                         </ListItem>
                         <ListItem button>
                             <ListItemIcon>
-                                <StarIcon />
+                                <StarIcon className={this.props.classes.listItem} />
                             </ListItemIcon>
-                            <ListItemText primary="Starred" />
+                            <ListItemText primary="Starred" classes={{ primary: this.props.classes.listItem }} />
                         </ListItem>
                     </List>
                     <Divider />
                     <List>
                         <ListItem button>
                             <ListItemIcon>
-                                <MailIcon />
+                                <MailIcon className={this.props.classes.listItem} />
                             </ListItemIcon>
-                            <ListItemText primary="All mail" />
+                            <ListItemText primary="All mail" classes={{ primary: this.props.classes.listItem }} />
                         </ListItem>
                         <ListItem button>
                             <ListItemIcon>
-                                <DeleteIcon />
+                                <DeleteIcon className={this.props.classes.listItem} />
                             </ListItemIcon>
-                            <ListItemText primary="Trash" />
+                            <ListItemText primary="Trash" classes={{ primary: this.props.classes.listItem }} />
                         </ListItem>
                     </List>
                 </AppHeader>
