@@ -13,3 +13,6 @@ home:
 modal:
   saveButton: OK
   cancelButton: Cancel
+accountMenu: 
+  signOut: Sign out
+  login: Login

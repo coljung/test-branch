@@ -2,8 +2,7 @@ import i18n from 'i18next';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+import { Typography, Grid } from '@material-ui/core';
 
 const styles = theme => ({
     paper: {
@@ -12,8 +11,8 @@ const styles = theme => ({
         color: theme.palette.text.secondary,
     },
     logo: {
-        'vertical-align': 'middle',
-        'margin-top': '-5px',
+        verticalAlign: 'middle',
+        marginTop: '-5px',
         width: '104px',
         height: 'auto',
     },
@@ -22,6 +21,8 @@ const styles = theme => ({
         'margin-left': '3rem',
     },
 });
+
+const test = i18n.t('appTitle');
 
 const HeaderContent = props =>
     <Grid container spacing={24}>
@@ -33,7 +34,7 @@ const HeaderContent = props =>
                     </img>
                 </a>
                 <Typography variant="display2" color="textPrimary" className={props.classes.title}>
-                    {i18n.t('appTitle')}
+                    {i18n.t('appTitle')} toto
                 </Typography>
             </div>
         </Grid>

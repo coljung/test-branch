@@ -1,20 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import Divider from '@material-ui/core/Divider';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import StarIcon from '@material-ui/icons/Star';
-import MailIcon from '@material-ui/icons/Mail';
-import DeleteIcon from '@material-ui/icons/Delete';
+import {
+    DialogContentText, Divider, Typography,
+    List, ListItem, ListItemIcon, ListItemText,
+    InboxIcon, StarIcon, MailIcon, DeleteIcon } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import ModalDialog from './ModalDialog';
-import AppHeader from './AppHeader';
+import AppHeader from './TopBar/AppHeader';
 import NotificationManager from '../notifications/NotificationManager';
+import Button from '../dashboard/components/CustomButtons/Button.jsx';
 
 const styles = theme => ({
     root: {
@@ -29,7 +23,7 @@ const styles = theme => ({
         flexGrow: 1,
         backgroundColor: theme.palette.background.default,
         padding: theme.spacing.unit * 3,
-        minWidth: 0, // So the Typography noWrap works
+        minWidth: 0,
     },
     toolbar: {
         ...theme.mixins.toolbar,
@@ -79,11 +73,7 @@ class Index extends React.Component {
                 <main className={this.props.classes.content}>
                     <div className={this.props.classes.toolbar} />
 
-                    <ModalDialog buttonText='Super Secret Password' title='Super Secret Password'>
-                        <DialogContentText>
-                            <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
-                        </DialogContentText>
-                    </ModalDialog>
+                    <Button>Allo</Button>
                 </main>
             </div>
         );
