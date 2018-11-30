@@ -1,14 +1,22 @@
+/* eslint-disable import/no-commonjs, import/no-extraneous-dependencies */
 const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const chalk = require('chalk');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const config = require('config');
-
 const lessToJs = require('less-vars-to-js');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, './app/styles/default-vars.less'), 'utf8'));
+const themeVariables = lessToJs(
+    fs.readFileSync(
+        path.join(__dirname, './app/styles/default-vars.less'),
+        'utf8',
+    ),
+);
 
 module.exports = {
     context: __dirname,
@@ -28,6 +36,9 @@ module.exports = {
             path.join(__dirname, './app'),
             'node_modules',
         ],
+        alias: {
+            notifications: path.join(__dirname, './app/notifications/'),
+        },
     },
     module: {
         rules: [
@@ -35,11 +46,6 @@ module.exports = {
                 test: /(\.js|\.jsx)$/,
                 exclude: /(node_modules)/,
                 use: ['babel-loader'],
-            },
-            {
-                test: /locales/,
-                loader: '@alienfast/i18next-loader',
-                query: { basenameAsNamespace: true },
             },
             {
                 test: /(\.css)$/,
@@ -88,7 +94,10 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(config.get('node_env.env')),
+                UI_HOST: JSON.stringify(config.get('server.exposedHost')),
+                UI_PORT: JSON.stringify(config.get('server.exposedPort')),
             },
+            UI_HOST: JSON.stringify(config.get('server.exposedHost')),
         }),
         new webpack.LoaderOptionsPlugin({
             options: {
@@ -98,6 +107,16 @@ module.exports = {
         }),
         new Visualizer({
             filename: './webpackBundleStats.html',
+        }),
+        new ProgressBarPlugin({
+            format: `${chalk.blue.bold(' build [:bar] ')}${chalk.magenta.bold(':percent')} (:elapsed seconds)`,
+            clear: false,
+            width: 50,
+        }),
+        new HtmlWebpackPlugin({
+            hash: true,
+            template: path.join(__dirname, 'public', 'index.html'),
+            inject: true,
         }),
     ],
 };

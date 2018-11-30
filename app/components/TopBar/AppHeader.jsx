@@ -25,7 +25,10 @@ const styles = theme => ({
 
 class AppHeader extends React.Component {
     static propTypes = {
-        children: PropTypes.arrayOf(PropTypes.node),
+        children: PropTypes.oneOfType([
+            PropTypes.arrayOf(PropTypes.node),
+            PropTypes.node,
+        ]),
         classes: PropTypes.object.isRequired,
         theme: PropTypes.object.isRequired,
         enableAuth: PropTypes.bool.isRequired,
@@ -43,21 +46,21 @@ class AppHeader extends React.Component {
         this.setState({ isLoggedIn: !this.state.isLoggedIn });
     }
 
-    renderAccountMenu = () => {
-        return <AccountMenu userInfo={{
+    renderAccountMenu = () => (
+        <AccountMenu userInfo={{
             name: 'Maxime Gaudreault Proulx',
             email: 'maxime.gaudreault@ssense.com',
             image: 'https://lh5.googleusercontent.com/-RmlDhN9nCwo/AAAAAAAAAAI/AAAAAAAAAAA/Q-_GNwgTgqo/W96-H96/photo.jpg',
-        }} />;
-    }
+        }} />
+    );
 
-    renderLoginButton = () => {
-        return <Button className={this.props.classes.button} variant='text' color='primary' onClick={this.login}>{i18n.t('accountMenu.login')}</Button>;
-    }
+    renderLoginButton = () => (
+        <Button className={this.props.classes.button} variant='text' color='primary' onClick={this.login}>{i18n.t('accountMenu.login')}</Button>
+    );
 
-    renderAuthMenu = () => {
-        return this.state.isLoggedIn ? this.renderAccountMenu() : this.renderLoginButton();
-    }
+    renderAuthMenu = () => (
+        this.state.isLoggedIn ? this.renderAccountMenu() : this.renderLoginButton()
+    );
 
     render() {
         return (

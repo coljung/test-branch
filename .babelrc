@@ -4,6 +4,6 @@
       "transform-runtime",
       "transform-decorators-legacy",
       "add-module-exports",
-      "react-hot-loader/babel",
+      "react-hot-loader/babel"
   ]
 }

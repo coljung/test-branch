@@ -33,8 +33,8 @@ const HeaderContent = props =>
                          className={props.classes.logo}>
                     </img>
                 </a>
-                <Typography variant="display2" color="textPrimary" className={props.classes.title}>
-                    {i18n.t('appTitle')} toto
+                <Typography variant="h5" color="textPrimary" className={props.classes.title}>
+                    {i18n.t('appTitle')}
                 </Typography>
             </div>
         </Grid>

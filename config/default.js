@@ -1,16 +1,11 @@
-// dummy host
-const dummyHost = 'localhost';
-const dummyPort = '8003';
-const dummyEnv = 'development';
-
 module.exports = {
     server: {
-        host: dummyHost,
-        port: dummyPort,
-        // exposedHost: process.env.UI_STORE_HOST,
-        // exposedPort: process.env.UI_STORE_PORT
+        host: 'localhost',
+        port: 8010,
+        exposedHost: process.env.UI_HOST || 'localhost',
+        exposedPort: process.env.UI_PORT || 8010,
     },
     node_env: {
-        env: process.env.NODE_ENV || dummyEnv,
+        env: process.env.NODE_ENV || 'development',
     }
 };
