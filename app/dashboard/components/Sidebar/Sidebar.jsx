@@ -24,491 +24,422 @@ import sidebarStyle from '../../assets/jss/material-dashboard-pro-react/componen
 
 import avatar from '../../assets/img/faces/avatar.jpg';
 
-var ps;
+let ps;
 
 // We've created this component so we can have a ref to the wrapper of the links that appears in our sidebar.
 // This was necessary so that we could initialize PerfectScrollbar on the links.
 // There might be something with the Hidden component from material-ui, and we didn't have access to
 // the links, and couldn't initialize the plugin.
 class SidebarWrapper extends React.Component {
-  componentDidMount() {
-    if (navigator.platform.indexOf('Win') > -1) {
-      ps = new PerfectScrollbar(this.refs.sidebarWrapper, {
-        suppressScrollX: true,
-        suppressScrollY: false
-      });
+    componentDidMount() {
+        if (navigator.platform.indexOf('Win') > -1) {
+            ps = new PerfectScrollbar(this.refs.sidebarWrapper, {
+                suppressScrollX: true,
+                suppressScrollY: false,
+            });
+        }
     }
-  }
-  componentWillUnmount() {
-    if (navigator.platform.indexOf('Win') > -1) {
-      ps.destroy();
+
+    componentWillUnmount() {
+        if (navigator.platform.indexOf('Win') > -1) {
+            ps.destroy();
+        }
     }
-  }
-  render() {
-    const { className, user, headerLinks, links } = this.props;
-    return (
-      <div className={className}>
-        {user}
-        {headerLinks}
-        {links}
-      </div>
-    );
-  }
+
+    render() {
+        return (
+            <div className={this.props.className}>
+                {this.props.user}
+                {this.props.headerLinks}
+                {this.props.links}
+            </div>
+        );
+    }
 }
 
 class Sidebar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      openAvatar: false,
-      openComponents: this.activeRoute('/components'),
-      openForms: this.activeRoute('/forms'),
-      openTables: this.activeRoute('/tables'),
-      openMaps: this.activeRoute('/maps'),
-      openPages: this.activeRoute('-page'),
-      miniActive: true
-    };
-    this.activeRoute.bind(this);
-  }
-  // verifies if routeName is the one active (in browser input)
-  activeRoute(routeName) {
-    return this.props.location.pathname.indexOf(routeName) > -1 ? true : false;
-  }
-  openCollapse(collapse) {
-    var st = {};
-    st[collapse] = !this.state[collapse];
-    this.setState(st);
-  }
-  render() {
-    const {
-      classes,
-      color,
-      logo,
-      image,
-      logoText,
-      routes,
-      bgColor,
-      rtlActive
-    } = this.props;
-    const itemText =
-      classes.itemText +
-      ' ' +
-      cx({
-        [classes.itemTextMini]: this.props.miniActive && this.state.miniActive,
-        [classes.itemTextMiniRTL]:
-          rtlActive && this.props.miniActive && this.state.miniActive,
-        [classes.itemTextRTL]: rtlActive
-      });
-    const collapseItemText =
-      classes.collapseItemText +
-      ' ' +
-      cx({
-        [classes.collapseItemTextMini]:
-          this.props.miniActive && this.state.miniActive,
-        [classes.collapseItemTextMiniRTL]:
-          rtlActive && this.props.miniActive && this.state.miniActive,
-        [classes.collapseItemTextRTL]: rtlActive
-      });
-    const userWrapperClass =
-      classes.user +
-      ' ' +
-      cx({
-        [classes.whiteAfter]: bgColor === 'white'
-      });
-    const caret =
-      classes.caret +
-      ' ' +
-      cx({
-        [classes.caretRTL]: rtlActive
-      });
-    const collapseItemMini =
-      classes.collapseItemMini +
-      ' ' +
-      cx({
-        [classes.collapseItemMiniRTL]: rtlActive
-      });
-    const photo =
-      classes.photo +
-      ' ' +
-      cx({
-        [classes.photoRTL]: rtlActive
-      });
-    var user = (
-      <div className={userWrapperClass}>
-        <div className={photo}>
-          <img src={avatar} className={classes.avatarImg} alt='...' />
-        </div>
-        <List className={classes.list}>
-          <ListItem className={classes.item + ' ' + classes.userItem}>
-            <NavLink
-              to={'#'}
-              className={classes.itemLink + ' ' + classes.userCollapseButton}
-              onClick={() => this.openCollapse('openAvatar')}
-            >
-              <ListItemText
-                primary={rtlActive ? 'تانيا أندرو' : 'Tania Andrew'}
-                secondary={
-                  <b
-                    className={
-                      caret +
-                      ' ' +
-                      classes.userCaret +
-                      ' ' +
-                      (this.state.openAvatar ? classes.caretActive : '')
-                    }
-                  />
-                }
-                disableTypography={true}
-                className={itemText + ' ' + classes.userItemText}
-              />
-            </NavLink>
-            <Collapse in={this.state.openAvatar} unmountOnExit>
-              <List className={classes.list + ' ' + classes.collapseList}>
-                <ListItem className={classes.collapseItem}>
-                  <NavLink
-                    to='#'
-                    className={
-                      classes.itemLink + ' ' + classes.userCollapseLinks
-                    }
-                  >
-                    <span className={collapseItemMini}>
-                      {rtlActive ? 'مع' : 'MP'}
-                    </span>
-                    <ListItemText
-                      primary={rtlActive ? 'ملفي' : 'My Profile'}
-                      disableTypography={true}
-                      className={collapseItemText}
-                    />
-                  </NavLink>
-                </ListItem>
-                <ListItem className={classes.collapseItem}>
-                  <NavLink
-                    to='#'
-                    className={
-                      classes.itemLink + ' ' + classes.userCollapseLinks
-                    }
-                  >
-                    <span className={collapseItemMini}>
-                      {rtlActive ? 'هوع' : 'EP'}
-                    </span>
-                    <ListItemText
-                      primary={
-                        rtlActive ? 'تعديل الملف الشخصي' : 'Edit Profile'
-                      }
-                      disableTypography={true}
-                      className={collapseItemText}
-                    />
-                  </NavLink>
-                </ListItem>
-                <ListItem className={classes.collapseItem}>
-                  <NavLink
-                    to='#'
-                    className={
-                      classes.itemLink + ' ' + classes.userCollapseLinks
-                    }
-                  >
-                    <span className={collapseItemMini}>
-                      {rtlActive ? 'و' : 'S'}
-                    </span>
-                    <ListItemText
-                      primary={rtlActive ? 'إعدادات' : 'Settings'}
-                      disableTypography={true}
-                      className={collapseItemText}
-                    />
-                  </NavLink>
-                </ListItem>
-              </List>
-            </Collapse>
-          </ListItem>
-        </List>
-      </div>
-    );
-    var links = (
-      <List className={classes.list}>
-        {routes && routes.length && routes.map((prop, key) => {
-          if (prop.redirect) {
-            return null;
-          }
-          if (prop.collapse) {
-            const navLinkClasses =
-              classes.itemLink +
-              ' ' +
-              cx({
-                [' ' + classes.collapseActive]: this.activeRoute(prop.path)
-              });
-            const itemText =
-              classes.itemText +
-              ' ' +
-              cx({
-                [classes.itemTextMini]:
-                  this.props.miniActive && this.state.miniActive,
-                [classes.itemTextMiniRTL]:
-                  rtlActive && this.props.miniActive && this.state.miniActive,
-                [classes.itemTextRTL]: rtlActive
-              });
-            const collapseItemText =
-              classes.collapseItemText +
-              ' ' +
-              cx({
-                [classes.collapseItemTextMini]:
-                  this.props.miniActive && this.state.miniActive,
-                [classes.collapseItemTextMiniRTL]:
-                  rtlActive && this.props.miniActive && this.state.miniActive,
-                [classes.collapseItemTextRTL]: rtlActive
-              });
-            const itemIcon =
-              classes.itemIcon +
-              ' ' +
-              cx({
-                [classes.itemIconRTL]: rtlActive
-              });
-            const caret =
-              classes.caret +
-              ' ' +
-              cx({
-                [classes.caretRTL]: rtlActive
-              });
-            return (
-              <ListItem key={key} className={classes.item}>
-                <NavLink
-                  to={'#'}
-                  className={navLinkClasses}
-                  onClick={() => this.openCollapse(prop.state)}
-                >
-                  <ListItemIcon className={itemIcon}>
-                    {typeof prop.icon === 'string' ? (
-                      <Icon>{prop.icon}</Icon>
-                    ) : (
-                      <prop.icon />
-                    )}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={prop.name}
-                    secondary={
-                      <b
-                        className={
-                          caret +
-                          ' ' +
-                          (this.state[prop.state] ? classes.caretActive : '')
-                        }
-                      />
-                    }
-                    disableTypography={true}
-                    className={itemText}
-                  />
-                </NavLink>
-                <Collapse in={this.state[prop.state]} unmountOnExit>
-                  <List className={classes.list + ' ' + classes.collapseList}>
-                    {prop.views.map((prop, key) => {
-                      if (prop.redirect) {
-                        return null;
-                      }
-                      const navLinkClasses =
-                        classes.collapseItemLink +
-                        ' ' +
-                        cx({
-                          [' ' + classes[color]]: this.activeRoute(prop.path)
-                        });
-                      const collapseItemMini =
-                        classes.collapseItemMini +
-                        ' ' +
-                        cx({
-                          [classes.collapseItemMiniRTL]: rtlActive
-                        });
-                      return (
-                        <ListItem key={key} className={classes.collapseItem}>
-                          <NavLink to={prop.path} className={navLinkClasses}>
-                            <span className={collapseItemMini}>
-                              {prop.mini}
-                            </span>
-                            <ListItemText
-                              primary={prop.name}
-                              disableTypography={true}
-                              className={collapseItemText}
-                            />
-                          </NavLink>
-                        </ListItem>
-                      );
-                    })}
-                  </List>
-                </Collapse>
-              </ListItem>
-            );
-          }
-          const navLinkClasses =
-            classes.itemLink +
-            ' ' +
-            cx({
-              [' ' + classes[color]]: this.activeRoute(prop.path)
-            });
-          const itemText =
-            classes.itemText +
-            ' ' +
-            cx({
-              [classes.itemTextMini]:
-                this.props.miniActive && this.state.miniActive,
-              [classes.itemTextMiniRTL]:
-                rtlActive && this.props.miniActive && this.state.miniActive,
-              [classes.itemTextRTL]: rtlActive
-            });
-          const itemIcon =
-            classes.itemIcon +
-            ' ' +
-            cx({
-              [classes.itemIconRTL]: rtlActive
-            });
-          return (
-            <ListItem key={key} className={classes.item}>
-              <NavLink to={prop.path} className={navLinkClasses}>
-                <ListItemIcon className={itemIcon}>
-                  {typeof prop.icon === 'string' ? (
-                    <Icon>{prop.icon}</Icon>
-                  ) : (
-                    <prop.icon />
-                  )}
-                </ListItemIcon>
-                <ListItemText
-                  primary={prop.name}
-                  disableTypography={true}
-                  className={itemText}
-                />
-              </NavLink>
-            </ListItem>
-          );
-        })}
-      </List>
-    );
+    constructor(props) {
+        super(props);
+        this.state = {
+            openAvatar: false,
+            openComponents: this.activeRoute('/components'),
+            openForms: this.activeRoute('/forms'),
+            openTables: this.activeRoute('/tables'),
+            openMaps: this.activeRoute('/maps'),
+            openPages: this.activeRoute('-page'),
+            miniActive: true,
+        };
+        this.activeRoute.bind(this);
+    }
 
-    const logoNormal =
-      classes.logoNormal +
-      ' ' +
-      cx({
-        [classes.logoNormalSidebarMini]:
-          this.props.miniActive && this.state.miniActive,
-        [classes.logoNormalSidebarMiniRTL]:
-          rtlActive && this.props.miniActive && this.state.miniActive,
-        [classes.logoNormalRTL]: rtlActive
-      });
-    const logoMini =
-      classes.logoMini +
-      ' ' +
-      cx({
-        [classes.logoMiniRTL]: rtlActive
-      });
-    const logoClasses =
-      classes.logo +
-      ' ' +
-      cx({
-        [classes.whiteAfter]: bgColor === 'white'
-      });
-    var brand = (
-      <div className={logoClasses}>
-        <a href='https://www.creative-tim.com' className={logoMini}>
-          <img src={logo} alt='logo' className={classes.img} />
-        </a>
-        <a href='https://www.creative-tim.com' className={logoNormal}>
-          {logoText}
-        </a>
-      </div>
-    );
-    const drawerPaper =
-      classes.drawerPaper +
-      ' ' +
-      cx({
-        [classes.drawerPaperMini]:
-          this.props.miniActive && this.state.miniActive,
-        [classes.drawerPaperRTL]: rtlActive
-      });
-    const sidebarWrapper =
-      classes.sidebarWrapper +
-      ' ' +
-      cx({
-        [classes.drawerPaperMini]:
-          this.props.miniActive && this.state.miniActive,
-        [classes.sidebarWrapperWithPerfectScrollbar]:
-          navigator.platform.indexOf('Win') > -1
-      });
-    return (
-      <div>
-        <Hidden mdUp implementation='css'>
-          <Drawer
-            variant='temporary'
-            anchor={rtlActive ? 'left' : 'right'}
-            open={this.props.open}
-            classes={{
-              paper: drawerPaper + ' ' + classes[bgColor + 'Background']
-            }}
-            onClose={this.props.handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true // Better open performance on mobile.
-            }}
-          >
-            {brand}
-            <SidebarWrapper
-              className={sidebarWrapper}
-              user={user}
-              headerLinks={<HeaderLinks rtlActive={rtlActive} />}
-              links={links}
-            />
-            {image !== undefined ? (
-              <div
-                className={classes.background}
-                style={{ backgroundImage: 'url(' + image + ')' }}
-              />
-            ) : null}
-          </Drawer>
-        </Hidden>
-        <Hidden smDown implementation='css'>
-          <Drawer
-            onMouseOver={() => this.setState({ miniActive: false })}
-            onMouseOut={() => this.setState({ miniActive: true })}
-            anchor={rtlActive ? 'right' : 'left'}
-            variant='permanent'
-            open
-            classes={{
-              paper: drawerPaper + ' ' + classes[bgColor + 'Background']
-            }}
-          >
-            {brand}
-            <SidebarWrapper
-              className={sidebarWrapper}
-              user={user}
-              links={links}
-            />
-            {image !== undefined ? (
-              <div
-                className={classes.background}
-                style={{ backgroundImage: 'url(' + image + ')' }}
-              />
-            ) : null}
-          </Drawer>
-        </Hidden>
-      </div>
-    );
-  }
+    // verifies if routeName is the one active (in browser input)
+    activeRoute(routeName) {
+        return this.props.location.pathname.indexOf(routeName) > -1 ? true : false;
+    }
+
+    openCollapse(collapse) {
+        const st = {};
+        st[collapse] = !this.state[collapse];
+        this.setState(st);
+    }
+
+    render() {
+        const {
+            classes,
+            color,
+            logo,
+            image,
+            logoText,
+            routes,
+            bgColor,
+            rtlActive,
+        } = this.props;
+
+        const itemText =
+            `${this.props.classes.itemText} ${cx({
+                [this.props.classes.itemTextMini]: this.props.miniActive && this.state.miniActive,
+                [this.props.classes.itemTextMiniRTL]:
+                rtlActive && this.props.miniActive && this.state.miniActive,
+                [this.props.classes.itemTextRTL]: rtlActive,
+            })}`;
+
+        const collapseItemText =
+            `${this.props.classes.collapseItemText} ${cx({
+                [this.props.classes.collapseItemTextMini]:
+                this.props.miniActive && this.state.miniActive,
+                [this.props.classes.collapseItemTextMiniRTL]:
+                rtlActive && this.props.miniActive && this.state.miniActive,
+                [this.props.classes.collapseItemTextRTL]: rtlActive,
+            })}`;
+
+        const userWrapperClass =
+            `${this.props.classes.user} ${cx({
+                [this.props.classes.whiteAfter]: bgColor === 'white',
+            })}`;
+
+        const caret =
+            `${this.props.classes.caret} ${cx({
+                [this.props.classes.caretRTL]: rtlActive,
+            })}`;
+
+        const collapseItemMini =
+            `${this.props.classes.collapseItemMini} ${cx({
+                [this.props.classes.collapseItemMiniRTL]: rtlActive,
+            })}`;
+
+        const photo =
+            `${this.props.classes.photo} ${cx({
+                [this.props.classes.photoRTL]: rtlActive,
+            })}`;
+
+        const user = (
+            <div className={userWrapperClass}>
+                <div className={photo}>
+                    <img src={avatar} className={this.props.classes.avatarImg} alt='...'/>
+                </div>
+                <List className={classes.list}>
+                    <ListItem className={`${this.props.classes.item} ${classes.userItem}`}>
+                        <NavLink
+                            to={'#'}
+                            className={`${this.props.classes.itemLink} ${classes.userCollapseButton}`}
+                            onClick={() => this.openCollapse('openAvatar')}>
+                            <ListItemText
+                                primary='Tania Andrew'
+                                secondary={
+                                    <b classes={`${caret} ${this.props.classes.userCaret} ${(this.state.openAvatar ? classes.caretActive : '')}`}/>
+                                }
+                                disableTypography={true}
+                                className={`${itemText} ${classes.userItemText}`}
+                            />
+                        </NavLink>
+                        <Collapse in={this.state.openAvatar} unmountOnExit>
+                            <List className={`${this.props.classes.list} ${classes.collapseList}`}>
+                                <ListItem className={classes.collapseItem}>
+                                    <NavLink
+                                        to='#'
+                                        className={`${classes.itemLink} ${classes.userCollapseLinks}`}>
+                                        <span className={collapseItemMini}>
+                                            MP
+                                        </span>
+                                        <ListItemText
+                                            primary='My Profile'
+                                            disableTypography={true}
+                                            className={collapseItemText}/>
+                                    </NavLink>
+                                </ListItem>
+                                <ListItem className={this.props.classes.collapseItem}>
+                                    <NavLink
+                                        to='#'
+                                        className={`${classes.itemLink} ${classes.userCollapseLinks}`}>
+                                        <span className={collapseItemMini}>
+                                            EP
+                                        </span>
+                                        <ListItemText
+                                            primary='Edit Profile'
+                                            disableTypography={true}
+                                            className={collapseItemText}/>
+                                    </NavLink>
+                                </ListItem>
+                                <ListItem className={this.props.classes.collapseItem}>
+                                    <NavLink
+                                        to='#'
+                                        className={`${this.props.classes.itemLink} ${this.props.classes.userCollapseLinks}`}>
+                                        <span className={collapseItemMini}>
+                                            S
+                                        </span>
+                                        <ListItemText
+                                            primary='Settings'
+                                            disableTypography={true}
+                                            className={collapseItemText}/>
+                                    </NavLink>
+                                </ListItem>
+                            </List>
+                        </Collapse>
+                    </ListItem>
+                </List>
+            </div>
+        );
+
+        const links = (
+            <List className={classes.list}>
+                {routes && routes.length && routes.map((prop, key) => {
+                    if (prop.redirect) {
+                        return null;
+                    }
+                    if (prop.collapse) {
+                        const navLinkClasses =
+                            `${this.props.classes.itemLink} ${cx({
+                                [` ${this.props.classes.collapseActive}`]: this.activeRoute(prop.path),
+                            })}`;
+
+                        const itemText =
+                            `${this.props.classes.itemText} ${cx({
+                                [this.props.classes.itemTextMini]:
+                                this.props.miniActive && this.state.miniActive,
+                                [this.props.classes.itemTextMiniRTL]:
+                                rtlActive && this.props.miniActive && this.state.miniActive,
+                                [this.props.classes.itemTextRTL]: rtlActive,
+                            })}`;
+
+                        const itemIcon =
+                            `${this.props.classes.itemIcon} ${cx({
+                                [this.props.classes.itemIconRTL]: rtlActive,
+                            })}`;
+
+                        return (
+                            <ListItem key={key} className={this.props.classes.item}>
+                                <NavLink
+                                    to={'#'}
+                                    className={navLinkClasses}
+                                    onClick={() => this.openCollapse(prop.state)}>
+                                    <ListItemIcon className={itemIcon}>
+                                        {typeof prop.icon === 'string' ? (
+                                            <Icon>{prop.icon}</Icon>
+                                        ) : (
+                                            <prop.icon/>
+                                        )}
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        primary={prop.name}
+                                        secondary={
+                                            <b
+                                                className={
+                                                    `${caret} ${(this.state[prop.state] ? this.props.classes.caretActive : '')}`
+                                                }
+                                            />
+                                        }
+                                        disableTypography={true}
+                                        className={itemText}/>
+                                </NavLink>
+                                <Collapse in={this.state[prop.state]} unmountOnExit>
+                                    <List className={`${this.props.classes.list} ${this.props.classes.collapseList}`}>
+                                        {prop.views.map((prop2, key2) => {
+                                            if (prop2.redirect) {
+                                                return null;
+                                            }
+                                            const innerNavLinkClasses =
+                                                `${this.props.classes.collapseItemLink} ${cx({
+                                                    [` ${this.props.classes[color]}`]: this.activeRoute(prop2.path),
+                                                })}`;
+
+                                            const innerCollapseItemMini =
+                                                `${this.props.classes.collapseItemMini} ${cx({
+                                                    [this.props.classes.collapseItemMiniRTL]: rtlActive,
+                                                })}`;
+
+                                            return (
+                                                <ListItem key={key2} className={this.props.classes.collapseItem}>
+                                                    <NavLink to={prop2.path} className={innerNavLinkClasses}>
+                                                        <span className={innerCollapseItemMini}>
+                                                          {prop2.mini}
+                                                        </span>
+                                                        <ListItemText
+                                                            primary={prop2.name}
+                                                            disableTypography={true}
+                                                            className={collapseItemText}/>
+                                                    </NavLink>
+                                                </ListItem>
+                                            );
+                                        })}
+                                    </List>
+                                </Collapse>
+                            </ListItem>
+                        );
+                    }
+
+                    const navLinkClasses =
+                        `${this.props.classes.itemLink} ${cx({
+                            [` ${this.props.classes[color]}`]: this.activeRoute(prop.path),
+                        })}`;
+
+                    const itemIcon =
+                        `${this.props.classes.itemIcon} ${cx({
+                            [this.props.classes.itemIconRTL]: rtlActive,
+                        })}`;
+
+                    return (
+                        <ListItem key={key} className={this.props.classes.item}>
+                            <NavLink to={prop.path} className={navLinkClasses}>
+                                <ListItemIcon className={itemIcon}>
+                                    {typeof prop.icon === 'string' ? (
+                                        <Icon>{prop.icon}</Icon>
+                                    ) : (
+                                        <prop.icon/>
+                                    )}
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary={prop.name}
+                                    disableTypography={true}
+                                    className={itemText}/>
+                            </NavLink>
+                        </ListItem>
+                    );
+                })}
+            </List>
+        );
+
+        const logoNormal =
+            `${this.props.classes.logoNormal} ${cx({
+                [this.props.classes.logoNormalSidebarMini]:
+                this.props.miniActive && this.state.miniActive,
+                [this.props.classes.logoNormalSidebarMiniRTL]:
+                rtlActive && this.props.miniActive && this.state.miniActive,
+                [this.props.classes.logoNormalRTL]: rtlActive,
+            })}`;
+
+        const logoMini =
+            `${this.props.classes.logoMini} ${cx({
+                [this.props.classes.logoMiniRTL]: rtlActive,
+            })}`;
+
+        const logoClasses =
+            `${this.props.classes.logo} ${cx({
+                [this.props.classes.whiteAfter]: bgColor === 'white',
+            })}`;
+
+        const brand = (
+            <div className={logoClasses}>
+                <a href='https://ssense.com' className={logoMini}>
+                    <img src={logo} alt='logo' className={this.props.classes.img}/>
+                </a>
+                <a href='https://ssense.com' className={logoNormal}>
+                    {logoText}
+                </a>
+            </div>
+        );
+
+        const drawerPaper =
+            `${this.props.classes.drawerPaper} ${cx({
+                [this.props.classes.drawerPaperMini]:
+                this.props.miniActive && this.state.miniActive,
+                [this.props.classes.drawerPaperRTL]: rtlActive,
+            })}`;
+
+        const sidebarWrapper =
+            `${this.props.classes.sidebarWrapper} ${cx({
+                [this.props.classes.drawerPaperMini]:
+                this.props.miniActive && this.state.miniActive,
+                [this.props.classes.sidebarWrapperWithPerfectScrollbar]:
+                navigator.platform.indexOf('Win') > -1,
+            })}`;
+
+        return (
+            <div>
+                <Hidden mdUp implementation='css'>
+                    <Drawer
+                        variant='temporary'
+                        anchor={rtlActive ? 'left' : 'right'}
+                        open={this.props.open}
+                        classes={{
+                            paper: `${drawerPaper} ${this.props.classes[`${bgColor}Background`]}`,
+                        }}
+                        onClose={this.props.handleDrawerToggle}
+                        ModalProps={{
+                            keepMounted: true, // Better open performance on mobile.
+                        }}>
+                        {brand}
+                        <SidebarWrapper
+                            className={sidebarWrapper}
+                            user={user}
+                            headerLinks={<HeaderLinks rtlActive={rtlActive}/>}
+                            links={links}/>
+                        {image !== undefined ? (
+                            <div
+                                className={this.props.classes.background}
+                                style={{backgroundImage: `url(${image})`}}
+                            />
+                        ) : null}
+                    </Drawer>
+                </Hidden>
+                <Hidden smDown implementation='css'>
+                    <Drawer
+                        onMouseOver={() => this.setState({miniActive: false})}
+                        onMouseOut={() => this.setState({miniActive: true})}
+                        anchor={rtlActive ? 'right' : 'left'}
+                        variant='permanent'
+                        open
+                        classes={{
+                            paper: `${drawerPaper} ${this.props.classes[`${bgColor}Background`]}`,
+                        }}>
+                        {brand}
+                        <SidebarWrapper
+                            className={sidebarWrapper}
+                            user={user}
+                            links={links}/>
+                        {image !== undefined ? (
+                            <div
+                                className={this.props.classes.background}
+                                style={{backgroundImage: `url(${image})`}}
+                            />
+                        ) : null}
+                    </Drawer>
+                </Hidden>
+            </div>
+        );
+    }
 }
 
 Sidebar.defaultProps = {
-  bgColor: 'blue'
+    bgColor: 'blue',
 };
 
 Sidebar.propTypes = {
-  classes: PropTypes.object.isRequired,
-  bgColor: PropTypes.oneOf(['white', 'black', 'blue']),
-  rtlActive: PropTypes.bool,
-  color: PropTypes.oneOf([
-    'white',
-    'red',
-    'orange',
-    'green',
-    'blue',
-    'purple',
-    'rose'
-  ]),
-  logo: PropTypes.string,
-  logoText: PropTypes.string,
-  image: PropTypes.string,
-  routes: PropTypes.arrayOf(PropTypes.object)
+    classes: PropTypes.object.isRequired,
+    bgColor: PropTypes.oneOf(['white', 'black', 'blue']),
+    rtlActive: PropTypes.bool,
+    color: PropTypes.oneOf([
+        'white',
+        'red',
+        'orange',
+        'green',
+        'blue',
+        'purple',
+        'rose',
+    ]),
+    logo: PropTypes.string,
+    logoText: PropTypes.string,
+    image: PropTypes.string,
+    routes: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default withRouter(withStyles(sidebarStyle)(Sidebar));

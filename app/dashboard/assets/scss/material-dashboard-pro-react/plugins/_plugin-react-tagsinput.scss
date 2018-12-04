@@ -33,7 +33,8 @@
   padding: 0px 2px;
   font-weight: 900;
 }
-.react-tagsinput-tag a{
+
+.react-tagsinput-tag a {
   cursor: pointer;
   position: absolute;
   top: 3px;
@@ -42,8 +43,6 @@
   background-color: transparent;
   color: #FFFFFF;
 }
-
-
 
 .react-tagsinput-input {
   background: transparent;
@@ -59,18 +58,18 @@
   width: 80px;
 }
 
-.react-tagsinput{
-  .react-tagsinput-tag{
+.react-tagsinput {
+  .react-tagsinput-tag {
     -webkit-transition: all 300ms ease 0s;
     -moz-transition: all 300ms ease 0s;
     -o-transition: all 300ms ease 0s;
     -ms-transition: all 300ms ease 0s;
     transition: all 300ms ease 0s;
 
-    &:hover{
+    &:hover {
       padding-right: 22px;
 
-      a{
+      a {
         opacity: 1;
         padding-right: 4px;
         background-color: transparent;
@@ -79,22 +78,22 @@
     }
 
     @include tag-color($grey);
-    &.primary{
+    &.primary {
       @include tag-color($brand-primary);
     }
-    &.info{
+    &.info {
       @include tag-color($brand-info);
     }
-    &.success{
+    &.success {
       @include tag-color($brand-success);
     }
-    &.warning{
+    &.warning {
       @include tag-color($brand-warning);;
     }
-    &.danger{
+    &.danger {
       @include tag-color($brand-danger);
     }
-    .rose{
+    .rose {
       @include tag-color($brand-rose);
     }
   }

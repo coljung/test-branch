@@ -9,8 +9,8 @@ import ListItem from '@material-ui/core/ListItem';
 
 import footerStyle from '../../assets/jss/material-dashboard-pro-react/components/footerStyle';
 
-function Footer({ ...props }) {
-    const { classes, fluid, white, rtlActive } = props;
+function Footer({...props}) {
+    const {classes, fluid, white, rtlActive} = props;
     const container = cx({
         [classes.container]: !fluid,
         [classes.containerFluid]: fluid,
@@ -21,7 +21,7 @@ function Footer({ ...props }) {
         classes.a +
         cx({
             [' ' + classes.whiteColor]: white,
-    });
+        });
 
     const block = cx({
         [classes.block]: true,
@@ -60,8 +60,8 @@ function Footer({ ...props }) {
                         {rtlActive ? 'توقيت الإبداعية' : 'Creative Tim'}
                     </a>
                     {rtlActive
-                      ? ', مصنوعة مع الحب لشبكة الإنترنت أفضل'
-                      : ', made with love for a better web'}
+                        ? ', مصنوعة مع الحب لشبكة الإنترنت أفضل'
+                        : ', made with love for a better web'}
                 </p>
             </div>
         </footer>

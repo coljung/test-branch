@@ -12,7 +12,7 @@ import Input from '@material-ui/core/Input';
 
 import customInputStyle from '../../assets/jss/material-dashboard-pro-react/components/customInputStyle';
 
-function CustomInput({ ...props }) {
+function CustomInput({...props}) {
     const {
         classes,
         formControlProps,
@@ -58,32 +58,32 @@ function CustomInput({ ...props }) {
         [classes.labelRootSuccess]: success && !error,
     });
     return (
-      <FormControl {...formControlProps} className={formControlClasses}>
-        {labelText !== undefined ? (
-          <InputLabel
-            className={classes.labelRoot + ' ' + labelClasses}
-            htmlFor={id}
-            {...labelProps}
-          >
-            {labelText}
-          </InputLabel>
-        ) : null}
-        <Input
-          classes={{
-              input: inputClasses,
-              root: marginTop,
-              disabled: classes.disabled,
-              underline: underlineClasses,
-          }}
-          id={id}
-          {...inputProps}
-        />
-        {helpText !== undefined ? (
-          <FormHelperText id={id + '-text'} className={helpTextClasses}>
-            {helpText}
-          </FormHelperText>
-        ) : null}
-      </FormControl>
+        <FormControl {...formControlProps} className={formControlClasses}>
+            {labelText !== undefined ? (
+                <InputLabel
+                    className={classes.labelRoot + ' ' + labelClasses}
+                    htmlFor={id}
+                    {...labelProps}
+                >
+                    {labelText}
+                </InputLabel>
+            ) : null}
+            <Input
+                classes={{
+                    input: inputClasses,
+                    root: marginTop,
+                    disabled: classes.disabled,
+                    underline: underlineClasses,
+                }}
+                id={id}
+                {...inputProps}
+            />
+            {helpText !== undefined ? (
+                <FormHelperText id={id + '-text'} className={helpTextClasses}>
+                    {helpText}
+                </FormHelperText>
+            ) : null}
+        </FormControl>
     );
 }
 

@@ -1,28 +1,28 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 // mterial-ui components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles from '@material-ui/core/styles/withStyles';
 
 const style = {
-  clearfix: {
-    "&:after,&:before": {
-      display: "table",
-      content: '" "'
+    clearfix: {
+        '&:after,&:before': {
+            display: 'table',
+            content: '" "',
+        },
+        '&:after': {
+            clear: 'both',
+        },
     },
-    "&:after": {
-      clear: "both"
-    }
-  }
 };
 
-function Clearfix({ ...props }) {
-  const { classes } = props;
-  return <div className={classes.clearfix} />;
+function Clearfix({...props}) {
+    const {classes} = props;
+    return <div className={classes.clearfix}/>;
 }
 
 Clearfix.propTypes = {
-  classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(style)(Clearfix);

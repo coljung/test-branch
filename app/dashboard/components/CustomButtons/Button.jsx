@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 
 import buttonStyle from '../../assets/jss/material-dashboard-pro-react/components/buttonStyle.jsx';
 
-function RegularButton({ ...props }) {
+function RegularButton({...props}) {
     const {
         classes,
         color,
@@ -70,7 +70,7 @@ RegularButton.propTypes = {
         'behance',
         'dribbble',
         'reddit',
-        'transparent'
+        'transparent',
     ]),
     size: PropTypes.oneOf(['sm', 'lg']),
     simple: PropTypes.bool,

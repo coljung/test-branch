@@ -3,10 +3,10 @@
 // #############################
 
 import {
-  defaultFont,
-  container,
-  containerFluid,
-  primaryColor,
+    defaultFont,
+    container,
+    containerFluid,
+    primaryColor,
 } from '../../material-dashboard-pro-react';
 
 const footerStyle = {
