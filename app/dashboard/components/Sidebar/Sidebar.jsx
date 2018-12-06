@@ -83,24 +83,64 @@ class Sidebar extends React.Component {
         this.setState(st);
     }
 
+    buildLogoLink = () => {
+        const renderLogoImage = () => {
+            const logoMini =
+                `${this.props.classes.logoMini} ${cx({
+                    [this.props.classes.logoMiniRTL]: this.props.rtlActive,
+                })}`;
+
+            return (
+                <a href='https://ssense.com' className={logoMini}>
+                    <img src={this.props.logo} alt='logo' className={this.props.classes.img}/>
+                </a>
+            );
+        };
+
+        const renderLogoLink = () => {
+            const logoNormal =
+                `${this.props.classes.logoNormal} ${cx({
+                    [this.props.classes.logoNormalSidebarMini]:
+                    this.props.miniActive && this.state.miniActive,
+                    [this.props.classes.logoNormalSidebarMiniRTL]:
+                    this.props.rtlActive && this.props.miniActive && this.state.miniActive,
+                    [this.props.classes.logoNormalRTL]: this.props.rtlActive,
+                })}`;
+                
+            return (
+                <a href='https://ssense.com' className={logoNormal}>
+                    {this.props.logoText}
+                </a>
+            );
+        };
+
+        const logoClasses =
+            `${this.props.classes.logo} ${cx({
+                [this.props.classes.whiteAfter]: this.props.bgColor === 'white',
+            })}`;
+
+        return (
+            <div className={logoClasses}>
+                { this.props.logo && renderLogoImage() }
+                { this.props.logoText && renderLogoLink() }
+            </div>
+        );
+    }
+
     render() {
         const {
             classes,
             color,
-            logo,
             image,
-            logoText,
             routes,
-            bgColor,
-            rtlActive,
         } = this.props;
 
         const itemText =
             `${this.props.classes.itemText} ${cx({
                 [this.props.classes.itemTextMini]: this.props.miniActive && this.state.miniActive,
                 [this.props.classes.itemTextMiniRTL]:
-                rtlActive && this.props.miniActive && this.state.miniActive,
-                [this.props.classes.itemTextRTL]: rtlActive,
+                this.props.rtlActive && this.props.miniActive && this.state.miniActive,
+                [this.props.classes.itemTextRTL]: this.props.rtlActive,
             })}`;
 
         const collapseItemText =
@@ -108,28 +148,28 @@ class Sidebar extends React.Component {
                 [this.props.classes.collapseItemTextMini]:
                 this.props.miniActive && this.state.miniActive,
                 [this.props.classes.collapseItemTextMiniRTL]:
-                rtlActive && this.props.miniActive && this.state.miniActive,
-                [this.props.classes.collapseItemTextRTL]: rtlActive,
+                this.props.rtlActive && this.props.miniActive && this.state.miniActive,
+                [this.props.classes.collapseItemTextRTL]: this.props.rtlActive,
             })}`;
 
         const userWrapperClass =
             `${this.props.classes.user} ${cx({
-                [this.props.classes.whiteAfter]: bgColor === 'white',
+                [this.props.classes.whiteAfter]: this.props.bgColor === 'white',
             })}`;
 
         const caret =
             `${this.props.classes.caret} ${cx({
-                [this.props.classes.caretRTL]: rtlActive,
+                [this.props.classes.caretRTL]: this.props.rtlActive,
             })}`;
 
         const collapseItemMini =
             `${this.props.classes.collapseItemMini} ${cx({
-                [this.props.classes.collapseItemMiniRTL]: rtlActive,
+                [this.props.classes.collapseItemMiniRTL]: this.props.rtlActive,
             })}`;
 
         const photo =
             `${this.props.classes.photo} ${cx({
-                [this.props.classes.photoRTL]: rtlActive,
+                [this.props.classes.photoRTL]: this.props.rtlActive,
             })}`;
 
         const user = (
@@ -217,13 +257,13 @@ class Sidebar extends React.Component {
                                 [this.props.classes.itemTextMini]:
                                 this.props.miniActive && this.state.miniActive,
                                 [this.props.classes.itemTextMiniRTL]:
-                                rtlActive && this.props.miniActive && this.state.miniActive,
-                                [this.props.classes.itemTextRTL]: rtlActive,
+                                this.props.rtlActive && this.props.miniActive && this.state.miniActive,
+                                [this.props.classes.itemTextRTL]: this.props.rtlActive,
                             })}`;
 
                         const itemIcon =
                             `${this.props.classes.itemIcon} ${cx({
-                                [this.props.classes.itemIconRTL]: rtlActive,
+                                [this.props.classes.itemIconRTL]: this.props.rtlActive,
                             })}`;
 
                         return (
@@ -264,7 +304,7 @@ class Sidebar extends React.Component {
 
                                             const innerCollapseItemMini =
                                                 `${this.props.classes.collapseItemMini} ${cx({
-                                                    [this.props.classes.collapseItemMiniRTL]: rtlActive,
+                                                    [this.props.classes.collapseItemMiniRTL]: this.props.rtlActive,
                                                 })}`;
 
                                             return (
@@ -294,7 +334,7 @@ class Sidebar extends React.Component {
 
                     const itemIcon =
                         `${this.props.classes.itemIcon} ${cx({
-                            [this.props.classes.itemIconRTL]: rtlActive,
+                            [this.props.classes.itemIconRTL]: this.props.rtlActive,
                         })}`;
 
                     return (
@@ -318,41 +358,13 @@ class Sidebar extends React.Component {
             </List>
         );
 
-        const logoNormal =
-            `${this.props.classes.logoNormal} ${cx({
-                [this.props.classes.logoNormalSidebarMini]:
-                this.props.miniActive && this.state.miniActive,
-                [this.props.classes.logoNormalSidebarMiniRTL]:
-                rtlActive && this.props.miniActive && this.state.miniActive,
-                [this.props.classes.logoNormalRTL]: rtlActive,
-            })}`;
-
-        const logoMini =
-            `${this.props.classes.logoMini} ${cx({
-                [this.props.classes.logoMiniRTL]: rtlActive,
-            })}`;
-
-        const logoClasses =
-            `${this.props.classes.logo} ${cx({
-                [this.props.classes.whiteAfter]: bgColor === 'white',
-            })}`;
-
-        const brand = (
-            <div className={logoClasses}>
-                <a href='https://ssense.com' className={logoMini}>
-                    <img src={logo} alt='logo' className={this.props.classes.img}/>
-                </a>
-                <a href='https://ssense.com' className={logoNormal}>
-                    {logoText}
-                </a>
-            </div>
-        );
+        const brand = this.buildLogoLink();
 
         const drawerPaper =
             `${this.props.classes.drawerPaper} ${cx({
                 [this.props.classes.drawerPaperMini]:
                 this.props.miniActive && this.state.miniActive,
-                [this.props.classes.drawerPaperRTL]: rtlActive,
+                [this.props.classes.drawerPaperRTL]: this.props.rtlActive,
             })}`;
 
         const sidebarWrapper =
@@ -368,10 +380,10 @@ class Sidebar extends React.Component {
                 <Hidden mdUp implementation='css'>
                     <Drawer
                         variant='temporary'
-                        anchor={rtlActive ? 'left' : 'right'}
+                        anchor={this.props.rtlActive ? 'left' : 'right'}
                         open={this.props.open}
                         classes={{
-                            paper: `${drawerPaper} ${this.props.classes[`${bgColor}Background`]}`,
+                            paper: `${drawerPaper} ${this.props.classes[`${this.props.bgColor}Background`]}`,
                         }}
                         onClose={this.props.handleDrawerToggle}
                         ModalProps={{
@@ -381,7 +393,7 @@ class Sidebar extends React.Component {
                         <SidebarWrapper
                             className={sidebarWrapper}
                             user={user}
-                            headerLinks={<HeaderLinks rtlActive={rtlActive}/>}
+                            headerLinks={<HeaderLinks rtlActive={this.props.rtlActive}/>}
                             links={links}/>
                         {image !== undefined ? (
                             <div
@@ -395,11 +407,11 @@ class Sidebar extends React.Component {
                     <Drawer
                         onMouseOver={() => this.setState({miniActive: false})}
                         onMouseOut={() => this.setState({miniActive: true})}
-                        anchor={rtlActive ? 'right' : 'left'}
+                        anchor={this.props.rtlActive ? 'right' : 'left'}
                         variant='permanent'
                         open
                         classes={{
-                            paper: `${drawerPaper} ${this.props.classes[`${bgColor}Background`]}`,
+                            paper: `${drawerPaper} ${this.props.classes[`${this.props.bgColor}Background`]}`,
                         }}>
                         {brand}
                         <SidebarWrapper

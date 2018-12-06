@@ -57,7 +57,7 @@ const theme = createMuiTheme({
 
 class App extends React.Component {
     createLayout = target => (
-        <Layout>
+        <Layout appName='App Name'>
             {target}
         </Layout>
     );

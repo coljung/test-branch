@@ -46,7 +46,7 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <GridContainer>
                     <GridItem xs={12} sm={6} md={6} lg={3}>
                         <Card>
@@ -364,7 +364,7 @@ class Home extends React.Component {
                         </Card>
                     </GridItem>
                 </GridContainer>
-            </div>
+            </React.Fragment>
         );
     }
 }
