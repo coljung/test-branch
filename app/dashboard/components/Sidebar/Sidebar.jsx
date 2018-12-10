@@ -125,7 +125,7 @@ class Sidebar extends React.Component {
                 { this.props.logoText && renderLogoLink() }
             </div>
         );
-    }
+    };
 
     render() {
         const {
@@ -141,6 +141,11 @@ class Sidebar extends React.Component {
                 [this.props.classes.itemTextMiniRTL]:
                 this.props.rtlActive && this.props.miniActive && this.state.miniActive,
                 [this.props.classes.itemTextRTL]: this.props.rtlActive,
+            })}`;
+
+        const itemIcon =
+            `${this.props.classes.itemIcon} ${cx({
+                [this.props.classes.itemIconRTL]: this.props.rtlActive,
             })}`;
 
         const collapseItemText =
@@ -252,20 +257,6 @@ class Sidebar extends React.Component {
                                 [` ${this.props.classes.collapseActive}`]: this.activeRoute(prop.path),
                             })}`;
 
-                        const itemText =
-                            `${this.props.classes.itemText} ${cx({
-                                [this.props.classes.itemTextMini]:
-                                this.props.miniActive && this.state.miniActive,
-                                [this.props.classes.itemTextMiniRTL]:
-                                this.props.rtlActive && this.props.miniActive && this.state.miniActive,
-                                [this.props.classes.itemTextRTL]: this.props.rtlActive,
-                            })}`;
-
-                        const itemIcon =
-                            `${this.props.classes.itemIcon} ${cx({
-                                [this.props.classes.itemIconRTL]: this.props.rtlActive,
-                            })}`;
-
                         return (
                             <ListItem key={key} className={this.props.classes.item}>
                                 <NavLink
@@ -330,11 +321,6 @@ class Sidebar extends React.Component {
                     const navLinkClasses =
                         `${this.props.classes.itemLink} ${cx({
                             [` ${this.props.classes[color]}`]: this.activeRoute(prop.path),
-                        })}`;
-
-                    const itemIcon =
-                        `${this.props.classes.itemIcon} ${cx({
-                            [this.props.classes.itemIconRTL]: this.props.rtlActive,
                         })}`;
 
                     return (
@@ -405,8 +391,8 @@ class Sidebar extends React.Component {
                 </Hidden>
                 <Hidden smDown implementation='css'>
                     <Drawer
-                        onMouseOver={() => this.setState({miniActive: false})}
-                        onMouseOut={() => this.setState({miniActive: true})}
+                        onMouseOver={() => this.setState({ miniActive: false })}
+                        onMouseOut={() => this.setState({ miniActive: true })}
                         anchor={this.props.rtlActive ? 'right' : 'left'}
                         variant='permanent'
                         open
@@ -421,7 +407,7 @@ class Sidebar extends React.Component {
                         {image !== undefined ? (
                             <div
                                 className={this.props.classes.background}
-                                style={{backgroundImage: `url(${image})`}}
+                                style={{ backgroundImage: `url(${image})` }}
                             />
                         ) : null}
                     </Drawer>

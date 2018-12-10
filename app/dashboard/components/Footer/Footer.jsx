@@ -8,9 +8,10 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 
 import footerStyle from '../../assets/jss/material-dashboard-pro-react/components/footerStyle';
+import { ROUTE_HOME } from '../../../routes/constants';
 
-function Footer({...props}) {
-    const {classes, fluid, white, rtlActive} = props;
+function Footer(props) {
+    const { classes, fluid, white } = props;
     const container = cx({
         [classes.container]: !fluid,
         [classes.containerFluid]: fluid,
@@ -20,7 +21,7 @@ function Footer({...props}) {
     const anchor =
         classes.a +
         cx({
-            [' ' + classes.whiteColor]: white,
+            [` ${classes.whiteColor}`]: white,
         });
 
     const block = cx({
@@ -33,35 +34,18 @@ function Footer({...props}) {
                 <div className={classes.left}>
                     <List className={classes.list}>
                         <ListItem className={classes.inlineBlock}>
-                            <a href='#home' className={block}>
-                                {rtlActive ? 'الصفحة الرئيسية' : 'Home'}
-                            </a>
-                        </ListItem>
-                        <ListItem className={classes.inlineBlock}>
-                            <a href='#company' className={block}>
-                                {rtlActive ? 'شركة' : 'Company'}
-                            </a>
-                        </ListItem>
-                        <ListItem className={classes.inlineBlock}>
-                            <a href='#portfolio' className={block}>
-                                {rtlActive ? 'بعدسة' : 'Portfolio'}
-                            </a>
-                        </ListItem>
-                        <ListItem className={classes.inlineBlock}>
-                            <a href='#blog' className={block}>
-                                {rtlActive ? 'مدونة' : 'Blog'}
+                            <a href={ROUTE_HOME} className={block}>
+                                Home
                             </a>
                         </ListItem>
                     </List>
                 </div>
                 <p className={classes.right}>
                     &copy; {1900 + new Date().getYear()}{' '}
-                    <a href='https://www.creative-tim.com' className={anchor}>
-                        {rtlActive ? 'توقيت الإبداعية' : 'Creative Tim'}
+                    <a href='https://ssense.com' className={anchor}>
+                        SSENSE
                     </a>
-                    {rtlActive
-                        ? ', مصنوعة مع الحب لشبكة الإنترنت أفضل'
-                        : ', made with love for a better web'}
+                    , made with love for a better web
                 </p>
             </div>
         </footer>

@@ -51,9 +51,6 @@ class Home extends React.Component {
                     <GridItem xs={12} sm={6} md={6} lg={3}>
                         <Card>
                             <CardHeader color="warning" stats icon>
-                                <CardIcon color="warning">
-                                    <Icon>content_copy</Icon>
-                                </CardIcon>
                                 <p className={this.props.classes.cardCategory}>Used Space</p>
                                 <h3 className={this.props.classes.cardTitle}>
                                     49/50 <small>GB</small>

@@ -1,11 +1,11 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { ROUTE_HOME } from './constants/routes';
-import Home from './Home';
-import NotFound from './NotFound';
 import Layout from './Layout';
+import indexRoutes from './routes/index.js';
+import sidebarRoutes from './routes/sidebar.js';
 
 const theme = createMuiTheme({
     palette: {
@@ -57,20 +57,24 @@ const theme = createMuiTheme({
 
 class App extends React.Component {
     createLayout = target => (
-        <Layout appName='App Name'>
-            {target}
+        <Layout appName='App Name' routes={sidebarRoutes}>
+            {React.createElement(target)}
         </Layout>
     );
 
     render() {
         return (
             <MuiThemeProvider theme={theme}>
-                <CssBaseline />
+                <CssBaseline/>
                 <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
                     <Switch>
-                        <Route path={ROUTE_HOME} exact render={() => this.createLayout(<Home />)} />
+                        {indexRoutes.map((route, key) => {
+                            if (route.redirect) {
+                                return <Redirect from={route.path} to={route.pathTo} key={key}/>;
+                            }
 
-                        <Route render={() => this.createLayout(<NotFound />)} />
+                            return <Route path={route.path} render={() => this.createLayout(route.component)} key={key} exact={route.exact} />;
+                        })}
                     </Switch>
                 </BrowserRouter>
             </MuiThemeProvider>

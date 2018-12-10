@@ -23,7 +23,7 @@ module.exports = {
     devtool: 'inline-source-map',
     entry: [
         'react-hot-loader/patch',
-        './app/index.jsx',
+        './app/index.js',
     ],
     output: {
         path: path.join(__dirname, 'build'),

@@ -13,22 +13,22 @@ import Button from '../../components/CustomButtons/Button';
 
 import headerStyle from '../../assets/jss/material-dashboard-pro-react/components/headerStyle';
 
-function Header({...props}) {
+function Header(props) {
     function makeBrand() {
         let name;
         if (props.routes && props.routes.length) {
-            props.routes.map((prop, key) => {
-                if (prop.collapse) {
-                    prop.views.map((prop, key) => {
-                        if (prop.path === props.location.pathname) {
-                            name = prop.name;
+            props.routes.map((route) => {
+                if (route.collapse) {
+                    route.views.map((view) => {
+                        if (view.path === props.location.pathname) {
+                            name = view.name;
                         }
 
                         return null;
                     });
                 }
-                if (prop.path === props.location.pathname) {
-                    name = prop.name;
+                if (route.path === props.location.pathname) {
+                    name = route.name;
                 }
                 return null;
             });
@@ -36,14 +36,14 @@ function Header({...props}) {
 
         if (name) {
             return name;
-        } else {
-            return 'Default Brand Name';
         }
+
+        return 'Default Brand Name';
     }
 
-    const {classes, color} = props;
+    const { classes, color } = props;
     const appBarClasses = cx({
-        [' ' + classes[color]]: color,
+        [` ${classes[color]}`]: color,
     });
 
     return (
@@ -64,6 +64,10 @@ Header.propTypes = {
     classes: PropTypes.object.isRequired,
     color: PropTypes.oneOf(['primary', 'info', 'success', 'warning', 'danger']),
     rtlActive: PropTypes.bool,
+    routes: PropTypes.array,
+    location: PropTypes.shape({
+        pathname: PropTypes.string.isRequired,
+    }).isRequired,
 };
 
 export default withRouter(withStyles(headerStyle)(Header));
