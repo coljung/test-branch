@@ -1,13 +1,12 @@
-import HomeIcon from '@material-ui/icons/Home';
-import Home from '../Home';
-import { ROUTE_HOME } from './constants';
+import { ComponentsRoute, HomeRoute, TableComponentRoute } from './index';
 
 export default [
+    HomeRoute,
     {
-        path: ROUTE_HOME,
-        name: 'Home',
-        exact: true,
-        icon: HomeIcon,
-        component: Home,
+        ...ComponentsRoute,
+        collapse: true,
+        views: [
+            TableComponentRoute,
+        ],
     },
 ];

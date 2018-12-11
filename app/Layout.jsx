@@ -18,9 +18,11 @@ const Layout = props => (
         <div className={props.classes.mainPanel}>
             <Header routes={props.routes} />
             <main className={props.classes.content}>
-                {props.children}
+                <div className={props.classes.container}>
+                    {props.children}
+                </div>
             </main>
-            <Footer fluid />
+            <Footer routes={props.majorLinks} fluid />
         </div>
     </div>
 );
@@ -32,6 +34,8 @@ Layout.propTypes = {
         PropTypes.node,
     ]),
     appName: PropTypes.string.isRequired,
+    routes: PropTypes.arrayOf(PropTypes.object),
+    majorLinks: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default withStyles(appStyle)(Layout);

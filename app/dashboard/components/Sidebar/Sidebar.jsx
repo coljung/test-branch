@@ -23,6 +23,7 @@ import HeaderLinks from '../Header/HeaderLinks';
 import sidebarStyle from '../../assets/jss/material-dashboard-pro-react/components/sidebarStyle';
 
 import avatar from '../../assets/img/faces/avatar.jpg';
+import { ROUTE_COMPONENTS } from '../../../routes/constants';
 
 let ps;
 
@@ -62,11 +63,7 @@ class Sidebar extends React.Component {
         super(props);
         this.state = {
             openAvatar: false,
-            openComponents: this.activeRoute('/components'),
-            openForms: this.activeRoute('/forms'),
-            openTables: this.activeRoute('/tables'),
-            openMaps: this.activeRoute('/maps'),
-            openPages: this.activeRoute('-page'),
+            openComponents: this.activeRoute(ROUTE_COMPONENTS),
             miniActive: true,
         };
         this.activeRoute.bind(this);
@@ -106,7 +103,7 @@ class Sidebar extends React.Component {
                     this.props.rtlActive && this.props.miniActive && this.state.miniActive,
                     [this.props.classes.logoNormalRTL]: this.props.rtlActive,
                 })}`;
-                
+
             return (
                 <a href='https://ssense.com' className={logoNormal}>
                     {this.props.logoText}
@@ -284,30 +281,23 @@ class Sidebar extends React.Component {
                                 </NavLink>
                                 <Collapse in={this.state[prop.state]} unmountOnExit>
                                     <List className={`${this.props.classes.list} ${this.props.classes.collapseList}`}>
-                                        {prop.views.map((prop2, key2) => {
-                                            if (prop2.redirect) {
+                                        {prop.views.map((view, key2) => {
+                                            if (view.redirect) {
                                                 return null;
                                             }
+
                                             const innerNavLinkClasses =
                                                 `${this.props.classes.collapseItemLink} ${cx({
-                                                    [` ${this.props.classes[color]}`]: this.activeRoute(prop2.path),
-                                                })}`;
-
-                                            const innerCollapseItemMini =
-                                                `${this.props.classes.collapseItemMini} ${cx({
-                                                    [this.props.classes.collapseItemMiniRTL]: this.props.rtlActive,
+                                                    [` ${this.props.classes[color]}`]: this.activeRoute(view.path),
                                                 })}`;
 
                                             return (
                                                 <ListItem key={key2} className={this.props.classes.collapseItem}>
-                                                    <NavLink to={prop2.path} className={innerNavLinkClasses}>
-                                                        <span className={innerCollapseItemMini}>
-                                                          {prop2.mini}
-                                                        </span>
+                                                    <NavLink to={view.path} className={innerNavLinkClasses}>
                                                         <ListItemText
-                                                            primary={prop2.name}
+                                                            primary={view.name}
                                                             disableTypography={true}
-                                                            className={collapseItemText}/>
+                                                            className={collapseItemText} />
                                                     </NavLink>
                                                 </ListItem>
                                             );

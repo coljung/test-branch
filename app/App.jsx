@@ -57,7 +57,7 @@ const theme = createMuiTheme({
 
 class App extends React.Component {
     createLayout = target => (
-        <Layout appName='App Name' routes={sidebarRoutes}>
+        <Layout appName='App Name' routes={sidebarRoutes} majorLinks={indexRoutes}>
             {React.createElement(target)}
         </Layout>
     );
