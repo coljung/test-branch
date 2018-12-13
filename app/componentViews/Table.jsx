@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import withStyles from '@material-ui/core/styles/withStyles';
 import TableIcon from '@material-ui/icons/TableChart';
+import { Table as SSENSETable } from '@ssense/ui-internal-components-react/';
 
 import GridContainer from '../dashboard/components/Grid/GridContainer';
 import GridItem from '../dashboard/components/Grid/GridItem';
@@ -10,7 +11,7 @@ import Card from '../dashboard/components/Card/Card';
 import CardHeader from '../dashboard/components/Card/CardHeader';
 import CardIcon from '../dashboard/components/Card/CardIcon';
 import CardBody from '../dashboard/components/Card/CardBody';
-import MaterialTable from '../dashboard/components/Table/Table';
+// import Table from '../dashboard/components/Table/Table';
 
 import { cardTitle } from '../dashboard/assets/jss/material-dashboard-pro-react.jsx';
 
@@ -64,7 +65,7 @@ const Table = props => (
                             {/*<span className="token tag">*/}
                                 {/*<span className="token tag">*/}
                                     {/*<span className="token punctuation">&lt;</span>*/}
-                                    {/*MaterialTable*/}
+                                    {/*Table*/}
                                 {/*</span>*/}
                                 {/*<span className="token attr-name">tableData</span>*/}
                                 {/*<span className="token script language-javascript">*/}
@@ -82,7 +83,7 @@ const Table = props => (
                                 {/*<span className="token punctuation">&gt;</span>*/}
                             {/*</span>*/}
 
-                            {/*<MaterialTable*/}
+                            {/*<Table*/}
                                 {/*tableData={[*/}
                                     {/*['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],*/}
                                     {/*['Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],*/}
@@ -93,7 +94,7 @@ const Table = props => (
                                 {/*]} />*/}
                         {/*</code>*/}
 
-                        <MaterialTable
+                        <SSENSETable
                             tableData={[
                                 ['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
                                 ['Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
@@ -116,7 +117,7 @@ const Table = props => (
                         </h4>
                     </CardHeader>
                     <CardBody>
-                        <MaterialTable
+                        <SSENSETable
                             tableHead={['Name', 'Country', 'City', 'Salary']}
                             tableData={[
                                 ['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
@@ -140,7 +141,7 @@ const Table = props => (
                         </h4>
                     </CardHeader>
                     <CardBody>
-                        <MaterialTable
+                        <SSENSETable
                             hover
                             tableHead={['Name', 'Country', 'City', 'Salary']}
                             tableData={[
@@ -165,7 +166,7 @@ const Table = props => (
                         </h4>
                     </CardHeader>
                     <CardBody>
-                        <MaterialTable
+                        <SSENSETable
                             striped
                             tableHead={['Name', 'Country', 'City', 'Salary']}
                             tableData={[
@@ -190,7 +191,7 @@ const Table = props => (
                         </h4>
                     </CardHeader>
                     <CardBody>
-                        <MaterialTable
+                        <SSENSETable
                             tableHead={['Name', 'Country', 'City', 'Salary']}
                             tableData={[
                                 {
@@ -232,7 +233,7 @@ const Table = props => (
                         </h4>
                     </CardHeader>
                     <CardBody>
-                        <MaterialTable
+                        <SSENSETable
                             tableHead={['Name', 'Country', 'City', 'Salary']}
                             tableData={[
                                 ['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
