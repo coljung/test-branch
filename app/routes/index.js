@@ -4,7 +4,7 @@ import Home from '../Home';
 import Components from '../Components';
 import NotFound from '../NotFound';
 import { ROUTE_COMPONENTS, ROUTE_COMPONENTS_TABLES, ROUTE_HOME } from './constants';
-import Tables from '../componentViews/Table';
+import Tables from '../componentViews/TableView';
 
 export const HomeRoute = {
     path: ROUTE_HOME,

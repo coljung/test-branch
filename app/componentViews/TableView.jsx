@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 
 import withStyles from '@material-ui/core/styles/withStyles';
 import TableIcon from '@material-ui/icons/TableChart';
-import { Table as SSENSETable } from '@ssense/ui-internal-components-react/';
+import { Table, Card, CardHeader, CardIcon, CardBody } from '@ssense/ui-internal-components-react/';
+
+import Markdown from 'markdown-to-jsx';
 
 import GridContainer from '../dashboard/components/Grid/GridContainer';
 import GridItem from '../dashboard/components/Grid/GridItem';
-import Card from '../dashboard/components/Card/Card';
-import CardHeader from '../dashboard/components/Card/CardHeader';
-import CardIcon from '../dashboard/components/Card/CardIcon';
-import CardBody from '../dashboard/components/Card/CardBody';
+// import Card from '../dashboard/components/Card/Card';
+// import CardHeader from '../dashboard/components/Card/CardHeader';
+// import CardIcon from '../dashboard/components/Card/CardIcon';
+// import CardBody from '../dashboard/components/Card/CardBody';
 // import Table from '../dashboard/components/Table/Table';
 
 import { cardTitle } from '../dashboard/assets/jss/material-dashboard-pro-react.jsx';
@@ -29,7 +31,24 @@ const style = {
     },
 };
 
-const Table = props => (
+const md = `
+# DatePicker
+ 
+The DatePicker works by supplying a date to bias towards,
+as well as a default timezone.
+ 
+<Table
+    tableData={[
+        ['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
+        ['Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
+        ['Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
+        ['Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
+        ['Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
+        ['Mason Porter', 'Chile', 'Gloucester', '$78,615'],
+    ]} />
+`;
+
+const TableView = props => (
     <React.Fragment>
         <GridContainer>
             <GridItem xs={12}>
@@ -61,40 +80,7 @@ const Table = props => (
                           <p>This is very nice.</p>
                         </span>
 
-                        {/*<code className='language-jsx'>*/}
-                            {/*<span className="token tag">*/}
-                                {/*<span className="token tag">*/}
-                                    {/*<span className="token punctuation">&lt;</span>*/}
-                                    {/*Table*/}
-                                {/*</span>*/}
-                                {/*<span className="token attr-name">tableData</span>*/}
-                                {/*<span className="token script language-javascript">*/}
-                                    {/*<span className="token script-punctuation punctuation">=</span>*/}
-                                    {/*<span className="token punctuation">{</span>*/}
-                                    {/*<span class="token punctuation">[</span>*/}
-                                    {/*<span className="token script language-javascript">*/}
-                                        {/*<span className="token punctuation">[</span>*/}
-                                        {/*<span className="token punctuation">]</span>*/}
-                                    {/*</span>*/}
-                                        {/*['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],*/}
-                                    {/*<span className="token punctuation">]</span>*/}
-                                    {/*<span className="token punctuation">}</span>*/}
-                                {/*</span>*/}
-                                {/*<span className="token punctuation">&gt;</span>*/}
-                            {/*</span>*/}
-
-                            {/*<Table*/}
-                                {/*tableData={[*/}
-                                    {/*['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],*/}
-                                    {/*['Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],*/}
-                                    {/*['Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],*/}
-                                    {/*['Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],*/}
-                                    {/*['Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],*/}
-                                    {/*['Mason Porter', 'Chile', 'Gloucester', '$78,615'],*/}
-                                {/*]} />*/}
-                        {/*</code>*/}
-
-                        <SSENSETable
+                        <Table
                             tableData={[
                                 ['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
                                 ['Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
@@ -103,6 +89,17 @@ const Table = props => (
                                 ['Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
                                 ['Mason Porter', 'Chile', 'Gloucester', '$78,615'],
                             ]} />
+
+                        <Markdown
+                            children={md}
+                            options={{
+                                overrides: {
+                                    Table: {
+                                        component: Table,
+                                    },
+                                },
+                            }}
+                        />
                     </CardBody>
                 </Card>
             </GridItem>
@@ -117,7 +114,7 @@ const Table = props => (
                         </h4>
                     </CardHeader>
                     <CardBody>
-                        <SSENSETable
+                        <Table
                             tableHead={['Name', 'Country', 'City', 'Salary']}
                             tableData={[
                                 ['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
@@ -141,7 +138,7 @@ const Table = props => (
                         </h4>
                     </CardHeader>
                     <CardBody>
-                        <SSENSETable
+                        <Table
                             hover
                             tableHead={['Name', 'Country', 'City', 'Salary']}
                             tableData={[
@@ -166,7 +163,7 @@ const Table = props => (
                         </h4>
                     </CardHeader>
                     <CardBody>
-                        <SSENSETable
+                        <Table
                             striped
                             tableHead={['Name', 'Country', 'City', 'Salary']}
                             tableData={[
@@ -191,7 +188,7 @@ const Table = props => (
                         </h4>
                     </CardHeader>
                     <CardBody>
-                        <SSENSETable
+                        <Table
                             tableHead={['Name', 'Country', 'City', 'Salary']}
                             tableData={[
                                 {
@@ -233,7 +230,7 @@ const Table = props => (
                         </h4>
                     </CardHeader>
                     <CardBody>
-                        <SSENSETable
+                        <Table
                             tableHead={['Name', 'Country', 'City', 'Salary']}
                             tableData={[
                                 ['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
@@ -259,8 +256,8 @@ const Table = props => (
     </React.Fragment>
 );
 
-Table.propTypes = {
+TableView.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(style)(Table);
+export default withStyles(style)(TableView);
