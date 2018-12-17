@@ -5,15 +5,8 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import TableIcon from '@material-ui/icons/TableChart';
 import { Table, Card, CardHeader, CardIcon, CardBody } from '@ssense/ui-internal-components-react/';
 
-import Markdown from 'markdown-to-jsx';
-
 import GridContainer from '../dashboard/components/Grid/GridContainer';
 import GridItem from '../dashboard/components/Grid/GridItem';
-// import Card from '../dashboard/components/Card/Card';
-// import CardHeader from '../dashboard/components/Card/CardHeader';
-// import CardIcon from '../dashboard/components/Card/CardIcon';
-// import CardBody from '../dashboard/components/Card/CardBody';
-// import Table from '../dashboard/components/Table/Table';
 
 import { cardTitle } from '../dashboard/assets/jss/material-dashboard-pro-react.jsx';
 
@@ -30,23 +23,6 @@ const style = {
         textAlign: 'center',
     },
 };
-
-const md = `
-# DatePicker
- 
-The DatePicker works by supplying a date to bias towards,
-as well as a default timezone.
- 
-<Table
-    tableData={[
-        ['Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-        ['Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-        ['Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-        ['Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
-        ['Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
-        ['Mason Porter', 'Chile', 'Gloucester', '$78,615'],
-    ]} />
-`;
 
 const TableView = props => (
     <React.Fragment>
@@ -89,17 +65,6 @@ const TableView = props => (
                                 ['Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
                                 ['Mason Porter', 'Chile', 'Gloucester', '$78,615'],
                             ]} />
-
-                        <Markdown
-                            children={md}
-                            options={{
-                                overrides: {
-                                    Table: {
-                                        component: Table,
-                                    },
-                                },
-                            }}
-                        />
                     </CardBody>
                 </Card>
             </GridItem>
