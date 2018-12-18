@@ -18,7 +18,6 @@
   "dependencies": {
     "@material-ui/core": "^3.6.0",
     "@material-ui/icons": "*",
-    "@mathdoy/toggle-react": "^1.1.2",
     "@ssense/ui-internal-components-react": "git+ssh://git@github.com/Groupe-Atallah/ui-internal-components-react.git",
     "autoprefixer": "^7.2.6",
     "chalk": "^1.1.3",

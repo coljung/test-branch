@@ -5,13 +5,15 @@ import Header from './dashboard/components/Header/Header';
 import Footer from './dashboard/components/Footer/Footer';
 import Sidebar from './dashboard/components/Sidebar/Sidebar';
 import appStyle from './dashboard/assets/jss/material-dashboard-pro-react/layouts/dashboardStyle.jsx';
+import logo from './dashboard/assets/img/SSENSE.png';
 
 const Layout = props => (
     <div className={props.classes.wrapper}>
         <Sidebar
             routes={props.routes}
             logoText={props.appName}
-            logo='https://www.wagjag.com/coupons/vfiles/4538-0580e9fc9ebfc6cd36f805a4b0a37198.png'
+            logo={logo}
+            user={props.user}
             color='white'
             bgColor='black'
             {...props.rest} />
@@ -34,6 +36,7 @@ Layout.propTypes = {
         PropTypes.node,
     ]),
     appName: PropTypes.string.isRequired,
+    user: PropTypes.object,
     routes: PropTypes.arrayOf(PropTypes.object),
     majorLinks: PropTypes.arrayOf(PropTypes.object),
 };

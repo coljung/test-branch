@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import withStyles from '@material-ui/core/styles/withStyles';
+import Grid from '@material-ui/core/Grid';
 import TableIcon from '@material-ui/icons/TableChart';
 import { Table, Card, CardHeader, CardIcon, CardBody } from '@ssense/ui-internal-components-react/';
-
-import GridContainer from '../dashboard/components/Grid/GridContainer';
-import GridItem from '../dashboard/components/Grid/GridItem';
 
 import { cardTitle } from '../dashboard/assets/jss/material-dashboard-pro-react.jsx';
 
@@ -26,8 +24,8 @@ const style = {
 
 const TableView = props => (
     <React.Fragment>
-        <GridContainer>
-            <GridItem xs={12}>
+        <Grid container>
+            <Grid item xs={12}>
                 <Card>
                     <CardHeader color="info" icon>
                         <CardIcon color="info">
@@ -67,8 +65,8 @@ const TableView = props => (
                             ]} />
                     </CardBody>
                 </Card>
-            </GridItem>
-            <GridItem xs={12}>
+            </Grid>
+            <Grid item xs={12}>
                 <Card>
                     <CardHeader color="info" icon>
                         <CardIcon color="info">
@@ -91,8 +89,8 @@ const TableView = props => (
                             ]} />
                     </CardBody>
                 </Card>
-            </GridItem>
-            <GridItem xs={12}>
+            </Grid>
+            <Grid item xs={12}>
                 <Card>
                     <CardHeader color="info" icon>
                         <CardIcon color="info">
@@ -116,8 +114,8 @@ const TableView = props => (
                             ]} />
                     </CardBody>
                 </Card>
-            </GridItem>
-            <GridItem xs={12}>
+            </Grid>
+            <Grid item xs={12}>
                 <Card>
                     <CardHeader color="info" icon>
                         <CardIcon color="info">
@@ -141,8 +139,8 @@ const TableView = props => (
                             ]} />
                     </CardBody>
                 </Card>
-            </GridItem>
-            <GridItem xs={12}>
+            </Grid>
+            <Grid item xs={12}>
                 <Card>
                     <CardHeader color="info" icon>
                         <CardIcon color="info">
@@ -183,8 +181,8 @@ const TableView = props => (
                             ]} />
                     </CardBody>
                 </Card>
-            </GridItem>
-            <GridItem xs={12}>
+            </Grid>
+            <Grid item xs={12}>
                 <Card>
                     <CardHeader color="info" icon>
                         <CardIcon color="info">
@@ -216,8 +214,8 @@ const TableView = props => (
                             customHeadClassesForCells={[3]} />
                     </CardBody>
                 </Card>
-            </GridItem>
-        </GridContainer>
+            </Grid>
+        </Grid>
     </React.Fragment>
 );
 

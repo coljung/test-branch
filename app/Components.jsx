@@ -7,10 +7,6 @@ import dashboardStyle from './dashboard/assets/jss/material-dashboard-pro-react/
 import GridContainer from './dashboard/components/Grid/GridContainer';
 import GridItem from './dashboard/components/Grid/GridItem';
 import Card from './dashboard/components/Card/Card';
-import CardHeader from './dashboard/components/Card/CardHeader';
-import CardIcon from './dashboard/components/Card/CardIcon';
-import CardBody from './dashboard/components/Card/CardBody';
-import Table from './dashboard/components/Table/Table';
 
 const Components = props => (
     <React.Fragment>

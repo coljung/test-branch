@@ -22,9 +22,6 @@ import HeaderLinks from '../Header/HeaderLinks';
 
 import sidebarStyle from '../../assets/jss/material-dashboard-pro-react/components/sidebarStyle';
 
-import avatar from '../../assets/img/faces/avatar.jpg';
-import { ROUTE_COMPONENTS } from '../../../routes/constants';
-
 let ps;
 
 // We've created this component so we can have a ref to the wrapper of the links that appears in our sidebar.
@@ -63,7 +60,7 @@ class Sidebar extends React.Component {
         super(props);
         this.state = {
             openAvatar: false,
-            openComponents: this.activeRoute(ROUTE_COMPONENTS),
+            // openComponents: this.activeRoute(ROUTE_COMPONENTS), TODO Find a way to do this
             miniActive: true,
         };
         this.activeRoute.bind(this);
@@ -177,7 +174,7 @@ class Sidebar extends React.Component {
         const user = (
             <div className={userWrapperClass}>
                 <div className={photo}>
-                    <img src={avatar} className={this.props.classes.avatarImg} alt='...'/>
+                    <img src={this.props.user.avatar} className={this.props.classes.avatarImg} alt='...'/>
                 </div>
                 <List className={classes.list}>
                     <ListItem className={`${this.props.classes.item} ${classes.userItem}`}>
@@ -186,7 +183,7 @@ class Sidebar extends React.Component {
                             className={`${this.props.classes.itemLink} ${classes.userCollapseButton}`}
                             onClick={() => this.openCollapse('openAvatar')}>
                             <ListItemText
-                                primary='Tania Andrew'
+                                primary={this.props.user.name}
                                 secondary={
                                     <b classes={`${caret} ${this.props.classes.userCaret} ${(this.state.openAvatar ? classes.caretActive : '')}`}/>
                                 }
@@ -424,6 +421,7 @@ Sidebar.propTypes = {
         'purple',
         'rose',
     ]),
+    user: PropTypes.object,
     logo: PropTypes.string,
     logoText: PropTypes.string,
     image: PropTypes.string,
