@@ -1,22 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
+import { Card } from '@ssense/ui-internal-components-react/';
 
-import withStyles from '@material-ui/core/styles/withStyles';
-
-import dashboardStyle from './dashboard/assets/jss/material-dashboard-pro-react/views/dashboardStyle';
-import GridContainer from './dashboard/components/Grid/GridContainer';
-import GridItem from './dashboard/components/Grid/GridItem';
-import Card from './dashboard/components/Card/Card';
-
-const Components = props => (
+const Components = () => (
     <React.Fragment>
-        <GridContainer>
-            <GridItem xs={12}>
+        <Grid container>
+            <Grid item xs={12}>
                 <Card>
                     allo
                 </Card>
-            </GridItem>
-        </GridContainer>
+            </Grid>
+        </Grid>
     </React.Fragment>
 );
 
