@@ -8,12 +8,7 @@
     "dev": "NODE_ENV=development webpack-dev-server --color --hot --inline --config ./webpack.dev.config.js",
     "build": "NODE_ENV=production UV_THREADPOOL_SIZE=100 webpack --config ./webpack.prod.config.js",
     "lint": "eslint 'app/**'",
-    "lint:fix": "eslint 'app/**' --fix",
-    "test": "jest",
-    "test:unit": "jest --coverage",
-    "test:unit:watch": "jest --watch",
-    "cover": "npm run test:unit",
-    "coveralls": "cat tests/coverage/unit/lcov.info | coveralls"
+    "lint:fix": "eslint 'app/**' --fix"
   },
   "dependencies": {
     "@material-ui/core": "^3.6.0",
@@ -61,12 +56,7 @@
     "babel-preset-stage-2": "^6.18.0",
     "babel-register": "^6.16.3",
     "babel-runtime": "^6.11.6",
-    "chai": "^3.5.0",
-    "coveralls": "^3.0.2",
     "css-loader": "^0.28.11",
-    "enzyme": "^3.4.4",
-    "enzyme-adapter-react-16": "^1.2.0",
-    "enzyme-to-json": "^3.3.4",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-ui-core": "^0.2.2",
@@ -78,8 +68,6 @@
     "file-loader": "^0.11.1",
     "html-webpack-plugin": "^2.24.1",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^21.2.1",
-    "jest-webpack-alias": "^3.3.3",
     "jsdom": "^10.1.0",
     "less": "^2.7.3",
     "less-loader": "^4.1.0",
@@ -87,75 +75,11 @@
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "postcss-loader": "^2.1.6",
     "progress-bar-webpack-plugin": "^1.11.0",
-    "react-test-renderer": "^16.4.2",
-    "sinon": "^2.1.0",
     "style-loader": "^0.17.0",
     "url-loader": "^0.5.7",
     "webpack-dashboard": "^1.1.1",
     "webpack-dev-middleware": "^2.0.6",
     "webpack-dev-server": "^2.11.3",
     "webpack-hot-middleware": "^2.22.3"
-  },
-  "jest-webpack-alias": {
-    "configFile": "webpack.dev.config.js"
-  },
-  "jest": {
-    "setupFiles": [
-      "<rootDir>/tests/shim.js",
-      "<rootDir>/tests/setupTests.js"
-    ],
-    "testMatch": [
-      "<rootDir>/tests/unit/**/*.{js,jsx}"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "coverageDirectory": "<rootDir>/tests/coverage/unit",
-    "coverageReporters": [
-      "lcov",
-      "json",
-      "html",
-      "text",
-      "text-summary"
-    ],
-    "transform": {
-      "^.+\\.(css|less|scss)$": "identity-obj-proxy",
-      "^.+\\.jsx?$": "babel-jest"
-    },
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "moduleDirectories": [
-      "node_modules"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|less)$": "<rootDir>/tests/helpers/styleMock.js",
-      "notifications(.*)$": "<rootDir>/app/notifications/$1"
-    },
-    "bail": true,
-    "verbose": true,
-    "globals": {
-      "__DEV__": true,
-      "__HOT_BUILD_DATE__": "",
-      "__HOT_PACKAGE_NAME__": "",
-      "__HOT_VERSION__": "",
-      "__HOT_BASE_VERSION__": "",
-      "UI_HOST": "http://127.0.0.1"
-    },
-    "collectCoverageFrom": [
-      "**/app/**/*.{js,jsx}",
-      "!**/app/styles/**",
-      "!**/__mocks__/**",
-      "!**/__tests__/**"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 5,
-        "functions": 15,
-        "lines": 15,
-        "statements": 0
-      }
-    }
   }
 }

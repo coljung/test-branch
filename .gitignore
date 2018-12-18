@@ -3,5 +3,4 @@ npm-debug.log
 .idea
 build
 stats.json
-tests/coverage
 .nyc_output
