@@ -2,9 +2,10 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { SSENSEThemeProvider } from '@ssense/ui-internal-components-react/lib/styles/SSENSEThemeProvider';
+import Layout from '@ssense/ui-internal-components-react/lib/Layout';
 import indexRoutes from './routes/index.js';
 import sidebarRoutes from './routes/sidebar.js';
-import Layout from './Layout';
+import logo from '../public/images/SSENSE.png';
 
 class App extends React.Component {
     user = {
@@ -13,14 +14,14 @@ class App extends React.Component {
     };
 
     createLayout = target => (
-        <Layout appName='App Name' routes={sidebarRoutes} majorLinks={indexRoutes} user={this.user}>
+        <Layout appName='App Name' routes={sidebarRoutes} majorLinks={indexRoutes} user={this.user} logo={logo}>
             {React.createElement(target)}
         </Layout>
     );
 
     render() {
         return (
-            <SSENSEThemeProvider theme={{}}>
+            <SSENSEThemeProvider>
                 <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
                     <Switch>
                         {indexRoutes.map((route, key) => {

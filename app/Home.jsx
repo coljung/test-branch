@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
 import Tooltip from '@material-ui/core/Tooltip';
+import Grid from '@material-ui/core/Grid';
 import Icon from '@material-ui/core/Icon';
 
 // @material-ui/icons
@@ -18,31 +19,30 @@ import Place from '@material-ui/icons/Place';
 import ArtTrack from '@material-ui/icons/ArtTrack';
 import Language from '@material-ui/icons/Language';
 
+import dashboardStyle from '@ssense/ui-internal-components-react/lib/assets/jss/material-dashboard-pro-react/views/dashboardStyle';
+
 // core components
-import GridContainer from './dashboard/components/Grid/GridContainer.jsx';
-import GridItem from './dashboard/components/Grid/GridItem.jsx';
-import Table from './dashboard/components/Table/Table.jsx';
+import Card from '@ssense/ui-internal-components-react/lib/components/Card/Card';
+import CardHeader from '@ssense/ui-internal-components-react/lib/components/Card/CardHeader';
+import CardIcon from '@ssense/ui-internal-components-react/lib/components/Card/CardIcon';
+import CardBody from '@ssense/ui-internal-components-react/lib/components/Card/CardBody';
+import CardFooter from '@ssense/ui-internal-components-react/lib/components/Card/CardFooter';
+import Table from '@ssense/ui-internal-components-react/lib/components/Table/Table';
+
 import Button from './dashboard/components/CustomButtons/Button.jsx';
 import Danger from './dashboard/components/Typography/Danger.jsx';
-import Card from './dashboard/components/Card/Card.jsx';
-import CardHeader from './dashboard/components/Card/CardHeader.jsx';
-import CardIcon from './dashboard/components/Card/CardIcon.jsx';
-import CardBody from './dashboard/components/Card/CardBody.jsx';
-import CardFooter from './dashboard/components/Card/CardFooter.jsx';
 
-import dashboardStyle from './dashboard/assets/jss/material-dashboard-pro-react/views/dashboardStyle';
-
-const usFlag = require('./dashboard/assets/img/flags/US.png');
-const deFlag = require('./dashboard/assets/img/flags/DE.png');
-const auFlag = require('./dashboard/assets/img/flags/AU.png');
-const gbFlag = require('./dashboard/assets/img/flags/GB.png');
-const roFlag = require('./dashboard/assets/img/flags/RO.png');
-const brFlag = require('./dashboard/assets/img/flags/BR.png');
+const usFlag = require('../public/images/flags/US.png');
+const deFlag = require('../public/images/flags/DE.png');
+const auFlag = require('../public/images/flags/AU.png');
+const gbFlag = require('../public/images/flags/GB.png');
+const roFlag = require('../public/images/flags/RO.png');
+const brFlag = require('../public/images/flags/BR.png');
 
 const Home = props => (
     <React.Fragment>
-        <GridContainer>
-            <GridItem xs={12} sm={6} md={6} lg={3}>
+        <Grid container>
+            <Grid item xs={12} sm={6} md={6} lg={3}>
                 <Card>
                     <CardHeader color="warning" stats icon>
                         <p className={props.classes.cardCategory}>Used Space</p>
@@ -61,8 +61,8 @@ const Home = props => (
                         </div>
                     </CardFooter>
                 </Card>
-            </GridItem>
-            <GridItem xs={12} sm={6} md={6} lg={3}>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6} lg={3}>
                 <Card>
                     <CardHeader color="success" stats icon>
                         <CardIcon color="success">
@@ -78,8 +78,8 @@ const Home = props => (
                         </div>
                     </CardFooter>
                 </Card>
-            </GridItem>
-            <GridItem xs={12} sm={6} md={6} lg={3}>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6} lg={3}>
                 <Card>
                     <CardHeader color="danger" stats icon>
                         <CardIcon color="danger">
@@ -95,8 +95,8 @@ const Home = props => (
                         </div>
                     </CardFooter>
                 </Card>
-            </GridItem>
-            <GridItem xs={12} sm={6} md={6} lg={3}>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6} lg={3}>
                 <Card>
                     <CardHeader color="info" stats icon>
                         <CardIcon color="info">
@@ -112,10 +112,10 @@ const Home = props => (
                         </div>
                     </CardFooter>
                 </Card>
-            </GridItem>
-        </GridContainer>
-        <GridContainer>
-            <GridItem xs={12}>
+            </Grid>
+        </Grid>
+        <Grid container>
+            <Grid item xs={12}>
                 <Card>
                     <CardHeader color="success" icon>
                         <CardIcon color="success">
@@ -126,8 +126,8 @@ const Home = props => (
                         </h4>
                     </CardHeader>
                     <CardBody>
-                        <GridContainer justify="space-between">
-                            <GridItem xs={12} sm={12} md={5}>
+                        <Grid container justify="space-between">
+                            <Grid item xs={12} sm={12} md={5}>
                                 <Table
                                     tableData={[
                                         [
@@ -168,16 +168,16 @@ const Home = props => (
                                         ],
                                     ]}
                                 />
-                            </GridItem>
-                        </GridContainer>
+                            </Grid>
+                        </Grid>
                     </CardBody>
                 </Card>
-            </GridItem>
-        </GridContainer>
+            </Grid>
+        </Grid>
         <h3>Manage Listings</h3>
         <br/>
-        <GridContainer>
-            <GridItem xs={12} sm={12} md={4}>
+        <Grid container>
+            <Grid item xs={12} sm={12} md={4}>
                 <Card product className={props.classes.cardHover}>
                     <CardHeader image className={props.classes.cardHeaderHover}>
                         <a href="#pablo" onClick={e => e.preventDefault()}>
@@ -235,8 +235,8 @@ const Home = props => (
                         </div>
                     </CardFooter>
                 </Card>
-            </GridItem>
-            <GridItem xs={12} sm={12} md={4}>
+            </Grid>
+            <Grid item xs={12} sm={12} md={4}>
                 <Card product className={props.classes.cardHover}>
                     <CardHeader image className={props.classes.cardHeaderHover}>
                         <a href="#pablo" onClick={e => e.preventDefault()}>
@@ -294,8 +294,8 @@ const Home = props => (
                         </div>
                     </CardFooter>
                 </Card>
-            </GridItem>
-            <GridItem xs={12} sm={12} md={4}>
+            </Grid>
+            <Grid item xs={12} sm={12} md={4}>
                 <Card product className={props.classes.cardHover}>
                     <CardHeader image className={props.classes.cardHeaderHover}>
                         <a href="#pablo" onClick={e => e.preventDefault()}>
@@ -353,8 +353,8 @@ const Home = props => (
                         </div>
                     </CardFooter>
                 </Card>
-            </GridItem>
-        </GridContainer>
+            </Grid>
+        </Grid>
     </React.Fragment>
 );
 

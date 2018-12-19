@@ -151,93 +151,96 @@ class Sidebar extends React.Component {
                 [this.props.classes.collapseItemTextRTL]: this.props.rtlActive,
             })}`;
 
-        const userWrapperClass =
-            `${this.props.classes.user} ${cx({
-                [this.props.classes.whiteAfter]: this.props.bgColor === 'white',
-            })}`;
-
         const caret =
             `${this.props.classes.caret} ${cx({
                 [this.props.classes.caretRTL]: this.props.rtlActive,
             })}`;
 
-        const collapseItemMini =
-            `${this.props.classes.collapseItemMini} ${cx({
-                [this.props.classes.collapseItemMiniRTL]: this.props.rtlActive,
-            })}`;
+        let userProfileItem = null;
+        if (this.props.user) {
+            const userWrapperClass =
+                `${this.props.classes.user} ${cx({
+                    [this.props.classes.whiteAfter]: this.props.bgColor === 'white',
+                })}`;
 
-        const photo =
-            `${this.props.classes.photo} ${cx({
-                [this.props.classes.photoRTL]: this.props.rtlActive,
-            })}`;
+            const photo =
+                `${this.props.classes.photo} ${cx({
+                    [this.props.classes.photoRTL]: this.props.rtlActive,
+                })}`;
 
-        const user = (
-            <div className={userWrapperClass}>
-                <div className={photo}>
-                    <img src={this.props.user.avatar} className={this.props.classes.avatarImg} alt='...'/>
-                </div>
-                <List className={classes.list}>
-                    <ListItem className={`${this.props.classes.item} ${classes.userItem}`}>
-                        <NavLink
-                            to={'#'}
-                            className={`${this.props.classes.itemLink} ${classes.userCollapseButton}`}
-                            onClick={() => this.openCollapse('openAvatar')}>
-                            <ListItemText
-                                primary={this.props.user.name}
-                                secondary={
-                                    <b classes={`${caret} ${this.props.classes.userCaret} ${(this.state.openAvatar ? classes.caretActive : '')}`}/>
-                                }
-                                disableTypography={true}
-                                className={`${itemText} ${classes.userItemText}`}
-                            />
-                        </NavLink>
-                        <Collapse in={this.state.openAvatar} unmountOnExit>
-                            <List className={`${this.props.classes.list} ${classes.collapseList}`}>
-                                <ListItem className={classes.collapseItem}>
-                                    <NavLink
-                                        to='#'
-                                        className={`${classes.itemLink} ${classes.userCollapseLinks}`}>
+            const collapseItemMini =
+                `${this.props.classes.collapseItemMini} ${cx({
+                    [this.props.classes.collapseItemMiniRTL]: this.props.rtlActive,
+                })}`;
+
+            userProfileItem = (
+                <div className={userWrapperClass}>
+                    <div className={photo}>
+                        <img src={this.props.user.avatar} className={this.props.classes.avatarImg} alt='...'/>
+                    </div>
+                    <List className={classes.list}>
+                        <ListItem className={`${this.props.classes.item} ${classes.userItem}`}>
+                            <NavLink
+                                to={'#'}
+                                className={`${this.props.classes.itemLink} ${classes.userCollapseButton}`}
+                                onClick={() => this.openCollapse('openAvatar')}>
+                                <ListItemText
+                                    primary={this.props.user.name}
+                                    secondary={
+                                        <b classes={`${caret} ${this.props.classes.userCaret} ${(this.state.openAvatar ? classes.caretActive : '')}`}/>
+                                    }
+                                    disableTypography={true}
+                                    className={`${itemText} ${classes.userItemText}`}
+                                />
+                            </NavLink>
+                            <Collapse in={this.state.openAvatar} unmountOnExit>
+                                <List className={`${this.props.classes.list} ${classes.collapseList}`}>
+                                    <ListItem className={classes.collapseItem}>
+                                        <NavLink
+                                            to='#'
+                                            className={`${classes.itemLink} ${classes.userCollapseLinks}`}>
                                         <span className={collapseItemMini}>
                                             MP
                                         </span>
-                                        <ListItemText
-                                            primary='My Profile'
-                                            disableTypography={true}
-                                            className={collapseItemText}/>
-                                    </NavLink>
-                                </ListItem>
-                                <ListItem className={this.props.classes.collapseItem}>
-                                    <NavLink
-                                        to='#'
-                                        className={`${classes.itemLink} ${classes.userCollapseLinks}`}>
+                                            <ListItemText
+                                                primary='My Profile'
+                                                disableTypography={true}
+                                                className={collapseItemText}/>
+                                        </NavLink>
+                                    </ListItem>
+                                    <ListItem className={this.props.classes.collapseItem}>
+                                        <NavLink
+                                            to='#'
+                                            className={`${classes.itemLink} ${classes.userCollapseLinks}`}>
                                         <span className={collapseItemMini}>
                                             EP
                                         </span>
-                                        <ListItemText
-                                            primary='Edit Profile'
-                                            disableTypography={true}
-                                            className={collapseItemText}/>
-                                    </NavLink>
-                                </ListItem>
-                                <ListItem className={this.props.classes.collapseItem}>
-                                    <NavLink
-                                        to='#'
-                                        className={`${this.props.classes.itemLink} ${this.props.classes.userCollapseLinks}`}>
+                                            <ListItemText
+                                                primary='Edit Profile'
+                                                disableTypography={true}
+                                                className={collapseItemText}/>
+                                        </NavLink>
+                                    </ListItem>
+                                    <ListItem className={this.props.classes.collapseItem}>
+                                        <NavLink
+                                            to='#'
+                                            className={`${this.props.classes.itemLink} ${this.props.classes.userCollapseLinks}`}>
                                         <span className={collapseItemMini}>
                                             S
                                         </span>
-                                        <ListItemText
-                                            primary='Settings'
-                                            disableTypography={true}
-                                            className={collapseItemText}/>
-                                    </NavLink>
-                                </ListItem>
-                            </List>
-                        </Collapse>
-                    </ListItem>
-                </List>
-            </div>
-        );
+                                            <ListItemText
+                                                primary='Settings'
+                                                disableTypography={true}
+                                                className={collapseItemText}/>
+                                        </NavLink>
+                                    </ListItem>
+                                </List>
+                            </Collapse>
+                        </ListItem>
+                    </List>
+                </div>
+            );
+        }
 
         const links = (
             <List className={classes.list}>
@@ -365,7 +368,7 @@ class Sidebar extends React.Component {
                         {brand}
                         <SidebarWrapper
                             className={sidebarWrapper}
-                            user={user}
+                            user={userProfileItem}
                             headerLinks={<HeaderLinks rtlActive={this.props.rtlActive}/>}
                             links={links}/>
                         {image !== undefined ? (
@@ -389,7 +392,7 @@ class Sidebar extends React.Component {
                         {brand}
                         <SidebarWrapper
                             className={sidebarWrapper}
-                            user={user}
+                            user={userProfileItem}
                             links={links}/>
                         {image !== undefined ? (
                             <div

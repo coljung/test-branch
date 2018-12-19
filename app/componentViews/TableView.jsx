@@ -4,9 +4,13 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import TableIcon from '@material-ui/icons/TableChart';
-import { Table, Card, CardHeader, CardIcon, CardBody } from '@ssense/ui-internal-components-react/';
+import Card from '@ssense/ui-internal-components-react/lib/components/Card/Card';
+import CardHeader from '@ssense/ui-internal-components-react/lib/components/Card/CardHeader';
+import CardIcon from '@ssense/ui-internal-components-react/lib/components/Card/CardIcon';
+import CardBody from '@ssense/ui-internal-components-react/lib/components/Card/CardBody';
+import Table from '@ssense/ui-internal-components-react/lib/components/Table/Table';
 
-import { cardTitle } from '../dashboard/assets/jss/material-dashboard-pro-react.jsx';
+import { cardTitle } from '@ssense/ui-internal-components-react/lib/assets/jss/material-dashboard-pro-react';
 
 const style = {
     cardIconTitle: {
