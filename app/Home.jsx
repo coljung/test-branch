@@ -9,7 +9,6 @@ import Icon from '@material-ui/core/Icon';
 
 // @material-ui/icons
 import Store from '@material-ui/icons/Store';
-import Warning from '@material-ui/icons/Warning';
 import DateRange from '@material-ui/icons/DateRange';
 import LocalOffer from '@material-ui/icons/LocalOffer';
 import Update from '@material-ui/icons/Update';
@@ -28,9 +27,7 @@ import CardIcon from '@ssense/ui-internal-components-react/lib/components/Card/C
 import CardBody from '@ssense/ui-internal-components-react/lib/components/Card/CardBody';
 import CardFooter from '@ssense/ui-internal-components-react/lib/components/Card/CardFooter';
 import Table from '@ssense/ui-internal-components-react/lib/components/Table/Table';
-
-import Button from './dashboard/components/CustomButtons/Button.jsx';
-import Danger from './dashboard/components/Typography/Danger.jsx';
+import Button from '@ssense/ui-internal-components-react/lib/components/CustomButtons/Button';
 
 const usFlag = require('../public/images/flags/US.png');
 const deFlag = require('../public/images/flags/DE.png');
@@ -52,9 +49,6 @@ const Home = props => (
                     </CardHeader>
                     <CardFooter stats>
                         <div className={props.classes.stats}>
-                            <Danger>
-                                <Warning/>
-                            </Danger>
                             <a href="#pablo" onClick={e => e.preventDefault()}>
                                 Get more space
                             </a>

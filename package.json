@@ -13,7 +13,7 @@
   "dependencies": {
     "@material-ui/core": "^3.7.0",
     "@material-ui/icons": "*",
-    "@ssense/ui-internal-components-react": "0.0.2",
+    "@ssense/ui-internal-components-react": "0.0.5",
     "autoprefixer": "^7.2.6",
     "chalk": "^1.1.3",
     "chartist": "^0.11.0",
