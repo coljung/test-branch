@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const base = require('./webpack.config');
-const OfflinePlugin = require('offline-plugin');
+// const OfflinePlugin = require('offline-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 base.devtool = 'source-map';
@@ -21,13 +21,13 @@ base.plugins.push(
         compress: { warnings: false },
         output: { comments: false },
     }),
-    new OfflinePlugin({
-        // prefetchRequest: { credentials: 'include' },
-        caches: 'all',
-        publicPath: '/',
-        relativePaths: false,
-        // eslint-disable-next-line comma-dangle
-    })
+    // new OfflinePlugin({
+    //     // prefetchRequest: { credentials: 'include' },
+    //     caches: 'all',
+    //     publicPath: '/',
+    //     relativePaths: false,
+    //     // eslint-disable-next-line comma-dangle
+    // })
 );
 
 module.exports = base;
