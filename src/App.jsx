@@ -9,7 +9,7 @@ import logo from '../public/images/SSENSE.png';
 
 class App extends React.Component {
     user = {
-        name: 'Maxime Gaudreault Proulx',
+        name: 'Maxime Gaudrddeault Proulx',
         avatar: 'https://avatars0.githubusercontent.com/u/4981701?s=460&v=4',
     };
 
