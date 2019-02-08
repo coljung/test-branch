@@ -1,0 +1,11 @@
+ui-boilerplate:
+    build:
+        context: .
+        target: latest
+    image: ssense/ui-boilerplate
+    ports:
+    - 4099:80
+    volumes:
+    - /code/node_modules
+    - .:/code
+    command: npm start
