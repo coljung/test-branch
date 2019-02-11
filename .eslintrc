@@ -1,5 +1,5 @@
 {
-  "extends": "ui-core/client-react",
+  "extends": "@ssense/ui-core/client-react",
   "plugins": ["react"],
   "rules": {
     "max-len": [
