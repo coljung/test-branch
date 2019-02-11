@@ -4,11 +4,9 @@ RUN mkdir /code
 
 WORKDIR /code
 
-COPY package*.json ./
+COPY . .
 
 RUN npm install
-
-COPY . .
 
 EXPOSE 8010
 
