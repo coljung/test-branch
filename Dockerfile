@@ -1,15 +1,15 @@
-FROM node:10-slim
+FROM node:8
 
-# Create app directory
+RUN mkdir /code
+
 WORKDIR /code
 
-COPY package.json .npmrc ./
+COPY package*.json ./
 
 RUN npm install
 
-# Bundle app source
 COPY . .
 
-EXPOSE 80
+EXPOSE 8010
 
 CMD ["npm", "start"]
