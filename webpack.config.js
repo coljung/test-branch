@@ -1,7 +1,12 @@
 const path = require('path');
+const config = require('config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const host = config.get('server.host');
+const port = config.get('server.port');
+const exposedPort = config.get('server.exposedPort');
 
 
 module.exports = {
@@ -17,6 +22,13 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, 'src'),
+        historyApiFallback: true,
+        host,
+        port,
+        clientLogLevel: 'info',
+        headers: { 'Access-Control-Allow-Origin': '*' },
+        public: `localhost:${exposedPort}`,
+        publicPath: '/',
     },
     module: {
         rules: [
