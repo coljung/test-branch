@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "dev": "webpack --mode development",
+    "dev:docker": "webpack-dev-server --mode development --hot --port 8010 --host 0.0.0.0",
     "build": "webpack --mode production",
     "dev-old": "NODE_ENV=development webpack-dev-server --color --hot --inline --config ./webpack.dev.config.js",
     "build-old": "NODE_ENV=production UV_THREADPOOL_SIZE=100 webpack --config ./webpack.prod.config.js",
