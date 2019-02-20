@@ -1,18 +1,25 @@
-# ui-boilerplate
+SSENSE's backend services UI Boilerplate
+
+This repo should work as a starting point for any backend service project requiring a UI part.
+
+## Getting Started
+
+- Fork this repo
+- Rename to something like ui-XXXX  ( XXXX = project name )
+
+### WIP
+
+
+# Walkthrough
 
 > React boilerplate for dashboards
 
 ## Development
 
 ``` bash
-# Start webpack dev server
-npm run dev
+npm install
+npm run webpack
+npm run start
 ```
-## Static Build
+## Technologies used
 
-``` bash
-# Build static files
-npm run build
-# Start server localhost:8080
-npm start
-```
