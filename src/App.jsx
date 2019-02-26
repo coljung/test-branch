@@ -32,14 +32,14 @@ class App extends React.Component {
         this.sidebarMinimize = this.sidebarMinimize.bind(this);
     }
 
-    componentDidUpdate(e) {
-        if (e.history.location.pathname !== e.location.pathname) {
-            this.refs.mainPanel.scrollTop = 0;
-            if (this.state.mobileOpen) {
-                this.setState({ mobileOpen: false });
-            }
-        }
-    }
+    // componentDidUpdate(e) {
+    //     if (e.history.location.pathname !== e.location.pathname) {
+    //         this.refs.mainPanel.scrollTop = 0;
+    //         if (this.state.mobileOpen) {
+    //             this.setState({ mobileOpen: false });
+    //         }
+    //     }
+    // }
 
     handleDrawerToggle() {
         this.setState({ mobileOpen: !this.state.mobileOpen });
@@ -78,7 +78,7 @@ class App extends React.Component {
                                 sidebarMinimize={this.sidebarMinimize.bind(this)}
                                 miniActive={this.state.miniActive}
                                 routes={sidebarRoutes}
-                                title="dadad"
+                                title="Microservice Name"
                                 handleDrawerToggle={this.handleDrawerToggle} />
                             <main className={this.props.classes.content}>
                                 <div className={this.props.classes.container}>
