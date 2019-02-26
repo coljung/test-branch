@@ -75,7 +75,7 @@ class App extends React.Component {
                             miniActive={this.state.miniActive} />
                         <div className={this.props.classes.mainPanel}>
                             <Header
-                                sidebarMinimize={this.sidebarMinimize}
+                                sidebarMinimize={this.sidebarMinimize.bind(this)}
                                 miniActive={this.state.miniActive}
                                 routes={sidebarRoutes}
                                 title="dadad"
