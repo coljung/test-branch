@@ -12,12 +12,13 @@
     "build-old": "NODE_ENV=production UV_THREADPOOL_SIZE=100 webpack --config ./webpack.prod.config.js",
     "lint": "eslint 'src/**'",
     "lint:fix": "eslint 'src/**' --fix",
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "cl": "npm i @ssense/ui-internal-components-react@latest && npm run webpack && npm run start"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
-    "@ssense/ui-internal-components-react": "^0.1.8",
+    "@ssense/ui-internal-components-react": "^0.1.15",
     "autoprefixer": "^7.2.6",
     "classnames": "^2.2.6",
     "config": "^3.0.1",
