@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import { Redirect } from 'react-router';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
@@ -61,10 +62,17 @@ class App extends React.Component {
     // );
 
     render() {
+        const { classes, ...rest } = this.props;
+        const mainPanel =
+          `${classes.mainPanel}  ${cx({
+            [classes.mainPanelSidebarMini]: this.state.miniActive,
+            [classes.mainPanelWithPerfectScrollbar]:
+              navigator.platform.indexOf("Win") > -1
+          })}`;
         return (
             <SSENSEThemeProvider>
                 <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
-                    <div className={this.props.classes.wrapper}>
+                    <div className={classes.wrapper}>
                         <Sidebar
                             routes={sidebarRoutes}
                             user={this.user}
@@ -72,16 +80,18 @@ class App extends React.Component {
                             bgColor='black'
                             handleDrawerToggle={this.handleDrawerToggle}
                             open={this.state.mobileOpen}
-                            miniActive={this.state.miniActive} />
-                        <div className={this.props.classes.mainPanel}>
+                            miniActive={this.state.miniActive}
+                            {...rest} />
+                        <div className={classes.mainPanel}>
                             <Header
                                 sidebarMinimize={this.sidebarMinimize.bind(this)}
                                 miniActive={this.state.miniActive}
                                 routes={sidebarRoutes}
                                 title="Microservice Name"
-                                handleDrawerToggle={this.handleDrawerToggle} />
-                            <main className={this.props.classes.content}>
-                                <div className={this.props.classes.container}>
+                                handleDrawerToggle={this.handleDrawerToggle}
+                                {...rest} />
+                            <main className={classes.content}>
+                                <div className={classes.container}>
                                         <Switch>
                                             {indexRoutes.map((route, key) =>
                                                 <Route
