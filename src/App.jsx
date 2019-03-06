@@ -82,7 +82,7 @@ class App extends React.Component {
                             open={this.state.mobileOpen}
                             miniActive={this.state.miniActive}
                             {...rest} />
-                        <div className={classes.mainPanel}>
+                        <div className={mainPanel}>
                             <Header
                                 sidebarMinimize={this.sidebarMinimize.bind(this)}
                                 miniActive={this.state.miniActive}
