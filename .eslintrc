@@ -1,0 +1,24 @@
+{
+  "extends": "@ssense/ui-core/client-react",
+  "plugins": ["react"],
+  "rules": {
+    "max-len": [
+      "error", { "code": 150, "tabWidth": 4 }
+    ],
+    "indent": [
+      2,
+      4,
+      {
+        "SwitchCase": 1,
+        "MemberExpression": 1,
+        "ObjectExpression": 1,
+        "CallExpression": {
+          "arguments": 1
+        }
+      }
+    ]
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  }
+}

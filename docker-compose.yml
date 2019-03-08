@@ -1,0 +1,23 @@
+version: "3"
+
+volumes:
+    
+    ui-modules:
+
+services:
+
+    ui-boilerplate:
+        build: 
+            context: .
+        image: ssense/ui-boilerplate
+        ports:
+            - 4099:8010
+        volumes:
+            - .:/usr/src/app
+            - ui-modules:/usr/src/app/node_modules
+        command: npm start
+        environment:
+            - UI_HOST=0.0.0.0
+            - UI_PORT=8010
+            - UI_EXPOSED_HOST=localhost
+            - UI_EXPOSED_PORT=4099

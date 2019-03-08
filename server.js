@@ -1,30 +1,28 @@
 const path = require('path');
 const express = require('express');
-const webpack = require('webpack');
-const config = require('./webpack.config');
+const cors = require('cors');
+const config = require('config');
+
+const host = config.get('server.host');
+const port = config.get('server.port');
 
 const app = express();
-const compiler = webpack(config);
 
-app.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: true,
-  publicPath: config.output.publicPath,
-  stats: {
-    colors: true
-  }
-}));
-
-app.use(require('webpack-hot-middleware')(compiler));
+app.use(cors());
+app.use(express.static(path.resolve(__dirname, 'build')));
+app.use(express.static(path.resolve(__dirname, 'public')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/index.html'));
+    res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
-app.listen(8080, '0.0.0.0', (err) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
+app.listen(port, host, (err) => {
+    if (err) {
+        // eslint-disable-next-line no-console
+        console.log(err);
+        return;
+    }
 
-  console.log('Listening at http://0.0.0.0:8080');
+    // eslint-disable-next-line no-console
+    console.log(`Listening at http://${host}:${port}`);
 });

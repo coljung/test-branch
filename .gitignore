@@ -1,3 +1,7 @@
-.idea/
-node_modules/
-build/
+node_modules
+npm-debug.log
+.idea
+build
+stats.json
+.nyc_output
+.DS_Store

@@ -1,12 +1,25 @@
-# ui-boilerplate
+SSENSE's backend services UI Boilerplate
 
-> React/Redux boilerplate for microservice dashboards
+This repo should work as a starting point for any backend service project requiring a UI part.
 
-## Build Setup
+## Getting Started
+
+- Fork this repo
+- Rename to something like ui-XXXX  ( XXXX = project name )
+
+### WIP
+
+
+# Walkthrough
+
+> React boilerplate for dashboards
+
+## Development
 
 ``` bash
-# Install dependencies
 npm install
+npm run webpack
+npm run start
+```
+## Technologies used
 
-# Serve with hot reload at localhost:8080
-npm start

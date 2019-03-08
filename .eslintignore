@@ -1,0 +1,7 @@
+**/node_modules/
+**/build/
+lib
+build/*.js
+config/*.js
+tests/coverage
+*.scss
