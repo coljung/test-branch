@@ -5,20 +5,16 @@
   "author": "SSENSE",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
-    "dev": "webpack --mode development",
-    "dev:docker": "webpack-dev-server --mode development --hot --port 8010 --host 0.0.0.0",
     "build": "webpack --mode production",
-    "dev-old": "NODE_ENV=development webpack-dev-server --color --hot --inline --config ./webpack.dev.config.js",
-    "build-old": "NODE_ENV=production UV_THREADPOOL_SIZE=100 webpack --config ./webpack.prod.config.js",
     "lint": "eslint 'src/**'",
     "lint:fix": "eslint 'src/**' --fix",
     "webpack": "webpack",
-    "cl": "npm i @ssense/ui-internal-components-react@latest && npm run webpack && npm run start"
+    "cl": "npm i @ssense/ui-component-library@latest && npm run webpack && npm run start"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
-    "@ssense/ui-internal-components-react": "^0.1.20",
+    "@ssense/ui-component-library": "^0.1.22",
     "autoprefixer": "^7.2.6",
     "classnames": "^2.2.6",
     "config": "^3.0.1",
@@ -79,7 +75,7 @@
     "progress-bar-webpack-plugin": "^1.12.1",
     "sass-loader": "^7.1.0",
     "url-loader": "^0.5.7",
-    "webpack": "^4.29.5",
+    "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.0"
   }

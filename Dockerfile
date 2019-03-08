@@ -1,11 +1,8 @@
-FROM node:8
+FROM node:10
 
-RUN mkdir /code
+RUN npm install -g webpack webpack-cli webpack-dev-server config
 
-WORKDIR /code
-
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
 COPY . .
-
 RUN npm install
-
-EXPOSE 8010

@@ -1,10 +1,10 @@
 import HomeIcon from '@material-ui/icons/Home';
 import GridOn from '@material-ui/icons/GridOn';
 import Home from '../Home';
-import Components from '../Components';
+import General from '../exampleViews/GeneralView';
 import NotFound from '../NotFound';
-import { ROUTE_COMPONENTS, ROUTE_COMPONENTS_TABLES, ROUTE_HOME } from './constants';
-import Tables from '../componentViews/TableView';
+import { ROUTE_EXAMPLES, ROUTE_EXAMPLES_TABLES, ROUTE_HOME } from './constants';
+import Tables from '../exampleViews/TableView';
 
 export const HomeRoute = {
     path: ROUTE_HOME,
@@ -14,16 +14,16 @@ export const HomeRoute = {
     component: Home,
 };
 
-export const ComponentsRoute = {
-    path: ROUTE_COMPONENTS,
+export const GeneralExampleRoute = {
+    path: ROUTE_EXAMPLES,
     exact: true,
-    name: 'Components',
+    name: 'General',
     icon: GridOn,
-    component: Components,
+    component: General,
 };
 
-export const TableComponentRoute = {
-    path: ROUTE_COMPONENTS_TABLES,
+export const TableExampleRoute = {
+    path: ROUTE_EXAMPLES_TABLES,
     exact: true,
     name: 'Tables',
     component: Tables,
@@ -33,10 +33,10 @@ export const NotFoundFallback = {
     component: NotFound,
     visible: false,
 };
-
+ 
 export default [
     HomeRoute,
-    ComponentsRoute,
-    TableComponentRoute,
+    GeneralExampleRoute,
+    TableExampleRoute,
     NotFoundFallback,
 ];

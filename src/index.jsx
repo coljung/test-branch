@@ -5,7 +5,7 @@ import { I18nextProvider } from 'react-i18next';
 import i18n from 'i18next';
 
 // general styles
-import '@ssense/ui-internal-components-react/lib/assets/css/material-dashboard-pro-react.css';
+import '@ssense/ui-component-library/lib/assets/css/material-dashboard-pro-react.css';
 
 import App from './App';
 
@@ -15,7 +15,7 @@ i18n.init({
     resources: {
         en: {
             translation: {
-                appTitle: 'App Title',
+                appTitle: 'Microservice name',
                 notification: {
                     errorFound: 'Error found',
                 },

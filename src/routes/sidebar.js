@@ -1,12 +1,13 @@
-import { ComponentsRoute, HomeRoute, TableComponentRoute } from './index';
+import { GeneralExampleRoute, HomeRoute, TableExampleRoute } from './index';
 
 export default [
     HomeRoute,
     {
-        ...ComponentsRoute,
+        ...GeneralExampleRoute,
         collapse: true,
         views: [
-            TableComponentRoute,
+            GeneralExampleRoute,
+            TableExampleRoute,
         ],
     },
 ];
