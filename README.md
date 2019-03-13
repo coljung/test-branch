@@ -12,7 +12,7 @@ docker-compose up
 ```
 _wait until you get:_
 ```
-ui-boilerplate_1  | ℹ ｢wdm｣: Compiled successfully.
+ui-xxx_1  | ℹ ｢wdm｣: Compiled successfully.
 ```
 _start writting some code._
 
