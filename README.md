@@ -4,18 +4,23 @@ This repo should work as a starting point for any backend service project requir
 
 ## Getting Started
 
-- Fork this repo
-- Rename to something like ui-`xxx`  ( `xxx` being your microservice's name )
+### Development
 
-### Walkthrough
-
-#### Development
-
+_run_:
 ``` bash
-docker-compose up -d
+docker-compose up
 ```
+_wait until you get:_
+```
+ui-boilerplate_1  | ℹ ｢wdm｣: Compiled successfully.
+```
+_start writting some code._
 
-#### Technologies used
+### Technologies used
 
+* React
+* Webpack 4
+* Docker
+* Docker compose
 
 
