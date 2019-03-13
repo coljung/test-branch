@@ -5,14 +5,14 @@ set -e #x  # uncomment for debug output
 APP_DIR="/usr/src/app"
 LIB_DIR="/usr/src/app/ui-internal-components-react"
 
-cd "${LIB_DIR}"
+npm install -g webpack webpack-cli webpack-dev-server config
 
-npm i
+cd "${LIB_DIR}"
+npm install
 npm run sass-all
 npm run watch &
+npm link
 
 cd "${APP_DIR}"
-
-npm link "${LIB_DIR}"
-
-npm run start
+npm link @ssense/ui-component-library
+npm start
