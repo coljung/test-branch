@@ -14,5 +14,6 @@ npm run watch &
 npm link
 
 cd "${APP_DIR}"
+npm install
 npm link @ssense/ui-component-library
 npm start
