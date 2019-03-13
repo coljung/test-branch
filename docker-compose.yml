@@ -6,10 +6,10 @@ volumes:
 
 services:
 
-    ui-boilerplate:
+    ui-xxx:
         build: 
             context: .
-        image: ssense/ui-boilerplate
+        image: ssense/ui-xxx
         ports:
             - 4099:8010
         volumes:
