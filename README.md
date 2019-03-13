@@ -5,21 +5,17 @@ This repo should work as a starting point for any backend service project requir
 ## Getting Started
 
 - Fork this repo
-- Rename to something like ui-XXXX  ( XXXX = project name )
+- Rename to something like ui-`xxx`  ( `xxx` being your microservice's name )
 
-### WIP
+### Walkthrough
 
-
-# Walkthrough
-
-> React boilerplate for dashboards
-
-## Development
+#### Development
 
 ``` bash
-npm install
-npm run webpack
-npm run start
+docker-compose up -d
 ```
-## Technologies used
+
+#### Technologies used
+
+
 
