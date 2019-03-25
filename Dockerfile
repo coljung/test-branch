@@ -1,7 +1,7 @@
 FROM node:10
 
-RUN mkdir /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir /code
+WORKDIR /code
 COPY . .
 RUN npm install
 
