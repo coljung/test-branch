@@ -6,15 +6,15 @@ This repo should work as a starting point for any backend service project requir
 
 ### Development
 
-_run_:
+* run:
 ``` bash
 docker-compose up
 ```
-_wait until you get:_
+* wait until you get:
 ```
 ui-xxx_1  | ℹ ｢wdm｣: Compiled successfully.
 ```
-_start writting some code._
+* _start writting some code._
 
 ### Technologies used
 
