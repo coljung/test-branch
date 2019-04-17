@@ -1,4 +1,4 @@
-import { GeneralExampleRoute, HomeRoute, TableExampleRoute } from './index';
+import { GeneralExampleRoute, HomeRoute, TableExampleRoute, ListingRoute } from './index';
 
 export default [
     HomeRoute,
@@ -8,6 +8,7 @@ export default [
         views: [
             GeneralExampleRoute,
             TableExampleRoute,
+            ListingRoute,
         ],
     },
 ];

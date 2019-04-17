@@ -9,7 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { SSENSEThemeProvider } from '@ssense/ui-component-library/lib/styles/SSENSEThemeProvider';
 import Header from '@ssense/ui-component-library/lib/layouts/common/Header/Header';
 import Sidebar from '@ssense/ui-component-library/lib/layouts/common/Sidebar/Sidebar';
-import appStyle from '@ssense/ui-component-library/lib/assets/jss/material-dashboard-pro-react/layouts/dashboardStyle';
+import dashboardStyle from '@ssense/ui-component-library/lib/assets/jss/material-dashboard-pro-react/layouts/dashboardStyle';
 
 // routes
 import indexRoutes from './routes/index.js';
@@ -59,7 +59,7 @@ class App extends React.Component {
                         miniActive={this.state.miniActive}
                         {...rest} />
                         <div className={mainPanel}>
-                            <Header 
+                            <Header
                             sidebarMinimize={this.sidebarMinimize.bind(this)}
                             miniActive={this.state.miniActive}
                             routes={sidebarRoutes}
@@ -68,17 +68,17 @@ class App extends React.Component {
                             {...rest} />
                             <main className={classes.content}>
                                 <div className={classes.container}>
-                                        <Switch>
-                                            {indexRoutes.map((route, key) =>
-                                                <Route
-                                                    path={route.path}
-                                                    render={props => (
-                                                        // pass the sub-routes down to keep nesting
-                                                        <route.component {...props} />
-                                                    )}
-                                                    key={key}
-                                                    exact={route.exact} />)}
-                                        </Switch>
+                                    <Switch>
+                                        {indexRoutes.map((route, key) =>
+                                            <Route
+                                                path={route.path}
+                                                render={props => (
+                                                    // pass the sub-routes down to keep nesting
+                                                    <route.component {...props} />
+                                                )}
+                                                key={key}
+                                                exact={route.exact} />)}
+                                    </Switch>
                                 </div>
                             </main>
                         </div>
@@ -93,4 +93,4 @@ App.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(appStyle)(App);
+export default withStyles(dashboardStyle)(App);
