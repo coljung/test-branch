@@ -24,7 +24,6 @@ class PurchaseOrderAttributeSelect extends React.Component {
 
     render() {
         const { classes, options, title } = this.props;
-
         const optionMenuItems = options.map((option, index) => (
             <MenuItem
                 key={index}
