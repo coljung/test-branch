@@ -25,48 +25,42 @@ class PurchaseOrderAttributeSelect extends React.Component {
     render() {
         const { classes, options, title } = this.props;
 
-        const optionMenuItems = options.map((option, index) => (
-            <MenuItem
-                key={index}
-                classes={{
-                    root: classes.selectMenuItem,
-                    selected: classes.selectMenuItemSelected,
-                }}
-                value={index}
-            >
-                {option}
-            </MenuItem>
-        ));
+        const menuItemClasses = {
+            root: classes.selectMenuItem,
+            selected: classes.selectMenuItemSelected,
+        };
+
+        const selectMenuProps = {
+            className: classes.selectMenu,
+        };
+
+        const selectClasses = {
+            select: classes.select,
+        };
+
+        const inputSelectProps = {
+            name: 'optionSelect',
+            id: 'option-select',
+        };
 
         return (
             <FormControl fullWidth className={classes.selectFormControl}>
-                <InputLabel
-                    htmlFor="option-select"
-                    className={classes.selectLabel}
-                >
+                <InputLabel htmlFor="option-select" className={classes.selectLabel}>
                     {title}
                 </InputLabel>
                 <Select
-                    MenuProps={{
-                        className: classes.selectMenu,
-                    }}
-                    classes={{
-                        select: classes.select,
-                    }}
+                    MenuProps={selectMenuProps}
+                    classes={selectClasses}
                     value={this.state.optionSelect}
                     onChange={this.handleOptionChange}
-                    inputProps={{
-                        name: 'optionSelect',
-                        id: 'option-select',
-                    }}
-                >
-                    <MenuItem
-                        disabled
-                        classes={{
-                            root: classes.selectMenuItem,
-                        }}
-                    />
-                    {optionMenuItems}
+                    inputProps={inputSelectProps}>
+                    {
+                        options.map((option, index) => (
+                            <MenuItem key={index} classes={menuItemClasses} value={index}>
+                                {option}
+                            </MenuItem>
+                        ))
+                    }
                 </Select>
             </FormControl>
         );
