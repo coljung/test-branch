@@ -136,7 +136,7 @@ class PurchaseOrderSearchForm extends React.Component {
                     </Grid>
                     <Grid container>
                         <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginTop: '0' }}>
-                            <Button color="primary" >Submit</Button>
+                            <Button color="info" >Submit</Button>
                         </Grid>
                     </Grid>
                 </CardBody>
