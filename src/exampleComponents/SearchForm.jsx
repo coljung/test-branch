@@ -53,7 +53,7 @@ class PurchaseOrderSearchForm extends React.Component {
                         <h4 className={this.props.classes.cardIconTitle}>Search</h4>
                       </Grid>
                       <Grid item xs={12} sm={12} md={6} lg={6} style={{ textAlign: 'right' }}>
-                        <Button color="success">CREATE NEW MODEL</Button>
+                        <Button color="success" style={{ margin: '20 10 -10 0' }}>CREATE NEW MODEL</Button>
                       </Grid>
                     </Grid>
                 </CardHeader>
@@ -62,81 +62,81 @@ class PurchaseOrderSearchForm extends React.Component {
                         <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
-                                title="status"
+                                title="Status"
                                 options={statusOptions}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
-                                title="gender"
+                                title="Gender"
                                 options={genderOptions}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
-                                title="seasonYear"
+                                title="Season/Year"
                                 options={seasonYearOptions}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
-                                title="delivery"
+                                title="Delivery"
                                 options={deliveryOptions}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
-                                title="supplier"
+                                title="Supplier"
                                 options={supplierOptions}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
-                                title="brand"
+                                title="Brand"
                                 options={brandOptions}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
-                                title="buyer"
+                                title="Buyer"
                                 options={buyerOptions}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
-                                title="style"
+                                title="Style"
                                 options={styleOptions}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '50', marginTop: '25' }}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25', marginTop: '25' }}>
                             <PurchaseOrderAttributeRadio
-                                title="approved"
+                                title="Approved"
                                 options={approvedOptions}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '50', marginTop: '25' }}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25', marginTop: '25' }}>
                             <PurchaseOrderAttributeRadio
-                                title="sent"
+                                title="Sent"
                                 options={sentOptions}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '50', marginTop: '25' }}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25', marginTop: '25' }}>
                             <PurchaseOrderAttributeRadio
-                                title="repeat"
+                                title="Repeat"
                                 options={repeatOptions}
                             />
                         </Grid>
                     </Grid>
                     <Grid container>
-                    <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginTop: '25' }}>
-                            <Button color="primary">Submit</Button>
+                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginTop: '0' }}>
+                            <Button color="primary" >Submit</Button>
                         </Grid>
                     </Grid>
                 </CardBody>
