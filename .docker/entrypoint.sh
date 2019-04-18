@@ -6,7 +6,7 @@ APP_DIR="/code"
 
 cd "${APP_DIR}"
 
-if [ -n "${LINK_LIB}" ]
+if [ -n "${LIB_DIR}" ]
     then
         npm link "${LIB_DIR}"
 fi

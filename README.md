@@ -18,13 +18,14 @@ You'll notice there are two services that are cloned. This is because the boiler
 To bring up both services and make use of this feature, simply run:
 
 ```bash
+$ docker-compose build --build-arg LIB_DIR=/component-library ui-boilerplate
 $ docker-compose up ui-boilerplate
 ```
 
 If you wish to build the ui-boilerplate without using the symlink, simply run: this:
 ```bash
-$ docker-compose build --build-arg LIB_DIR=0 ui-boilerplate
-$ docker-compose up ui-boilerplate
+$ docker-compose up -d ui-boilerplate
+$ docker-compose stop ui-component-library
 ```
 
 Upon successfully bringing up the boilerplate image as a container, the following line should be displayed:
