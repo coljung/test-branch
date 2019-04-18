@@ -10,4 +10,4 @@ npm install -g webpack webpack-cli webpack-dev-server config
 cd "${APP_DIR}"
 npm install
 npm link "${LIB_DIR}"
-npm start
+webpack-dev-server --mode development

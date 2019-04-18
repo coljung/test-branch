@@ -13,7 +13,7 @@ class PurchaseOrderAttributeSelect extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            optionSelect: []
+            optionSelect: [],
         };
         this.handleOptionChange = this.handleOptionChange.bind(this);
     }
