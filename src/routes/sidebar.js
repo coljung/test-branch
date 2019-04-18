@@ -1,5 +1,5 @@
 import InfoIcon from '@material-ui/icons/Info';
-import { GeneralExampleRoute, HomeRoute, TableExampleRoute, ListingRoute } from './index';
+import { HomeRoute, ListingRoute } from './index';
 
 export default [
     HomeRoute,
@@ -9,8 +9,6 @@ export default [
         icon: InfoIcon,
         collapse: true,
         views: [
-            GeneralExampleRoute,
-            TableExampleRoute,
             ListingRoute,
         ],
     },

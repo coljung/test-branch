@@ -15,7 +15,7 @@ i18n.init({
     resources: {
         en: {
             translation: {
-                appTitle: 'Microservice name',
+                appTitle: 'Purchase Order',
                 notification: {
                     errorFound: 'Error found',
                 },
