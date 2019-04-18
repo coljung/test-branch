@@ -89,6 +89,6 @@ module.exports = {
         }),
     ],
     watchOptions: {
-        ignored: /node_modules\/(?!@ssense)/
+        ignored: /node_modules\/(?!@ssense)/,
     },
 };
