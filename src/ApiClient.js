@@ -4,14 +4,12 @@ import getApiUrl from './helpers';
 
 const formatUrl = (path) => {
     const adjustedPath = path[0] !== '/' ? `/${path}` : path;
-    let targetApi = true;
 
-    // @TODO Change this logic.
     if (adjustedPath.startsWith('/auth')) {
-        targetApi = false;
+        return process.env.NODE_ENV === 'test' ? `${process.env.GATEWAY_HOST}` : '';
     }
 
-    return `${getApiUrl(targetApi)}${adjustedPath}`;
+    return `${getApiUrl()}${adjustedPath}`;
 };
 
 export default class ApiClient {
