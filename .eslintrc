@@ -1,6 +1,7 @@
 {
   "extends": "@ssense/ui-core/client-react",
   "plugins": ["react"],
+  "env": { "es6": true },
   "rules": {
     "max-len": [
       "error", { "code": 150, "tabWidth": 4 }
@@ -19,6 +20,14 @@
     ]
   },
   "parserOptions": {
-    "ecmaVersion": 7
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "jsx": true
+    }
+  },
+  "globals": {
+    "ssense": true,
+    "UI_PLANNING_HOST": true
   }
 }

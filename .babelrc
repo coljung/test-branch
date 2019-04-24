@@ -1,13 +1,18 @@
 {
   "presets": [
       "@babel/preset-env",
-      "@babel/preset-react"
+      "@babel/preset-react",
+      "stage-2",
   ],
   "plugins": [
       ["@babel/plugin-transform-runtime", { "sourceType": "unambiguous" }],
+      ["@babel/plugin-proposal-decorators", { "legacy": true }],
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-transform-modules-commonjs",
-      ["@babel/plugin-proposal-decorators", { "legacy": true }],
-      "react-hot-loader/babel"
+      "transform-decorators-legacy",
+      "add-module-exports",
+      "react-hot-loader/babel",
+      "react-hot-loader/babel",
+      ["import", { "libraryName": "antd", "style": true }],
   ]
 }

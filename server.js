@@ -1,7 +1,10 @@
+/* eslint-disable import/no-commonjs */
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const config = require('config');
+const httpProxy = require('http-proxy-middleware');
+const ssense = require('@ssense/framework');
 
 const host = config.get('server.host');
 const port = config.get('server.port');
