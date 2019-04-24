@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import superagent from 'superagent';
 import getApiUrl from './helpers';
 

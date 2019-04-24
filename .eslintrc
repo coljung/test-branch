@@ -2,6 +2,9 @@
   "extends": "@ssense/ui-core/client-react",
   "plugins": ["react"],
   "env": { "es6": true },
+  "settings": {
+    "import/resolver": ["webpack"]
+  },
   "rules": {
     "max-len": [
       "error", { "code": 150, "tabWidth": 4 }
@@ -17,7 +20,10 @@
           "arguments": 1
         }
       }
-    ]
+    ],
+    "no-param-reassign": ["error", { "props": false }],
+    "import/no-extraneous-dependencies": 1,
+    "import/no-named-as-default": 0
   },
   "parserOptions": {
     "ecmaVersion": 6,
@@ -28,6 +34,6 @@
   },
   "globals": {
     "ssense": true,
-    "UI_PLANNING_HOST": true
+    "UI_HOST": true
   }
 }

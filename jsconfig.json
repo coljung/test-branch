@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": "../",
+    "baseUrl": "./",
     "module": "es6",
     "paths": {
-      "@ssense/*": ["./*"],
-      "@material-ui/*": ["./ui-component-library/node_modules/@material-ui/*"],
+      "@ssense/*": ["../*"],
+      "@material-ui/*": ["../ui-component-library/node_modules/@material-ui/*"],
     }
   }
 }

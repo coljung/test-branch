@@ -1,3 +1,4 @@
+/* eslint-disable import/no-commonjs, import/no-extraneous-dependencies */
 const path = require('path');
 const config = require('config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
