@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 import { I18nextProvider } from 'react-i18next';
 import i18n from 'i18next';
@@ -8,6 +9,8 @@ import i18n from 'i18next';
 import '@ssense/ui-component-library/lib/assets/css/material-dashboard-pro-react.css';
 
 import App from './App';
+import configureStore from './configureStore';
+import ApiClient from './ApiClient';
 
 i18n.init({
     lng: 'en',
@@ -45,10 +48,15 @@ i18n.init({
     },
 });
 
+const client = new ApiClient();
+const store = configureStore(client);
+
 const rootElement = (
     <AppContainer>
         <I18nextProvider i18n={i18n}>
-            <App />
+            <Provider store={store}>
+                <App />
+            </Provider>
         </I18nextProvider>
     </AppContainer>
 );
