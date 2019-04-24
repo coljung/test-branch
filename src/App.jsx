@@ -43,9 +43,9 @@ class App extends React.Component {
         const { classes, ...rest } = this.props;
         const mainPanel =
           `${classes.mainPanel}  ${cx({
-            [classes.mainPanelSidebarMini]: this.state.miniActive,
-            [classes.mainPanelWithPerfectScrollbar]:
-              navigator.platform.indexOf("Win") > -1
+              [classes.mainPanelSidebarMini]: this.state.miniActive,
+              [classes.mainPanelWithPerfectScrollbar]:
+              navigator.platform.indexOf('Win') > -1,
           })}`;
         return (
             <SSENSEThemeProvider>
