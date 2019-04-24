@@ -11,12 +11,16 @@ module.exports = {
         password: process.env.HTTP_AUTH_PASSWORD || 'admin',
     },
     api: {
-        planning: {
-            host: process.env.MS_PLANNING_HOST || 'localhost',
-            port: process.env.MS_PLANNING_PORT || '3000',
+        gateway: {
+            host: process.env.GATEWAY_HOST || 'localhost',
+            port: process.env.GATEWAY_PORT || '3000',
+        },
+        gateway: {
+            host: process.env.HQM_HOST || 'localhost',
+            port: process.env.HQM_PORT || '9190',
         },
         auth: {
-            enabled: process.env.AUTH_ENABLED === 'false' ? false : true, // make default to true
+            enabled: process.env.AUTH_ENABLED === 'false' ? false : true,
             host: process.env.AUTH_HOST || 'dm-auth:8080',
             secure: process.env.AUTH_SERVER_SECURE === 'true' || false,
         },

@@ -21,7 +21,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             mobileOpen: false,
-            miniActive: false,
+            miniActive: true,
             user: {
                 name: 'User Fullname',
             },

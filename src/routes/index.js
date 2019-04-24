@@ -1,5 +1,7 @@
 import HomeIcon from '@material-ui/icons/Home';
-import GridOn from '@material-ui/icons/GridOn';
+import TableIcon from '@material-ui/icons/TableChart';
+import GradeIcon from '@material-ui/icons/Grade';
+import ListIcon from '@material-ui/icons/List';
 import Home from '../Home';
 import General from '../exampleViews/GeneralView';
 import NotFound from '../NotFound';
@@ -19,7 +21,7 @@ export const GeneralExampleRoute = {
     path: ROUTE_EXAMPLES,
     exact: true,
     name: 'General',
-    icon: GridOn,
+    icon: GradeIcon,
     component: General,
 };
 
@@ -27,6 +29,7 @@ export const TableExampleRoute = {
     path: ROUTE_TABLES,
     exact: true,
     name: 'Tables',
+    icon: TableIcon,
     component: TableView,
 };
 
@@ -39,6 +42,7 @@ export const ListingRoute = {
     path: ROUTE_LISTING,
     exact: true,
     name: 'Listing View',
+    icon: ListIcon,
     component: ListingView,
 };
 
