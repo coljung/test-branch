@@ -15,7 +15,7 @@ module.exports = {
             host: process.env.GATEWAY_HOST || 'localhost',
             port: process.env.GATEWAY_PORT || '3000',
         },
-        gateway: {
+        hqm: {
             host: process.env.HQM_HOST || 'localhost',
             port: process.env.HQM_PORT || '9190',
         },

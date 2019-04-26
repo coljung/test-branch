@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import i18n from 'i18next';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 
 // @ssense-ui/components
@@ -12,8 +13,10 @@ import Sidebar from '@ssense/ui-component-library/lib/layouts/common/Sidebar/Sid
 import dashboardStyle from '@ssense/ui-component-library/lib/assets/jss/material-dashboard-pro-react/layouts/dashboardStyle';
 
 // routes
-import indexRoutes from './routes/index.js';
-import sidebarRoutes from './routes/sidebar.js';
+import indexRoutes from './routes/index';
+import sidebarRoutes from './routes/sidebar';
+import configureStore from './configureStore';
+import ApiClient from './ApiClient';
 
 class App extends React.Component {
 
@@ -41,6 +44,8 @@ class App extends React.Component {
 
     render() {
         const { classes, ...rest } = this.props;
+        const client = new ApiClient();
+        const store = configureStore(client);
         const mainPanel =
           `${classes.mainPanel}  ${cx({
               [classes.mainPanelSidebarMini]: this.state.miniActive,
@@ -49,41 +54,43 @@ class App extends React.Component {
           })}`;
         return (
             <SSENSEThemeProvider>
-                <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
-                    <div className={classes.wrapper}>
-                        <Sidebar
-                        routes={sidebarRoutes}
-                        user={this.user}
-                        handleDrawerToggle={this.handleDrawerToggle}
-                        open={this.state.mobileOpen}
-                        miniActive={this.state.miniActive}
-                        {...rest} />
-                        <div className={mainPanel}>
-                            <Header
-                            sidebarMinimize={this.sidebarMinimize.bind(this)}
-                            miniActive={this.state.miniActive}
+                <Provider store={store}>
+                    <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
+                        <div className={classes.wrapper}>
+                            <Sidebar
                             routes={sidebarRoutes}
-                            title={i18n.t('appTitle')}
+                            user={this.user}
                             handleDrawerToggle={this.handleDrawerToggle}
+                            open={this.state.mobileOpen}
+                            miniActive={this.state.miniActive}
                             {...rest} />
-                            <main className={classes.content}>
-                                <div className={classes.container}>
-                                    <Switch>
-                                        {indexRoutes.map((route, key) =>
-                                            <Route
-                                                path={route.path}
-                                                render={props => (
-                                                    // pass the sub-routes down to keep nesting
-                                                    <route.component {...props} />
-                                                )}
-                                                key={key}
-                                                exact={route.exact} />)}
-                                    </Switch>
-                                </div>
-                            </main>
+                            <div className={mainPanel}>
+                                <Header
+                                sidebarMinimize={this.sidebarMinimize.bind(this)}
+                                miniActive={this.state.miniActive}
+                                routes={sidebarRoutes}
+                                title={i18n.t('appTitle')}
+                                handleDrawerToggle={this.handleDrawerToggle}
+                                {...rest} />
+                                <main className={classes.content}>
+                                    <div className={classes.container}>
+                                        <Switch>
+                                            {indexRoutes.map((route, key) =>
+                                                <Route
+                                                    path={route.path}
+                                                    render={props => (
+                                                        // pass the sub-routes down to keep nesting
+                                                        <route.component {...props} />
+                                                    )}
+                                                    key={key}
+                                                    exact={route.exact} />)}
+                                        </Switch>
+                                    </div>
+                                </main>
+                            </div>
                         </div>
-                    </div>
-                </BrowserRouter>
+                    </BrowserRouter>
+                </Provider>
             </SSENSEThemeProvider>
         );
     }

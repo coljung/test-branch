@@ -1,6 +1,7 @@
 /* eslint-disable import/no-commonjs, import/no-extraneous-dependencies */
 const path = require('path');
 const config = require('config');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -87,6 +88,16 @@ module.exports = {
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'public', 'index.html'),
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify(config.get('node_env.env')),
+                UI_HOST: JSON.stringify(config.get('server.exposedHost')),
+                UI_PORT: JSON.stringify(config.get('server.exposedPort')),
+                MS_HOST: JSON.stringify(config.get('api.gateway.host')),
+                MS_PORT: JSON.stringify(config.get('api.gateway.port')),
+            },
+            UI_HOST: JSON.stringify(config.get('server.exposedHost')),
         }),
     ],
     watchOptions: {

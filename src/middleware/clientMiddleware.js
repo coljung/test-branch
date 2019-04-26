@@ -1,9 +1,7 @@
 /* global ssense */
-// import { BACKEND_APP_CODE } from '../constants/common';
+import { BACKEND_APP_CODE } from '../constants/common';
 // import { messages } from '../notifications/NotificationActions';
 import { authenticate as authenticateAction } from '../user/duck/actions';
-
-const BACKEND_APP_CODE = 'hq-central';
 
 export default function clientMiddleware(client) {
     return ({ dispatch, getState }) =>

@@ -12,15 +12,13 @@ import {
     USER_SUCCESS,
     USER_FAILED,
 } from './types';
-// import { BACKEND_APP_CODE } from '../../constants/common';
+import { BACKEND_APP_CODE } from '../../constants/common';
 
 import {
     authenticate as authenticateOperation,
     logout as logoutOperation,
     me as meOperation,
 } from './operations';
-
-const BACKEND_APP_CODE = 'hq-central';
 
 export const authenticate = () => (
     {

@@ -47,8 +47,7 @@ const PurchaseOrderListingTable = (props) => {
         },
         gender: {
             title: 'Gender',
-            method: po =>
-                genders[po.gender] ? genders[po.gender] : 'Non-binary',
+            method: po => genders[po.gender] ? genders[po.gender] : 'Non-binary',
         },
         start: {
             title: 'Start date',
@@ -88,8 +87,8 @@ const PurchaseOrderListingTable = (props) => {
                     <ShareIcon>Share</ShareIcon>
                     <EditIcon>Edit</EditIcon>
                 </div>
-            )
-        }
+            ),
+        },
     };
 
     const organizePurchaseOrderData = po =>
