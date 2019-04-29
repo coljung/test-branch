@@ -1,4 +1,5 @@
 {
+  "extends": "@ssense/ui-core/client-react",
   "plugins": ["react", "import", "babel"],
   "parser": "babel-eslint",
   "env": {
@@ -6,7 +7,10 @@
     "node": true
   },
   "settings": {
-    "import/resolver": ["webpack"]
+    "import/resolver": ["webpack"],
+    "react": {
+      "version": "detect"
+    }
   },
   "rules": {
     "max-len": [
@@ -48,7 +52,7 @@
     "react/prop-types": [2]
   },
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": 2017,
     "sourceType": "module",
     "impliedStrict": true,
     "ecmaFeatures": {

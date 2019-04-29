@@ -41,21 +41,21 @@ const TableView = props => (
                     </CardHeader>
                     <CardBody>
                         <span>
-                          <p>
+                            <p>
                             Collaboratively administrate empowered markets via
                             plug-and-play networks. Dynamically procrastinate
                             B2C users after installed base benefits.
-                          </p>
-                          <br />
-                          <p>
+                            </p>
+                            <br />
+                            <p>
                             Dramatically visualize customer directed convergence
                             without revolutionary ROI. Collaboratively
                             administrate empowered markets via plug-and-play
                             networks. Dynamically procrastinate B2C users after
                             installed base benefits.
-                          </p>
-                          <br />
-                          <p>This is very nice.</p>
+                            </p>
+                            <br />
+                            <p>This is very nice.</p>
                         </span>
 
                         <Table

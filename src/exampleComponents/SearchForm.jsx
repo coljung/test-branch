@@ -15,6 +15,9 @@ import CardBody from '@ssense/ui-component-library/lib/components/Card/CardBody'
 import CardIcon from '@ssense/ui-component-library/lib/components/Card/CardIcon';
 import CardFooter from '@ssense/ui-component-library/lib/components/Card/CardFooter';
 import Button from '@ssense/ui-component-library/lib/components/CustomButtons/Button';
+
+// Style
+// eslint-disable-next-line max-len
 import dashboardStyle from '@ssense/ui-component-library/lib/assets/jss/material-dashboard-pro-react/views/dashboardStyle';
 
 // Other components
@@ -46,15 +49,15 @@ class PurchaseOrderSearchForm extends React.Component {
             <Card>
                 <CardHeader color="primary" icon>
                     <Grid container>
-                      <Grid item xs={12} sm={12} md={6} lg={6}>
-                        <CardIcon color="primary">
-                            <Mail />
-                        </CardIcon>
-                        <h4 className={this.props.classes.cardIconTitle}>Search</h4>
-                      </Grid>
-                      <Grid item xs={12} sm={12} md={6} lg={6} style={{ textAlign: 'right' }}>
-                        <Button color="success" style={{ margin: '20 10 -10 0' }}>CREATE NEW MODEL</Button>
-                      </Grid>
+                        <Grid item xs={12} sm={12} md={6} lg={6}>
+                            <CardIcon color="primary">
+                                <Mail />
+                            </CardIcon>
+                            <h4 className={this.props.classes.cardIconTitle}>Search</h4>
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={6} lg={6} style={{ textAlign: 'right' }}>
+                            <Button color="success" style={{ margin: '20 10 -10 0' }}>CREATE NEW MODEL</Button>
+                        </Grid>
                     </Grid>
                 </CardHeader>
                 <CardBody>

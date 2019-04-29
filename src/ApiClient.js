@@ -20,7 +20,7 @@ export default class ApiClient {
             // send cookies from the origin,
             // however only when Access-Control-Allow-Origin is not a wildcard ("*"),
             // and Access-Control-Allow-Credentials is "true".
-            .withCredentials();
+                .withCredentials();
 
             if (query) {
                 request.query(query);

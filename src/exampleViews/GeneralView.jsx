@@ -18,6 +18,8 @@ import Place from '@material-ui/icons/Place';
 import ArtTrack from '@material-ui/icons/ArtTrack';
 import Language from '@material-ui/icons/Language';
 
+// Style
+// eslint-disable-next-line max-len
 import dashboardStyle from '@ssense/ui-component-library/lib/assets/jss/material-dashboard-pro-react/views/dashboardStyle';
 
 // core components
@@ -29,12 +31,18 @@ import CardFooter from '@ssense/ui-component-library/lib/components/Card/CardFoo
 import Table from '@ssense/ui-component-library/lib/components/Table/Table';
 import Button from '@ssense/ui-component-library/lib/components/CustomButtons/Button';
 
-const usFlag = require('../../public/images/flags/US.png');
-const deFlag = require('../../public/images/flags/DE.png');
-const auFlag = require('../../public/images/flags/AU.png');
-const gbFlag = require('../../public/images/flags/GB.png');
-const roFlag = require('../../public/images/flags/RO.png');
-const brFlag = require('../../public/images/flags/BR.png');
+import usFlag from '../../public/images/flags/US.png';
+import deFlag from '../../public/images/flags/DE.png';
+import auFlag from '../../public/images/flags/AU.png';
+import gbFlag from '../../public/images/flags/GB.png';
+import roFlag from '../../public/images/flags/RO.png';
+import brFlag from '../../public/images/flags/BR.png';
+
+const IMGS = [
+    'https://res.cloudinary.com/ssenseweb/image/upload/w_768,q_90,f_auto,dpr_auto/v1541431461/gwhqalyvo08wfmf4slge.jpg',
+    'https://res.cloudinary.com/ssenseweb/image/upload/w_768,q_90,f_auto,dpr_auto/v1543848645/rll5f5ooui8jhglmsmfd.jpg',
+    'https://res.cloudinary.com/ssenseweb/image/upload/w_768,q_90,f_auto,dpr_auto/v1543848654/veecqck7m8lp0lvsn10s.jpg',
+];
 
 const General = props => (
     <React.Fragment>
@@ -175,7 +183,7 @@ const General = props => (
                 <Card product className={props.classes.cardHover}>
                     <CardHeader image className={props.classes.cardHeaderHover}>
                         <a href="#pablo" onClick={e => e.preventDefault()}>
-                            <img src='https://res.cloudinary.com/ssenseweb/image/upload/w_768,q_90,f_auto,dpr_auto/v1541431461/gwhqalyvo08wfmf4slge.jpg'
+                            <img src={IMGS[0]}
                                 alt="..." />
                         </a>
                     </CardHeader>
@@ -234,7 +242,7 @@ const General = props => (
                 <Card product className={props.classes.cardHover}>
                     <CardHeader image className={props.classes.cardHeaderHover}>
                         <a href="#pablo" onClick={e => e.preventDefault()}>
-                            <img src='https://res.cloudinary.com/ssenseweb/image/upload/w_768,q_90,f_auto,dpr_auto/v1543848645/rll5f5ooui8jhglmsmfd.jpg'
+                            <img src={IMGS[1]}
                                 alt="..." />
                         </a>
                     </CardHeader>
@@ -293,7 +301,7 @@ const General = props => (
                 <Card product className={props.classes.cardHover}>
                     <CardHeader image className={props.classes.cardHeaderHover}>
                         <a href="#pablo" onClick={e => e.preventDefault()}>
-                            <img src='https://res.cloudinary.com/ssenseweb/image/upload/w_768,q_90,f_auto,dpr_auto/v1543848654/veecqck7m8lp0lvsn10s.jpg'
+                            <img src={IMGS[2]}
                                 alt="..." />
                         </a>
                     </CardHeader>

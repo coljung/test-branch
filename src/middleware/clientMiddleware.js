@@ -20,29 +20,29 @@ export default function clientMiddleware(client) {
 
             return promise(client)
                 .then(
-                result => next({ ...rest, result, type: SUCCESS }),
-                async (error) => {
+                    result => next({ ...rest, result, type: SUCCESS }),
+                    async (error) => {
                     // if request return 401 show ssense authetication
-                    if (error.status === 401) {
+                        if (error.status === 401) {
                         // await dispatch(authenticateAction()); // eslint-disable-line no-use-before-define
                         // Retry re-dispatch same request and promise again after login
-                        dispatch({
-                            types: [REQUEST, SUCCESS, FAILURE],
-                            promise,
-                            ...rest,
-                        });
-                        return;
-                    }
+                            dispatch({
+                                types: [REQUEST, SUCCESS, FAILURE],
+                                promise,
+                                ...rest,
+                            });
+                            return;
+                        }
 
-                    // Show error message in UI
-                    // dispatch(messages({ isError: true, error }));
+                        // Show error message in UI
+                        // dispatch(messages({ isError: true, error }));
 
-                    return next({ ...rest, error, type: FAILURE }); // eslint-disable-line consistent-return
-                },
+                        return next({ ...rest, error, type: FAILURE }); // eslint-disable-line consistent-return
+                    },
                 )
-                .catch((error) => {
+                .catch(error =>
                     // dispatch(messages({ isError: true, error }));
-                    return next({ ...rest, error, type: FAILURE });
-                });
+                    next({ ...rest, error, type: FAILURE }),
+                );
         };
 }

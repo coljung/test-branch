@@ -20,6 +20,7 @@ import Table from '@ssense/ui-component-library/lib/components/Table/Table';
 import Button from '@ssense/ui-component-library/lib/components/CustomButtons/Button';
 
 // Style
+// eslint-disable-next-line max-len
 import dashboardStyle from '@ssense/ui-component-library/lib/assets/jss/material-dashboard-pro-react/views/dashboardStyle';
 
 dashboardStyle.cardTextAlign = {
@@ -47,7 +48,7 @@ const PurchaseOrderListingTable = (props) => {
         },
         gender: {
             title: 'Gender',
-            method: po => genders[po.gender] ? genders[po.gender] : 'Non-binary',
+            method: po => (genders[po.gender] ? genders[po.gender] : 'Non-binary'),
         },
         start: {
             title: 'Start date',
@@ -128,38 +129,38 @@ const PurchaseOrderListingTable = (props) => {
 
     return (
         <Card>
-          <CardHeader color="primary" icon>
-              <Grid container>
-                  <Grid item xs={12} sm={12} md={6} lg={6}>
-                      <CardIcon color="primary">
-                          <Assignment />
-                      </CardIcon>
-                      <h4 className={props.classes.cardIconTitle}>Listing table</h4>
-                  </Grid>
-                  <Grid item xs={12} sm={12} md={6} lg={6} style={{ textAlign: 'right' }}>
-                      <Button color="success" style={{ margin: '20 10 -10 0' }}>EXECUTE MODEL ACTION</Button>
-                  </Grid>
-              </Grid>
-          </CardHeader>
-          <CardBody className={props.classes.cardTextAlign}>
-              <Table
-                  striped
-                  tableHead={purchaseOrderTableColumTitles}
-                  tableData={purchaseOrderTableRows}
-                  customCellClasses={customCellClassesList}
-                  customClassesForCells={customCellClassesIndexes}
-              />
-          </CardBody>
-          <CardFooter className={props.classes.cardTextAlign}>
-              <Pagination
-                  pages={[
-                      { active: true, text: 1 },
-                      { text: 2 },
-                      { text: 3 },
-                      { text: 4 },
-                  ]}
-              />
-          </CardFooter>
+            <CardHeader color="primary" icon>
+                <Grid container>
+                    <Grid item xs={12} sm={12} md={6} lg={6}>
+                        <CardIcon color="primary">
+                            <Assignment />
+                        </CardIcon>
+                        <h4 className={props.classes.cardIconTitle}>Listing table</h4>
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={6} lg={6} style={{ textAlign: 'right' }}>
+                        <Button color="success" style={{ margin: '20 10 -10 0' }}>EXECUTE MODEL ACTION</Button>
+                    </Grid>
+                </Grid>
+            </CardHeader>
+            <CardBody className={props.classes.cardTextAlign}>
+                <Table
+                    striped
+                    tableHead={purchaseOrderTableColumTitles}
+                    tableData={purchaseOrderTableRows}
+                    customCellClasses={customCellClassesList}
+                    customClassesForCells={customCellClassesIndexes}
+                />
+            </CardBody>
+            <CardFooter className={props.classes.cardTextAlign}>
+                <Pagination
+                    pages={[
+                        { active: true, text: 1 },
+                        { text: 2 },
+                        { text: 3 },
+                        { text: 4 },
+                    ]}
+                />
+            </CardFooter>
         </Card>
     );
 };

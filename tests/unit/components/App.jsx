@@ -1,8 +1,5 @@
 import i18n from 'i18next';
 
-jest.mock('../../../app/components/customNavigation/CustomNavigation', () => 'CustomNavigation');
-jest.mock('../../../app/notifications/NotificationManager', () => 'NotificationManager12345643');
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
@@ -14,14 +11,15 @@ import clientMiddleware from '../../../app/middleware/clientMiddleware';
 import App from '../../../app/components/App';
 import CustomNavigation from '../../../app/components/customNavigation/CustomNavigation';
 
-let props;
+jest.mock('../../../app/components/customNavigation/CustomNavigation', () => 'CustomNavigation');
+jest.mock('../../../app/notifications/NotificationManager', () => 'NotificationManager12345643');
 
 function setup(state = {}, props = {}) {
     const initialState = {
         userReducer: {
             user: { name: 'Foo Bar' },
         },
-        ...state
+        ...state,
     };
 
     const initialProps = {
@@ -35,10 +33,12 @@ function setup(state = {}, props = {}) {
     const client = new ApiClient();
     const middlewares = [thunk, clientMiddleware(client)];
 
-    let store = configureMockStore(middlewares)(initialState);
+    const store = configureMockStore(middlewares)(initialState);
 
     return { initialProps, store };
 }
+
+let props;
 
 describe('App', () => {
     let mockStore;
@@ -55,12 +55,12 @@ describe('App', () => {
 
         const app = renderer.create(
             <App
-                location={{ pathname: 'pathname'}}
+                location={{ pathname: 'pathname' }}
                 store={store}
-                {...initialProps} />
+                {...initialProps} />,
         );
         expect(app).toMatchSnapshot();
 
         i18nStub.restore();
-	});
+    });
 });

@@ -88,7 +88,7 @@ class App extends Component {
                         collapsed={true}>
                         <CustomNavigation
                             pathname={this.props.location.pathname}
-                            />
+                        />
                     </Layout.Sider>
                     <Layout.Content>
                         <main>

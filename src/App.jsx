@@ -7,10 +7,11 @@ import { Provider } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 
 // @ssense-ui/components
+// eslint-disable-next-line max-len
+import dashboardStyle from '@ssense/ui-component-library/lib/assets/jss/material-dashboard-pro-react/layouts/dashboardStyle';
 import { SSENSEThemeProvider } from '@ssense/ui-component-library/lib/styles/SSENSEThemeProvider';
 import Header from '@ssense/ui-component-library/lib/layouts/common/Header/Header';
 import Sidebar from '@ssense/ui-component-library/lib/layouts/common/Sidebar/Sidebar';
-import dashboardStyle from '@ssense/ui-component-library/lib/assets/jss/material-dashboard-pro-react/layouts/dashboardStyle';
 
 // routes
 import indexRoutes from './routes/index';
@@ -19,7 +20,6 @@ import configureStore from './configureStore';
 import ApiClient from './ApiClient';
 
 class App extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -58,20 +58,20 @@ class App extends React.Component {
                     <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
                         <div className={classes.wrapper}>
                             <Sidebar
-                            routes={sidebarRoutes}
-                            user={this.user}
-                            handleDrawerToggle={this.handleDrawerToggle}
-                            open={this.state.mobileOpen}
-                            miniActive={this.state.miniActive}
-                            {...rest} />
+                                routes={sidebarRoutes}
+                                user={this.user}
+                                handleDrawerToggle={this.handleDrawerToggle}
+                                open={this.state.mobileOpen}
+                                miniActive={this.state.miniActive}
+                                {...rest} />
                             <div className={mainPanel}>
                                 <Header
-                                sidebarMinimize={this.sidebarMinimize.bind(this)}
-                                miniActive={this.state.miniActive}
-                                routes={sidebarRoutes}
-                                title={i18n.t('appTitle')}
-                                handleDrawerToggle={this.handleDrawerToggle}
-                                {...rest} />
+                                    sidebarMinimize={this.sidebarMinimize.bind(this)}
+                                    miniActive={this.state.miniActive}
+                                    routes={sidebarRoutes}
+                                    title={i18n.t('appTitle')}
+                                    handleDrawerToggle={this.handleDrawerToggle}
+                                    {...rest} />
                                 <main className={classes.content}>
                                     <div className={classes.container}>
                                         <Switch>

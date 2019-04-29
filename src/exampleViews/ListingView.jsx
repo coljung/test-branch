@@ -6,7 +6,10 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 
+// Style
+// eslint-disable-next-line max-len
 import dashboardStyle from '@ssense/ui-component-library/lib/assets/jss/material-dashboard-pro-react/views/dashboardStyle';
+
 import SearchForm from '../exampleComponents/SearchForm';
 import ListingTable from '../exampleComponents/ListingTable';
 import * as PayloadData from '../examplePayloadData/examplePayload';

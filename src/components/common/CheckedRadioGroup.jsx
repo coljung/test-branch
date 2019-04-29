@@ -56,13 +56,13 @@ export default class CheckedRadioGroup extends Component {
         return (
             <div className="checked-radio-group">
                 <Checkbox onChange={this.handleCheckBoxSelect}
-                          checked={this.state.checked}>
+                    checked={this.state.checked}>
                     {this.props.text}
                 </Checkbox>
                 <Radio.Group options={this.props.options}
-                             value={this.state.selectedOption}
-                             onChange={this.handleRadioSelect}
-                             disabled={!this.state.checked} />
+                    value={this.state.selectedOption}
+                    onChange={this.handleRadioSelect}
+                    disabled={!this.state.checked} />
             </div>
         );
     }

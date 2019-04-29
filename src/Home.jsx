@@ -14,6 +14,9 @@ import CardFooter from '@ssense/ui-component-library/lib/components/Card/CardFoo
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
+
+// Style
+// eslint-disable-next-line max-len
 import dashboardStyle from '@ssense/ui-component-library/lib/assets/jss/material-dashboard-pro-react/views/dashboardStyle';
 
 const Home = props => (
