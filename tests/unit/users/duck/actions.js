@@ -41,7 +41,7 @@ describe('Users action creators', () => {
         expect(actions.logout()).toEqual(expectedAction);
     });
 
-    it.skipped('Should get me request', async () => {
+    it.skip('Should get me request', async () => {
         nock(UI_HOST)
             .get('')
             .query({ scopes: '' })
