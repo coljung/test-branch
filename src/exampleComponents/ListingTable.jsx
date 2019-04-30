@@ -135,10 +135,10 @@ const PurchaseOrderListingTable = (props) => {
                         <CardIcon color="primary">
                             <Assignment />
                         </CardIcon>
-                        <h4 className={props.classes.cardIconTitle}>Purchase Orders</h4>
+                        <h4 className={props.classes.cardIconTitle}>Listing table</h4>
                     </Grid>
                     <Grid item xs={12} sm={12} md={6} lg={6} style={{ textAlign: 'right' }}>
-                        <Button color="success" style={{ margin: '20 10 -10 0' }}>SEND TO SUPPLIER</Button>
+                        <Button color="success" style={{ margin: '20 10 -10 0' }}>EXECUTE MODEL ACTION</Button>
                     </Grid>
                 </Grid>
             </CardHeader>
