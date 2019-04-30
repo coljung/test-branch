@@ -1,18 +1,12 @@
 import i18n from 'i18next';
-
 import React from 'react';
-import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import ApiClient from '../../../app/ApiClient';
-import clientMiddleware from '../../../app/middleware/clientMiddleware';
-import App from '../../../app/components/App';
-import CustomNavigation from '../../../app/components/customNavigation/CustomNavigation';
-
-jest.mock('../../../app/components/customNavigation/CustomNavigation', () => 'CustomNavigation');
-jest.mock('../../../app/notifications/NotificationManager', () => 'NotificationManager12345643');
+import ApiClient from '../../../src/ApiClient';
+import clientMiddleware from '../../../src/middleware/clientMiddleware';
+import App from '../../../src/App';
 
 function setup(state = {}, props = {}) {
     const initialState = {

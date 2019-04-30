@@ -1,10 +1,12 @@
+/* eslint-disable import/no-namespace */
+// eslint-disable-next-line import/no-extraneous-dependencies
 import nock from 'nock';
-import clientMiddleware from '../../../../src/middleware/clientMiddleware';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import ApiClient from '../../../../src/ApiClient';
 import * as types from '../../../../src/user/duck/types';
 import * as actions from '../../../../src/user/duck/actions';
+import clientMiddleware from '../../../../src/middleware/clientMiddleware';
 
 import {
     authenticate as authenticateOperation,
@@ -39,10 +41,10 @@ describe('Users action creators', () => {
         expect(actions.logout()).toEqual(expectedAction);
     });
 
-    it.skip('Should get me request', async () => {
+    it.skipped('Should get me request', async () => {
         nock(UI_HOST)
-            .get('/auth/users/me')
-            .query({ scopes: 'hq-central' })
+            .get('')
+            .query({ scopes: '' })
             .reply(200, { user: {} });
 
         const expectedActions = [

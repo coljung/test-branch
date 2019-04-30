@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import NotFound from '../../../app/components/NotFound';
 import i18n from 'i18next';
 import sinon from 'sinon';
+import NotFound from '../../../src/NotFound';
 
 describe('NotFound', () => {
     it('should render correctly', () => {
@@ -11,7 +11,7 @@ describe('NotFound', () => {
         i18nStub.withArgs('404.description').returns('404.description');
 
         const output = shallow(
-            <NotFound />
+            <NotFound />,
         );
 
         expect(output.find('h1')).toHaveLength(1);

@@ -12,6 +12,7 @@ import dashboardStyle from '@ssense/ui-component-library/lib/assets/jss/material
 
 import SearchForm from '../exampleComponents/SearchForm';
 import ListingTable from '../exampleComponents/ListingTable';
+// eslint-disable-next-line import/no-namespace
 import * as PayloadData from '../examplePayloadData/examplePayload';
 
 const ListingView = props => (

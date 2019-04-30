@@ -1,11 +1,11 @@
 import configureStore from '../../src/configureStore';
 
 describe('Configure Store', () => {
-  it('should get store config', () => {
-    const store = configureStore();
+    it('should get store config', () => {
+        const store = configureStore();
 
-    expect(store).toHaveProperty('dispatch');
-    expect(store).toHaveProperty('subscribe');
-    expect(store).toHaveProperty('getState');
-  });
+        expect(store).toHaveProperty('dispatch');
+        expect(store).toHaveProperty('subscribe');
+        expect(store).toHaveProperty('getState');
+    });
 });
