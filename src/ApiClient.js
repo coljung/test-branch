@@ -36,7 +36,7 @@ export default class ApiClient {
             request.end((err, res = {}) => (
                 err ? reject(res.body || err) : resolve(res.body)
             ));
-        });
+        }).catch(err => err);
 
     get = this.makeRequest.bind(this, 'get');
 

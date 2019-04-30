@@ -44,7 +44,7 @@ describe('User Operations', () => {
         expect(typeof ssense.authenticate.mock.calls[0][1]).toBe('function');
     });
 
-    it.skipped('Expect authenticate to failed with 401', async () => {
+    it.skip('Expect authenticate to failed with 401', async () => {
         const store = mockStore({});
         ssense.authenticate.mockReset();
         ssense.authenticate = jest.fn().mockReturnValueOnce((code, callback) => callback({ statusCode: 401 }, null))
@@ -53,5 +53,4 @@ describe('User Operations', () => {
 
         expect(ssense.authenticate.mock.calls).toBe(true);
     });
-
 });

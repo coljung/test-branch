@@ -22,10 +22,10 @@ const authenticate = dispatch => new Promise((resolve, reject) => {
         return resolve(data);
     });
     return true;
-});
+}).catch(err => err);
 
 const logout = dispatch =>
-    new Promise(resolve => ssense.logout(() => resolve()));
+    new Promise(resolve => ssense.logout(() => resolve())).catch(err => err);
 
 export default {
     authenticate,
