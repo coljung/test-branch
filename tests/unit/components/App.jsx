@@ -43,7 +43,7 @@ describe('App', () => {
 
     it('should render correctly', () => {
         const i18nStub = sinon.stub(i18n, 't');
-        i18nStub.withArgs('appTitle').returns('Merchandise Planning Tool');
+        i18nStub.withArgs('appTitle').returns('UI-Boilerplate');
 
         const { initialProps, store } = setup();
 

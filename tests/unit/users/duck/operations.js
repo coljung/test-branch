@@ -10,10 +10,9 @@ const middlewares = [thunk, clientMiddleware(client)];
 const mockStore = configureMockStore(middlewares);
 
 describe('User Operations', () => {
-
     let ssense;
     beforeAll(() => {
-        const authenticateCallback = jest.fn
+        const authenticateCallback = jest.fn;
         ssense = {
             logout: jest.fn(() => Promise.resolve(true)),
             // authenticate: jest.fn().mockImplementation((code, callback) => callback(null, 'Foo'))
@@ -50,14 +49,14 @@ describe('User Operations', () => {
         expect(typeof ssense.authenticate.mock.calls[0][1]).toBe('function');
     });
 
-    // it('Expect authenticate to failed with 401', async () => {
-    //     const store = mockStore({});
-    //     ssense.authenticate.mockReset();
-    //     ssense.authenticate = jest.fn().mockReturnValueOnce((code, callback) => callback({ statusCode: 401 }, null))
-    //         .mockReturnValue((code, callback) => callback(null, 'Foo'));
-    //     store.dispatch(operations.authenticate);
+    it.skipped('Expect authenticate to failed with 401', async () => {
+        const store = mockStore({});
+        ssense.authenticate.mockReset();
+        ssense.authenticate = jest.fn().mockReturnValueOnce((code, callback) => callback({ statusCode: 401 }, null))
+            .mockReturnValue((code, callback) => callback(null, 'Foo'));
+        store.dispatch(operations.authenticate);
 
-    //     expect(ssense.authenticate.mock.calls).toBe(true);
-    // });
+        expect(ssense.authenticate.mock.calls).toBe(true);
+    });
 
 });

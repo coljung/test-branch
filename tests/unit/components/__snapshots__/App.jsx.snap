@@ -173,7 +173,7 @@ exports[`App should render correctly 1`] = `
         <div
           className="Header-flex-156"
         >
-          Merchandise Planning Tool
+          UI-Boilerplate
         </div>
       </div>
     </header>
