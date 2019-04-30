@@ -129,7 +129,6 @@ const PurchaseOrderListingTable = (props) => {
 
     return (
         <Card>
-<<<<<<< HEAD
             <CardHeader color="primary" icon>
                 <Grid container>
                     <Grid item xs={12} sm={12} md={6} lg={6}>
@@ -139,7 +138,7 @@ const PurchaseOrderListingTable = (props) => {
                         <h4 className={props.classes.cardIconTitle}>Purchase Orders</h4>
                     </Grid>
                     <Grid item xs={12} sm={12} md={6} lg={6} style={{ textAlign: 'right' }}>
-                        <Button color="success">SEND TO SUPPLIER</Button>
+                        <Button color="success" style={{ margin: '20 10 -10 0' }}>SEND TO SUPPLIER</Button>
                     </Grid>
                 </Grid>
             </CardHeader>
@@ -162,40 +161,6 @@ const PurchaseOrderListingTable = (props) => {
                     ]}
                 />
             </CardFooter>
-=======
-          <CardHeader color="primary" icon>
-              <Grid container>
-                  <Grid item xs={12} sm={12} md={6} lg={6}>
-                      <CardIcon color="primary">
-                          <Assignment />
-                      </CardIcon>
-                      <h4 className={props.classes.cardIconTitle}>Purchase Orders</h4>
-                  </Grid>
-                  <Grid item xs={12} sm={12} md={6} lg={6} style={{ textAlign: 'right' }}>
-                        <Button color="success" style={{ margin: '20 10 -10 0' }}>SEND TO SUPPLIER</Button>
-                  </Grid>
-              </Grid>
-          </CardHeader>
-          <CardBody className={props.classes.cardTextAlign}>
-              <Table
-                  striped
-                  tableHead={purchaseOrderTableColumTitles}
-                  tableData={purchaseOrderTableRows}
-                  customCellClasses={customCellClassesList}
-                  customClassesForCells={customCellClassesIndexes}
-              />
-          </CardBody>
-          <CardFooter className={props.classes.cardTextAlign}>
-              <Pagination
-                  pages={[
-                      { active: true, text: 1 },
-                      { text: 2 },
-                      { text: 3 },
-                      { text: 4 },
-                  ]}
-              />
-          </CardFooter>
->>>>>>> fix: Adjstuing button margin
         </Card>
     );
 };
