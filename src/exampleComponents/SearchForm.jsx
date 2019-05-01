@@ -56,7 +56,7 @@ class PurchaseOrderSearchForm extends React.Component {
                             <h4 className={this.props.classes.cardIconTitle}>Search</h4>
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={6} style={{ textAlign: 'right' }}>
-                            <Button color="success" style={{ margin: '20 10 -10 0' }}>CREATE NEW PURCHASE ORDER</Button>
+                            <Button color="success" style={{ margin: '20 10 -10 0' }}>CREATE NEW MODEL</Button>
                         </Grid>
                     </Grid>
                 </CardHeader>
