@@ -135,16 +135,17 @@ const PurchaseOrderListingTable = (props) => {
                         <CardIcon color="primary">
                             <Assignment />
                         </CardIcon>
-                        <h4 className={props.classes.cardIconTitle}>Listing table</h4>
+                        <h2 className={props.classes.cardIconTitle}>Listing table</h2>
                     </Grid>
                     <Grid item xs={12} sm={12} md={6} lg={6} style={{ textAlign: 'right' }}>
-                        <Button color="success" style={{ margin: '20 10 -10 0' }}>EXECUTE MODEL ACTION</Button>
+                        <Button color="success" className={props.classes.cardHeaderBtn}>execute modal action</Button>
                     </Grid>
                 </Grid>
             </CardHeader>
             <CardBody className={props.classes.cardTextAlign}>
                 <Table
                     striped
+                    marginless
                     tableHead={purchaseOrderTableColumTitles}
                     tableData={purchaseOrderTableRows}
                     customCellClasses={customCellClassesList}

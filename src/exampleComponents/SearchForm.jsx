@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Grid } from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 // @material-ui/icons components
 import Mail from '@material-ui/icons/Mail';
@@ -40,97 +42,92 @@ class PurchaseOrderSearchForm extends React.Component {
             sentOptions,
             repeatOptions,
         } = this.props;
-
-        const formStyle = {
-            paddingBottom: '50',
-        };
-
         return (
-            <Card>
+            <Card collapseInclude={true} collapses>
                 <CardHeader color="primary" icon>
                     <Grid container>
                         <Grid item xs={12} sm={12} md={6} lg={6}>
                             <CardIcon color="primary">
                                 <Mail />
                             </CardIcon>
-                            <h4 className={this.props.classes.cardIconTitle}>Search</h4>
+                            <h2 className={classes.cardIconTitle}>Search</h2>
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={6} style={{ textAlign: 'right' }}>
-                            <Button color="success" style={{ margin: '20 10 -10 0' }}>CREATE NEW MODEL</Button>
+                            <Button className={classes.cardHeaderBtn} color="success">Create new model</Button>
                         </Grid>
                     </Grid>
                 </CardHeader>
                 <CardBody>
                     <Grid container>
-                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} className={classes.formSetBlock}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
                                 title="Status"
                                 options={statusOptions}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} className={classes.formSetBlock}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
                                 title="Gender"
                                 options={genderOptions}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} className={classes.formSetBlock}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
                                 title="Season/Year"
                                 options={seasonYearOptions}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} className={classes.formSetBlock}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
                                 title="Delivery"
                                 options={deliveryOptions}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} className={classes.formSetBlock}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
                                 title="Supplier"
                                 options={supplierOptions}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} className={classes.formSetBlock}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
                                 title="Brand"
                                 options={brandOptions}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} className={classes.formSetBlock}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
                                 title="Buyer"
                                 options={buyerOptions}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25' }}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} className={classes.formSetBlock}>
                             <PurchaseOrderAttributeSelect
                                 classes={classes}
                                 title="Style"
                                 options={styleOptions}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25', marginTop: '25' }}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} className={classes.formSetBlock} style={{ marginTop: '25' }}>
                             <PurchaseOrderAttributeRadio
                                 title="Approved"
                                 options={approvedOptions}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25', marginTop: '25' }}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} className={classes.formSetBlock} style={{ marginTop: '25' }}>
                             <PurchaseOrderAttributeRadio
                                 title="Sent"
                                 options={sentOptions}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginBottom: '25', marginTop: '25' }}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} className={classes.formSetBlock} style={{ marginTop: '25' }}>
                             <PurchaseOrderAttributeRadio
                                 title="Repeat"
                                 options={repeatOptions}
