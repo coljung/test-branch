@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Grid } from '@material-ui/core';
-import IconButton from '@material-ui/core/IconButton';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 // @material-ui/icons components
 import Mail from '@material-ui/icons/Mail';
