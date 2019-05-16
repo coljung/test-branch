@@ -37,7 +37,7 @@ class PurchaseOrderAttributeSelect extends React.Component {
         };
 
         const selectClasses = {
-            select: classes.select,
+            // select: classes.select,
         };
 
         const inputSelectProps = {

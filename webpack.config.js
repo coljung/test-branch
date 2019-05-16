@@ -15,6 +15,7 @@ const fs = require('fs');
 
 // absolute paths to all symlinked modules inside `nodeModulesPath`
 // adapted from https://github.com/webpack/webpack/issues/811#issuecomment-405199263
+
 module.exports = {
     entry: path.join(__dirname, 'src', 'index.jsx'),
     output: {
@@ -23,6 +24,10 @@ module.exports = {
     },
     mode: process.env.NODE_ENV || 'development',
     resolve: {
+        alias: {
+            //not working
+          ssenseComponents: path.resolve(__dirname, 'node_modules/@ssense/ui-component-library/lib/'),
+        },
         symlinks: false,
         extensions: ['.scss', '.css', '.js', '.jsx', '.json'],
         modules: [

@@ -47,11 +47,9 @@ class App extends React.Component {
         const client = new ApiClient();
         const store = configureStore(client);
         const mainPanel =
-          `${classes.mainPanel}  ${cx({
-              [classes.mainPanelSidebarMini]: this.state.miniActive,
-              [classes.mainPanelWithPerfectScrollbar]:
-              navigator.platform.indexOf('Win') > -1,
-          })}`;
+          `${classes.mainPanel} ${cx
+              ({ [classes.mainPanelSidebarMini]: this.state.miniActive })
+          }`;
         return (
             <SSENSEThemeProvider>
                 <Provider store={store}>

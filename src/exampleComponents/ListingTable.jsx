@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // @material-ui/core components
-import Assignment from '@material-ui/icons/Assignment';
+import ViewList from '@material-ui/icons/ViewList';
 import Checkbox from '@material-ui/core/Checkbox/Checkbox';
 import EditIcon from '@material-ui/icons/Edit';
 import { Grid } from '@material-ui/core';
@@ -127,32 +127,33 @@ const PurchaseOrderListingTable = (props) => {
         })
         .filter(i => i);
 
+    const { classes } = props;
+
     return (
         <Card>
             <CardHeader color="primary" icon>
                 <Grid container>
                     <Grid item xs={12} sm={12} md={6} lg={6}>
                         <CardIcon color="primary">
-                            <Assignment />
+                            <ViewList />
                         </CardIcon>
-                        <h2 className={props.classes.cardIconTitle}>Listing table</h2>
+                        <h2 className={classes.cardIconTitle}>Listing table</h2>
                     </Grid>
                     <Grid item xs={12} sm={12} md={6} lg={6} style={{ textAlign: 'right' }}>
-                        <Button color="success" className={props.classes.cardHeaderBtn}>execute modal action</Button>
+                        <Button color="success" className={classes.cardHeaderBtn}>execute modal action</Button>
                     </Grid>
                 </Grid>
             </CardHeader>
-            <CardBody className={props.classes.cardTextAlign}>
+            <CardBody className={classes.cardTextAlign}>
                 <Table
                     striped
                     marginless
+                    hover
                     tableHead={purchaseOrderTableColumTitles}
                     tableData={purchaseOrderTableRows}
                     customCellClasses={customCellClassesList}
                     customClassesForCells={customCellClassesIndexes}
                 />
-            </CardBody>
-            <CardFooter className={props.classes.cardTextAlign}>
                 <Pagination
                     pages={[
                         { active: true, text: 1 },
@@ -161,7 +162,7 @@ const PurchaseOrderListingTable = (props) => {
                         { text: 4 },
                     ]}
                 />
-            </CardFooter>
+            </CardBody>
         </Card>
     );
 };
