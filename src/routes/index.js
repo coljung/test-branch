@@ -4,7 +4,7 @@ import GradeIcon from '@material-ui/icons/Grade';
 import ListIcon from '@material-ui/icons/List';
 import Home from '../Home';
 import General from '../exampleViews/GeneralView';
-import NotFound from '../NotFound';
+import NotFound from '../components/NotFound';
 import { ROUTE_EXAMPLES, ROUTE_TABLES, ROUTE_HOME, ROUTE_LISTING } from './constants';
 import TableView from '../exampleViews/TableView';
 import ListingView from '../exampleViews/ListingView';
