@@ -1,67 +1,97 @@
 {
   "extends": "@ssense/ui-core/client-react",
-  "plugins": ["react", "import", "babel"],
-  "parser": "babel-eslint",
-  "env": {
-    "browser": true,
-    "node": true
-  },
+  "plugins": ["react"],
   "settings": {
-    "import/resolver": ["webpack"],
-    "react": {
-      "version": "detect"
-    }
+    'import/resolver': ['webpack']
   },
   "rules": {
-    "max-len": [
-      "warn", { "code": 120 }
-    ],
     "indent": [
       2,
       4,
       {
-        "SwitchCase": 1
+        "SwitchCase": 1,
+        "MemberExpression": 1,
+        "ObjectExpression": 1,
+        "CallExpression": {
+          "arguments": 1
+        }
       }
     ],
-    "no-unused-vars": 0,
-    "no-param-reassign": [2, { "props": false }],
+    "no-param-reassign": ["error", { "props": false }],
+    "import/no-extraneous-dependencies": 1,
     "import/no-named-as-default": 0,
-    "class-methods-use-this": 0,
-    "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
-    "no-debugger": 0,
-    "operator-linebreak": 0,
-    "no-nested-ternary": 0,
-    "padded-blocks": 1,
-    "import/extensions": 0,
-    "import/no-unresolved": 0,
-    "import/no-namespace": 1,
-    "import/no-commonjs": 1,
-    "import/no-extraneous-dependencies": [
-      2, {
-        "devDependencies": [
-          "**/*.test.js",
-          "**/*.spec.js"
-        ]
-      }
-    ],
-    "import/order": [
-      0, {
-          "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
-      }
-    ],
-    "react/prop-types": [2]
-  },
-  "parserOptions": {
-    "ecmaVersion": 2017,
-    "sourceType": "module",
-    "impliedStrict": true,
-    "ecmaFeatures": {
-        "globalReturn": false,
-        "jsx": true
-    }
+    "max-len": 0
   },
   "globals": {
-    "ssense": true,
-    "UI_HOST": true
+      "ssense": true,
+      "UI_HOST": true
   }
 }
+#
+# {
+#   "extends": "@ssense/ui-core/client-react",
+#   "plugins": ["react", "import", "babel"],
+#   "parser": "babel-eslint",
+#   "env": {
+#     "browser": true,
+#     "node": true
+#   },
+#   "settings": {
+#     "import/resolver": ["webpack"],
+#     "react": {
+#       "version": "detect"
+#     }
+#   },
+#   "rules": {
+#     "max-len": [
+#       "warn", { "code": 120 }
+#     ],
+#     "indent": [
+#       2,
+#       4,
+#       {
+#         "SwitchCase": 1
+#       }
+#     ],
+#     "no-unused-vars": 0,
+#     "no-param-reassign": [2, { "props": false }],
+#     "import/no-named-as-default": 0,
+#     "class-methods-use-this": 0,
+#     "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
+#     "no-debugger": 0,
+#     "operator-linebreak": 0,
+#     "no-nested-ternary": 0,
+#     "padded-blocks": 1,
+#     "import/extensions": 0,
+#     "import/no-unresolved": 0,
+#     "import/no-namespace": 1,
+#     "import/no-commonjs": 1,
+#     "import/no-extraneous-dependencies": [
+#       2, {
+#         "devDependencies": [
+#           "**/*.test.js",
+#           "**/*.spec.js"
+#         ]
+#       }
+#     ],
+#     "import/order": [
+#       0, {
+#           "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
+#       }
+#     ],
+#     "react/prop-types": [2]
+#   },
+#   "parserOptions": {
+#     "ecmaVersion": 2017,
+#     "sourceType": "module",
+#     "impliedStrict": true,
+#     "ecmaFeatures": {
+#         "globalReturn": false,
+#         "jsx": true
+#     }
+#   },
+#   "globals": {
+#     "ssense": true,
+#     "UI_HOST": true
+#   }
+# }
