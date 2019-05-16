@@ -31,12 +31,12 @@ import CardFooter from '@ssense/ui-component-library/lib/components/Card/CardFoo
 import Table from '@ssense/ui-component-library/lib/components/Table/Table';
 import Button from '@ssense/ui-component-library/lib/components/CustomButtons/Button';
 
-import usFlag from '../../public/images/flags/US.png';
-import deFlag from '../../public/images/flags/DE.png';
-import auFlag from '../../public/images/flags/AU.png';
-import gbFlag from '../../public/images/flags/GB.png';
-import roFlag from '../../public/images/flags/RO.png';
-import brFlag from '../../public/images/flags/BR.png';
+import usFlag from '../../../public/images/flags/US.png';
+import deFlag from '../../../public/images/flags/DE.png';
+import auFlag from '../../../public/images/flags/AU.png';
+import gbFlag from '../../../public/images/flags/GB.png';
+import roFlag from '../../../public/images/flags/RO.png';
+import brFlag from '../../../public/images/flags/BR.png';
 
 const IMGS = [
     'https://res.cloudinary.com/ssenseweb/image/upload/w_768,q_90,f_auto,dpr_auto/v1541431461/gwhqalyvo08wfmf4slge.jpg',

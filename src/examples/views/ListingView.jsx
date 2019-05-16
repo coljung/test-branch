@@ -10,10 +10,10 @@ import Grid from '@material-ui/core/Grid';
 // eslint-disable-next-line max-len
 import dashboardStyle from '@ssense/ui-component-library/lib/assets/jss/material-dashboard-pro-react/views/dashboardStyle';
 
-import SearchForm from '../exampleComponents/SearchForm';
-import ListingTable from '../exampleComponents/ListingTable';
+import SearchForm from '../components/SearchForm';
+import ListingTable from '../components/ListingTable';
 // eslint-disable-next-line import/no-namespace
-import * as PayloadData from '../examplePayloadData/examplePayload';
+import * as PayloadData from '../payloadData/examplePayload';
 
 const ListingView = props => (
     <React.Fragment>
