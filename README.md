@@ -13,7 +13,7 @@ First you must clone the project.
 $ make clone service=ui-boilerplate
 ```
 
-You'll notice there are two services that are cloned. This is because the boilerplate's service defninition in the workspace's [`docker-compose.yml`](https://github.com/Groupe-Atallah/workspace/blob/28d4921eed91043379a27ab86f1ad9a4ba32d21c/docker-compose.yml#L866) includes a `depends-on` rule that ties it to the [component-library](https://github.com/Groupe-Atallah/ui-component-library). The purpose of this rule is to enable the boilerplate to hot reload when changes are made on the component library.
+You'll notice there are two services that are cloned. This is because the boilerplate's service definition in the workspace's [`docker-compose.yml`](https://github.com/Groupe-Atallah/workspace/blob/28d4921eed91043379a27ab86f1ad9a4ba32d21c/docker-compose.yml#L866) includes a `depends-on` rule that ties it to the [component-library](https://github.com/Groupe-Atallah/ui-component-library). The purpose of this rule is to enable the boilerplate to hot reload when changes are made on the component library.
 
 To bring up both services and make use of this feature, simply run:
 ```bash
