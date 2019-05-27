@@ -1,4 +1,4 @@
-SSENSE's backend services UI Boilerplate
+# SSENSE's backend services UI Boilerplate
 
 This repo should work as a starting point for any backend service project requiring a UI part.
 
