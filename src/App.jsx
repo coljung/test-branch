@@ -17,7 +17,7 @@ import Sidebar from '@ssense/ui-component-library/lib/layouts/common/Sidebar/Sid
 import indexRoutes from './routes/index';
 import sidebarRoutes from './routes/sidebar';
 import configureStore from './configureStore';
-import ApiClient from './ApiClient';
+import ApiClient from 'middleware/ApiClient';
 
 class App extends React.Component {
     constructor(props) {
