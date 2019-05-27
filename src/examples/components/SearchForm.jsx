@@ -41,7 +41,7 @@ class PurchaseOrderSearchForm extends React.Component {
             repeatOptions,
         } = this.props;
         return (
-            <Card collapseInclude={true} collapses>
+            <Card collapses>
                 <CardHeader color="primary" icon>
                     <Grid container>
                         <Grid item xs={12} sm={12} md={6} lg={6}>
