@@ -41,9 +41,12 @@ _...and start writting some code._
 
 ## Technologies used
 
-* React
-* Webpack 4
+* React 16.X
+* Webpack 4.X
 * Docker
 * Docker compose
+* Ssense Component Library 
+
+[WIKI page with more info](https://github.com/Groupe-Atallah/ui-boilerplate/wiki)
 
 
