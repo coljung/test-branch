@@ -6,7 +6,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { Grid } from '@material-ui/core';
 
 // @material-ui/icons components
-import Mail from '@material-ui/icons/Mail';
+import Search from '@material-ui/icons/Search';
 
 // core components
 import Card from '@ssense/ui-component-library/lib/components/Card/Card';
@@ -41,17 +41,17 @@ class PurchaseOrderSearchForm extends React.Component {
             repeatOptions,
         } = this.props;
         return (
-            <Card collapseInclude={true} collapses>
+            <Card collapses>
                 <CardHeader color="primary" icon>
                     <Grid container>
                         <Grid item xs={12} sm={12} md={6} lg={6}>
                             <CardIcon color="primary">
-                                <Mail />
+                                <Search />
                             </CardIcon>
                             <h2 className={classes.cardIconTitle}>Search</h2>
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={6} style={{ textAlign: 'right' }}>
-                            <Button className={classes.cardHeaderBtn} color="success">Create new model</Button>
+                            <Button className={classes.cardHeaderBtn} color="secondary"><Search />Create new model</Button>
                         </Grid>
                     </Grid>
                 </CardHeader>
@@ -134,7 +134,7 @@ class PurchaseOrderSearchForm extends React.Component {
                     </Grid>
                     <Grid container>
                         <Grid item xs={12} sm={12} md={6} lg={3} style={{ marginTop: '0' }}>
-                            <Button color="info" >Submit</Button>
+                            <Button color="primary" >Submit</Button>
                         </Grid>
                     </Grid>
                 </CardBody>

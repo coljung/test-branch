@@ -17,7 +17,7 @@ import Sidebar from '@ssense/ui-component-library/lib/layouts/common/Sidebar/Sid
 import indexRoutes from './routes/index';
 import sidebarRoutes from './routes/sidebar';
 import configureStore from './configureStore';
-import ApiClient from './ApiClient';
+import ApiClient from 'middleware/ApiClient';
 
 class App extends React.Component {
     constructor(props) {
@@ -47,11 +47,9 @@ class App extends React.Component {
         const client = new ApiClient();
         const store = configureStore(client);
         const mainPanel =
-          `${classes.mainPanel}  ${cx({
-              [classes.mainPanelSidebarMini]: this.state.miniActive,
-              [classes.mainPanelWithPerfectScrollbar]:
-              navigator.platform.indexOf('Win') > -1,
-          })}`;
+          `${classes.mainPanel} ${cx
+              ({ [classes.mainPanelSidebarMini]: this.state.miniActive })
+          }`;
         return (
             <SSENSEThemeProvider>
                 <Provider store={store}>

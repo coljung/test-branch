@@ -24,8 +24,8 @@ const Home = props => (
         <Grid container>
             <Grid item xs={12} sm={6} md={6} lg={3}>
                 <Card>
-                    <CardHeader color="success" stats icon>
-                        <CardIcon color="success">
+                    <CardHeader color="secondary" stats icon>
+                        <CardIcon color="secondary">
                             <Icon>info_outline</Icon>
                         </CardIcon>
                         <p className={props.classes.cardCategory}>UI-Boilerplate</p>

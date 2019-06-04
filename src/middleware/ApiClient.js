@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import superagent from 'superagent';
-import getApiUrl from './helpers';
+import getApiUrl from 'constants/helpers';
 
 const formatUrl = (path) => {
     const adjustedPath = path[0] !== '/' ? `/${path}` : path;
